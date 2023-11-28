@@ -1,22 +1,22 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const path = require('path') // Defines path in os
+const HTMLWebpackPlugin = require('html-webpack-plugin') // Defines HTMLWebpackPlugin
 
 module.exports = {
 
     entry: './src/index.js', // Input 
 
-    output: { // Makes destination folder and file
+    output: { // Makes destination folder and file for bundle.js
         path: path.join(__dirname, '/dist'), 
         filename: 'bundle.js' 
     },
 
-    plugins: [
+    plugins: [ // Makes sure index.html is in new dist folder
         new HTMLWebpackPlugin({
             template: './public/index.html',
         })
     ],
 
-    module: { // Makes sure only index.js is taken in
+    module: { // Makes sure only index.js is taken in and uses babel-loader for JSX
         rules: [
             {
                 test: /.js$/,
