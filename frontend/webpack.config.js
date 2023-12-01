@@ -14,7 +14,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: './public/index.html',
         })
-    ],
+    ], 
 
     module: { // Makes sure only index.js is taken in and uses babel-loader for JSX
         rules: [
@@ -27,7 +27,11 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
-            }
-        ]
-    }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
 }
