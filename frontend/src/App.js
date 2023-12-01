@@ -1,17 +1,32 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Link, Outlet } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
+import ErrorPage from './components/errors/ErrorPage'
 
-const App = () => {
-    console.log('hello')
+export default function App() {
+
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={<Root />}>
+                <Route index element={<Home />} />
+            </Route>
+        )
+    )
+
     return (
-        <Router>
-            <Routes>
-                <Route exact path='/' element={<Home />} />
-            </Routes>
-        </Router>    
+        <div>
+            <RouterProvider router={router} />
+        </div> 
     )
 }
 
-export default App
+const Root = () => {
+    return (
+        <>
+            <div>
+                <Outlet />
+            </div>
+        </>
+    )
+}
