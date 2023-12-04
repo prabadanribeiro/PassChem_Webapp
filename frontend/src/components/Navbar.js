@@ -7,7 +7,7 @@ export default function Navbar(props) {
     return (
         <div className="background">
             <nav className="navbar">
-            <a className="logo">Your Logo</a>
+            <a className="logo"><img src="logo.png" alt="Pass Chem logo" className="logo-img"></img></a>
             <ul className="nav-items">
                 <li>
                     <a className="nav-item">Home</a>
