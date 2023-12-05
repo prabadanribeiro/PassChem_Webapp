@@ -5,7 +5,7 @@ import Divider from '../components/Divider'
 export default function Home() {
     return (
         <div>
-            <Navbar home={true}/>
+            <Navbar isHome/>
             <Divider/>
         </div>
     )
