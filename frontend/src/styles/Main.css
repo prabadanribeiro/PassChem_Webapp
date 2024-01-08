@@ -11,7 +11,8 @@
   width: 100%;
   height: 500px;
   display: flex;
-  background: linear-gradient( to bottom,rgb(7, 7, 7) 12%, rgb(34, 33, 33));
+  background: linear-gradient( to bottom,rgb(6, 6, 6) 20%, rgb(16, 16, 16));
+  backdrop-filter: blur(30px);
 }
 
 .left-container {
@@ -20,7 +21,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(30px);
   background-color: transparent;
 }
 
@@ -32,6 +32,7 @@
   justify-content: center;
   color: #fff;
   font-size: 3rem;
+  background-color: transparent;
 }
 
 .position-content {
@@ -65,8 +66,9 @@
   padding: 10px 12px;
   margin-top: 14px;
   transition: all 250ms ease;
-  font-size: 1.5rem;
-  font-family: Helvetica;
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: sans-serif;
   color: rgba(139, 241, 210, 0.75);
   background-color: #333444;
 }
