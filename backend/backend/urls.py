@@ -1,8 +1,11 @@
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 from topics.views import *
 
 urlpatterns = [ # PROBLEM IS PROBABLY HERE
+    path('', lambda request: HttpResponse('')),
     path('admin/', admin.site.urls),
-    path('', TopicsView.as_view(), name='anything')
+    path('topics/', TopicsView.as_view(), name='anything'),
+    path('lesson/', LessonView.as_view(), name='anything')
 ]
