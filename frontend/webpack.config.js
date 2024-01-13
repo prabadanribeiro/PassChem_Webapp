@@ -6,8 +6,9 @@ module.exports = {
     entry: './src/index.js', // Input 
 
     output: { // Makes destination folder and file for bundle.js
-        path: path.join(__dirname, '/dist'), 
-        filename: 'bundle.js' 
+        path: path.join(__dirname, 'dist'), // I remved '/' before dist
+        filename: 'bundle.js',
+        publicPath: '/',
     },
 
     plugins: [ // Makes sure index.html is in new dist folder
@@ -33,5 +34,9 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
         ],
+    },
+
+    devServer: {
+        historyApiFallback: true,
     },
 }
