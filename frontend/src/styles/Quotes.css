@@ -4,29 +4,5 @@
   box-sizing: border-box;
 }
 
-.shape-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
 
-.custom-shape-divider-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
 
-.custom-shape-divider-top svg {
-  position: relative;
-  display: block;
-  width: calc(143% + 1.3px);
-  height: 103px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-top .shape-fill {
-  fill: #101010;
-}

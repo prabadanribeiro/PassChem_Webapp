@@ -4,15 +4,16 @@
 }
 
 :root {
-  --gradient: linear-gradient(to bottom left, #49c2cf, rgb(139, 241, 210));
+  --gradient: linear-gradient(to bottom left, #2b98f8, rgb(156, 217, 250));
 }
 
 .wrapper {
   width: 100%;
   height: 500px;
   display: flex;
-  background: linear-gradient( to bottom,rgb(6, 6, 6) 20%, rgb(16, 16, 16));
-  backdrop-filter: blur(30px);
+  justify-content: center;
+  align-items: center;
+  background-color: #000f16;
 }
 
 .left-container {
@@ -21,7 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
 }
 
 .right-container {
@@ -32,7 +32,6 @@
   justify-content: center;
   color: #fff;
   font-size: 3rem;
-  background-color: transparent;
 }
 
 .position-content {
@@ -46,7 +45,8 @@
 
 .header {
   font-family: Oswald;
-  font-size: 4rem;
+  font-size: 4.5rem;
+  letter-spacing: 1px;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -69,11 +69,11 @@
   font-size: 1.6rem;
   font-weight: 500;
   font-family: sans-serif;
-  color: rgba(139, 241, 210, 0.75);
+  color: rgba(123, 196, 235, 0.75);
   background-color: #333444;
 }
 
 .topics-button:hover {
   background-color: #333333;
-  color: rgba(139, 241, 210, 0.9);
+  color: rgba(128, 200, 247, 0.75);
 }
