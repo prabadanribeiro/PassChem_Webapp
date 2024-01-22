@@ -33,6 +33,8 @@
   border: solid 1px #000;
   margin-left: 3rem;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .cards-header {
@@ -52,18 +54,12 @@
 .topics-cards:first-child {
   margin-left: 0;
   background-image: url(/public/images/topic-img-1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .topics-cards:nth-child(2){
   background-image: url(/public/images/topic-img-2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .topics-cards:nth-child(3){
   background-image: url(/public/images/topic-img-3.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }

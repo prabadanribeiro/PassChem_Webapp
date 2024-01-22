@@ -94,7 +94,7 @@
   bottom: 30%;
   border-radius: 50%;
   background-image: radial-gradient(rgb(81, 193, 213), rgb(100, 24, 136));
-  filter: blur(100px);
+  filter: blur(120px);
 }
 
 .vid-overlay::after {
@@ -106,12 +106,12 @@
   bottom: 50%;
   border-radius: 50%;
   background-image: radial-gradient(rgb(71, 63, 177), rgb(100, 24, 136));
-  filter: blur(110px);
+  filter: blur(130px);
 }
 
 .overlay-content {
   width: 80%;
-  transform: translateY(-10%);
+  transform: translateY(-5%);
 }
 
 .vid-header {
@@ -148,25 +148,7 @@
   background-color: #f0f8ff;
 }
 
-.custom-shape-divider-bottom-1705853581 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
 
-.custom-shape-divider-bottom-1705853581 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 108px;
-}
-
-.custom-shape-divider-bottom-1705853581 .shape-fill {
-    fill: #000f16;
-}
      
   
 
