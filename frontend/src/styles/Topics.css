@@ -24,14 +24,15 @@
 }
 
 .topics-cards {
-  height: 40vh;
-  width: clamp(250px, 300px, 400px);
+  height: 50vh;
+  width: clamp(250px, 320px, 400px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border: solid 1px #000;
   margin-left: 3rem;
+  cursor: pointer;
 }
 
 .cards-header {

@@ -31,7 +31,7 @@ export default class Topics extends React.Component {
                         this.state.topics.map(topics =>
                             <l1 key={topics.unit} className="topics-cards">
                                 <h1 className='cards-header'>
-                                    Title: {topics.title}  
+                                    {topics.title}  
                                 </h1>
                                 <h1 className='cards-unit'>
                                     Unit: {topics.unit}

@@ -24,6 +24,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #000;
+  z-index: 99;
 }
 
 
@@ -75,11 +76,37 @@
 .vid-overlay {
   height: 100%;
   width: 60vw;
-  background-image: linear-gradient(to right, #000 30%, transparent);  
+  background-image: linear-gradient(to right, #000 40%, transparent );  
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
+  z-index: 0;
+}
+
+.vid-overlay::before {
+  content: '';
+  position: absolute;
+  height: 220px;
+  width: 240px;
+  left: 25%;
+  bottom: 30%;
+  border-radius: 50%;
+  background-image: radial-gradient(rgb(81, 193, 213), rgb(100, 24, 136));
+  filter: blur(100px);
+}
+
+.vid-overlay::after {
+  content: '';
+  position: absolute;
+  height: 240px;
+  width: 220px;
+  left: 5%;
+  bottom: 50%;
+  border-radius: 50%;
+  background-image: radial-gradient(rgb(71, 63, 177), rgb(100, 24, 136));
+  filter: blur(110px);
 }
 
 .overlay-content {
@@ -98,7 +125,7 @@
 
 .vid-subtext {
   margin-top: 20px;
-  color: rgb(165, 183, 190);
+  color: rgb(194, 208, 214);
   font-size: 1.8rem;
   font-family: Archivo;
 }
