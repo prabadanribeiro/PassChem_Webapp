@@ -14,7 +14,7 @@ export default function Navbar({ isHome }) {
     const navColor = {
         backgroundColor: isHome ? 'transparent' : '#000'
     }
-    
+
     const vidOverlay = {
         display: isHome ? 'flex' : 'none'
     }
@@ -51,7 +51,7 @@ export default function Navbar({ isHome }) {
                     <p className='vid-subtext'>Disover an abundance of free resources</p>
                     <a className='button-anchor' href='#section2'>More</a>
                 </div>
-            </div>    
+            </div>   
         </div>
     )
 }

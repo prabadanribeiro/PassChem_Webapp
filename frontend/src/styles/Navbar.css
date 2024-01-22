@@ -82,7 +82,6 @@
   align-items: flex-end;
   justify-content: center;
   position: relative;
-  z-index: 0;
 }
 
 .vid-overlay::before {
@@ -120,7 +119,7 @@
   line-height: 75px;
   letter-spacing: 2px;
   font-size: clamp(50px, 5vw, 140px);
-  color: rgb(161, 238, 250);
+  color: rgb(190, 246, 255);
 }
 
 .vid-subtext {
@@ -134,7 +133,7 @@
   text-decoration: none;
   display: inline-block;
   color: #f0f8ff;
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 1.8rem;
   padding: 5px 10px;
   border: 2px solid #f0f8ff;
