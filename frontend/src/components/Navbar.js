@@ -21,10 +21,12 @@ export default function Navbar({ isHome }) {
 
     return (
         <div className='hero' style={hero}>
-            <video autoPlay loop muted playsInline className='planet-video'>
-                <source src={bgvideo} type='video/mp4'/>
-                {/*Free Stock Videos by <a href="http://www.videezy.com">Videezy</a>*/}
-            </video>
+            <div className='video-container'>
+                <video autoPlay loop muted playsInline className='planet-video'>
+                    <source src={bgvideo} type='video/mp4'/>
+                    {/*Free Stock Videos by <a href="http://www.videezy.com">Videezy</a>*/}
+                </video>
+            </div>
             <nav className="navbar" style={navColor}>
                 <a className="logo"><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
                 <ul>

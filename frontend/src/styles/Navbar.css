@@ -5,12 +5,14 @@
 }
 
 .hero {
+  z-index: 0;
   width: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content:left;
+  background-color: #000;
 }
 
 .navbar {
@@ -27,22 +29,20 @@
   z-index: 99;
 }
 
-
-.planet-video {
-  position: absolute;
+.video-container {
+  height: 100%;
+  width: 80%;
   right: 0;
   bottom: 0;
-  transform: translateX(20%);
+  position: absolute;
   z-index: -1;
-  filter: brightness(75%);
-  height: 100%;
-  width: 177.77777778vh;
-  min-width: 100%; 
-  min-height: 56.25vw; 
 }
 
-.logo {
-    cursor: pointer;
+.planet-video {
+  object-fit: fill;
+  filter: brightness(85%);
+  height: 100%;
+  width: 110%;
 }
 
 .nav-item {
@@ -75,38 +75,38 @@
 
 .vid-overlay {
   height: 100%;
-  width: 60vw;
-  background-image: linear-gradient(to right, #000 40%, transparent );  
+  width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   position: relative;
+  background-image: linear-gradient(100deg, #000 30%, rgba(0, 0, 0, 0.1) 60%, transparent 70%);
 }
 
 .vid-overlay::before {
   content: '';
   position: absolute;
-  height: 220px;
-  width: 240px;
-  left: 25%;
-  bottom: 30%;
+  height: 180px;
+  width: 200px;
+  left: 20%;
+  bottom: 35%;
   border-radius: 50%;
   background-image: radial-gradient(rgb(81, 193, 213), rgb(100, 24, 136));
-  filter: blur(120px);
-}
+  filter: blur(100px);
+}  
 
-.vid-overlay::after {
+ .vid-overlay::after {
   content: '';
   position: absolute;
-  height: 240px;
-  width: 220px;
-  left: 5%;
-  bottom: 50%;
+  height: 180px;
+  width: 160px;
+  left: 10%;
+  bottom: 55%;
   border-radius: 50%;
   background-image: radial-gradient(rgb(71, 63, 177), rgb(100, 24, 136));
-  filter: blur(130px);
-}
+  filter: blur(115px);
+}  
 
 .overlay-content {
   width: 80%;
@@ -118,13 +118,13 @@
   font-weight: 700;
   line-height: 75px;
   letter-spacing: 2px;
-  font-size: clamp(50px, 5vw, 140px);
+  font-size: clamp(50px, 4.5rem, 140px);
   color: rgb(190, 246, 255);
 }
 
 .vid-subtext {
   margin-top: 20px;
-  color: rgb(194, 208, 214);
+  color: rgb(214, 227, 233);
   font-size: 1.8rem;
   font-family: Archivo;
 }
