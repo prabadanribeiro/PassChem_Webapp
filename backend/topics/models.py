@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Topics(models.Model):
     title = models.CharField(max_length=255)
-    # ADD IMG WHEN YOU CAN
+    img = models.ImageField(upload_to='topics_images', height_field=None, width_field=None, null=True)
     unit = models.IntegerField()
 
     def __str__(self):
