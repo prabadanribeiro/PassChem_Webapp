@@ -1,47 +1,33 @@
-import React from 'react'
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Link, Outlet } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Topics from './pages/Topics'
-import ErrorPage from './pages/ErrorPage'
+import React, { useEffect, useState } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import ApiService from './services/ApiService';
+import { createRouter } from './config/Router'; // Import the createRouter function
 
 export default function App() {
+    
+    const [topics, setTopics] = useState(null);
+    const [lesson, setLesson] = useState(null);
 
-    const router = createBrowserRouter([
-        {
-          path: "/",
-          element: <Root />,
-          errorElement: <ErrorPage />,
-          children: [
-            {
-              path: "",
-              element: <Home />,
-            },
-            {
-                path: "about",
-                element: <About />,
-            },
-            {
-                path: "topics",
-                element: <Topics />,
-            },
-          ],
-        }
-      ])
+    useEffect(() => {
+        Promise.all([ApiService.GetTopics(), ApiService.GetLesson()])
+            .then(([fetchedTopics, fetchedLesson]) => {
+                setTopics(fetchedTopics);
+                setLesson(fetchedLesson);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            })
+    }, [])
+
+    if (topics === null || lesson === null) {
+        return <div>Loading...</div>
+    }
+
+    const router = createRouter(topics, lesson); // Use the createRouter function
 
     return (
         <div>
             <RouterProvider router={router} />
-        </div> 
-    )
-}
-
-const Root = () => {
-    return (
-        <>
-            <div>
-                <Outlet />
-            </div>
-        </>
+        </div>
     )
 }

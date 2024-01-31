@@ -3,7 +3,7 @@ from django.urls import path
 from django.http import HttpResponse
 from topics.views import *
 
-urlpatterns = [ # PROBLEM IS PROBABLY HERE
+urlpatterns = [
     path('', lambda request: HttpResponse('')),
     path('admin/', admin.site.urls),
     path('topics/', TopicsView.as_view(), name='anything'),
