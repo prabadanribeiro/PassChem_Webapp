@@ -51,7 +51,7 @@ export default function Navbar({ isHome }) {
                 <div className='overlay-content'>
                     <h1 className='vid-header'>Start Learning Chemistry</h1>
                     <p className='vid-subtext'>Disover an abundance of free resources</p>
-                    <a className='button-anchor' href='#section2'>More</a>
+                    <a className='button-anchor' href="#section2">More</a>
                 </div>
             </div>   
         </div>

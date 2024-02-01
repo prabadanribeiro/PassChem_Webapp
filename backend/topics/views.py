@@ -5,11 +5,9 @@ from .serializers import TopicsSerializer, LessonSerializer
 
 class TopicsView(APIView):
     def get(self, request):
-        output = [{'title': output.title,
-                #   ADD IMG
-                   'unit': output.unit}
-                   for output in Topics.objects.all()]
-        return Response(output)
+        topics = Topics.objects.all()
+        serializer = TopicsSerializer(topics, many=True)
+        return Response(serializer.data)
     
     def post(self, request):
         serializer = TopicsSerializer(data=request.data)
@@ -19,13 +17,9 @@ class TopicsView(APIView):
     
 class LessonView(APIView):
     def get(self, request):
-        output = [{'topic': output.topic,
-            'title': output.title,
-            'type': output.type,
-            'video_url': output.video_url,
-            'documents': output.documents}
-            for output in Lesson.objects.all()]
-        return Response(output)
+        lesson = Lesson.objects.all()
+        serializer = LessonSerializer(lesson, many=True)
+        return Response(serializer.data)
     
     def post(self, request):
         serializer = LessonSerializer(data=request.data)
