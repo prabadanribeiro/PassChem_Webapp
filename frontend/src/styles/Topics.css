@@ -28,9 +28,8 @@
   height: 400px;
   width: 340px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   border: solid 1px #000;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -44,13 +43,17 @@
   transform: translateY(-10px);
 }
 
+.card-content {
+  width: 100%;
+  background-color: rgba(0,0,0,0.7);
+  text-align: center;
+}
 .cards-header,
 .cards-unit {
+  display: inline-block;
   color: #fff;
-  background-color: rgba(0,0,0,0.5);
-  width: 100%;
-  text-align: center;
   line-height: 50px;
+  font-size: 2rem;
 }
 
 .topics-cards:first-child {

@@ -25,13 +25,13 @@ export default function Topics () {
                 { // use topics.img
                     topics.map(topic =>
                         <l1 key={topic.unit} className="topics-cards">
-                            <Link to={`/topics/${encodeURIComponent(topic.title)}`}>
-                                <h1 className='cards-header'>
-                                    {topic.title}  
-                                </h1>
-                                <h1 className='cards-unit'>
-                                    Unit: {topic.unit}
-                                </h1>
+                            <Link to={`/topics/${encodeURIComponent(topic.title)}`} className='card-content'>
+                                <h4 className='cards-header'>
+                                    Unit {topic.unit}:  
+                                </h4>
+                                <h4 className='cards-unit'>
+                                    &nbsp;{topic.title} 
+                                </h4>
                             </Link>
                         </l1>
                     )

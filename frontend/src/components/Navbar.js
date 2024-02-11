@@ -4,6 +4,13 @@ import '../styles/Navbar.css'
 
 export default function Navbar({ isHome }) {
 
+    const MoreButtonScroll = (event) => {
+        event.preventDefault()
+        const section = document.getElementById('section2');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
 
     const bgvideo = isHome ? 'nebula.mp4' : ''
     
@@ -51,7 +58,7 @@ export default function Navbar({ isHome }) {
                 <div className='overlay-content'>
                     <h1 className='vid-header'>Start Learning Chemistry</h1>
                     <p className='vid-subtext'>Disover an abundance of free resources</p>
-                    <a className='button-anchor' href="#section2">More</a>
+                    <a className='button-anchor' href='#section2' onClick={MoreButtonScroll}>More</a>
                 </div>
             </div>   
         </div>
