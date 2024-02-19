@@ -19,7 +19,7 @@ export default function Topics () {
     }, [])
 
     return (
-        <div>
+        <div className='topics-body'>
             <h2 className='topics-header'>Topics Collection</h2>
             <div className='topics-container'>
                 { // use topics.img

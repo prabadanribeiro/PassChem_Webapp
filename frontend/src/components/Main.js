@@ -6,18 +6,20 @@ export default function Main(){
   return (
     <div className="wrapper" id='section2'>
       <section className='upper-main'>
+        <div className='light'></div>
         <div className='upper-left-container'>
           <h2 className='header'>Access <span className='gradient-green'>free</span> courses <br></br>with videos and <br></br>exercises</h2>
-          <p className='p-content'>Lessons come included with practice problems, narrated videos, and stunning visual effects. Master the material from each unit as you grow your chemistry skills by following each lesson.</p>
+          <p>Lessons include practice problems, narrated videos, and stunning visual effects. Master the material from each unit and grow your chemistry skills by following each lesson.</p>
+          <Link className='topics-button' to={'/topics'}>Take me there</Link>
         </div>
         <div className='upper-right-container'>
-          <div className='example-image'>Image of lesson UI here</div>
+          <img src='' alt='Lesson UI' className='example-image'/>
         </div>
       </section>
       <section className='lower-main'>
         <h2 className='header' style={{textAlign: 'center'}}><span className='gradient-blue'>Premium</span> teaching tools</h2>
         <div className='anim-showcase'>
-          <div className='example-image'>Animation showcase *2 animations*</div>
+          <div className='example-text'>Animation showcase *2 animations*</div>
         </div>
       </section>
     </div>
