@@ -35,7 +35,7 @@ Testimonial Hierarchy
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background-image: linear-gradient(120deg, rgba(244, 10, 10, 0.3), rgba(10, 10, 242, 0.3));
+      background-image: linear-gradient(120deg, rgba(244, 10, 10, 0.25), rgba(10, 10, 242, 0.25));
       border-radius: 13px;
 
       & .slides-container {
@@ -91,7 +91,7 @@ Testimonial Hierarchy
     width: 15px;
     margin: 5px;
     border-radius: 15px;
-    background: #6c6a6a;
+    background: #676565;
     cursor: pointer;
     transition: 0.8s 50ms;
   }
