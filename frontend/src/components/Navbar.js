@@ -29,7 +29,7 @@ export default function Navbar({ isHome }) {
     return (
         <div className='hero' style={hero}>
             <div className='video-container'>
-                <video autoPlay loop muted playsInline className='planet-video'>
+                <video autoPlay loop muted playsInline>
                     <source src={bgvideo} type='video/mp4'/>
                     {/*Free Stock Videos by <a href="http://www.videezy.com">Videezy</a>*/}
                 </video>
@@ -37,17 +37,17 @@ export default function Navbar({ isHome }) {
             <nav className="navbar" style={navColor}>
                 <a className="logo"><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
                 <ul>
-                    <li className="nav-item">
+                    <li>
                         <Link className='nav-link' to={'/'}>
                             Home
                         </Link>
                     </li>
-                    <li className="nav-item"> 
+                    <li> 
                         <Link className='nav-link' to={'/about'}>
                             About
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    <li>
                         <Link className='nav-link' to={'/topics'}>
                             Topics
                         </Link>
@@ -56,9 +56,9 @@ export default function Navbar({ isHome }) {
             </nav>
             <div className='vid-overlay' style={vidOverlay}>
                 <div className='overlay-content'>
-                    <h1 className='vid-header'>Start Learning Chemistry</h1>
-                    <p className='vid-subtext'>Disover an abundance of free resources</p>
-                    <a className='button-anchor' href='#section2' onClick={MoreButtonScroll}>More</a>
+                    <h1>Start Learning Chemistry</h1>
+                    <p>Disover an abundance of free resources</p>
+                    <a href='#section2' onClick={MoreButtonScroll}>More</a>
                 </div>
             </div>   
         </div>

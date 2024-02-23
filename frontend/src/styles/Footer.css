@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer-hero {
+  height: 30vh;
+  border-top: solid 2px #111;
+}

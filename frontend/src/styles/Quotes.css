@@ -4,5 +4,125 @@
   box-sizing: border-box;
 }
 
+.quotes-page-hero {
+  height: 110vh;
+  width: 100%;
+  position: relative;
+  background-color: #e7e3e3;
+}
+
+/*
+Testimonial Hierarchy 
+
+"&" denotes a child and "& +" denotes a sibling
+*/
+
+.testimonial-hero {
+  height: 600px;
+  width: 100%;
+  position: relative;
+
+  & .testimonial-container {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    z-index: 99;
+
+    & .overflow-content {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-image: linear-gradient(120deg, rgba(244, 10, 10, 0.3), rgba(10, 10, 242, 0.3));
+      border-radius: 13px;
+
+      & .slides-container {
+        display: flex;
+        width: 8800px;
+        transition: all 0.8s ease-in-out 50ms;
+    
+        & .testimonial-slide {
+          width: 800px;
+          height: 400px;
+          position: relative;
+    
+          & section {
+            width: 80%;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+    
+            & q {
+              font-size: 1.5rem;
+              font-family: DM Sans;
+    
+              & + p {
+                color: #222;
+                font-size: 1.2rem;
+                margin-top: 30px;
+                font-family: DM Sans;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+
+  & span {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background: #6c6a6a;
+    cursor: pointer;
+    transition: 0.8s 50ms;
+  }
+}
+
+.indicator .active {
+  width: 45px;
+}
+
+.divider-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 99;
+}
+
+.divider-shape svg {
+  position: relative;
+  display: block;
+  width: calc(141% + 1.3px);
+  height: 124px;
+}
+
+.divider-shape .shape-fill {
+  fill: #0d0e0e;
+}
+
+
 
 
