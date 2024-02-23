@@ -21,7 +21,7 @@ class Lesson(models.Model):
     type = models.CharField(max_length=5, choices=LESSON_TYPES)
 
     video_url = models.URLField(blank=True, null=True)
-    documents = models.CharField(max_length=255, blank=True, null=True)
+    document = models.FileField(upload_to='documents/worksheets', blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if self.type == 'video':

@@ -6,12 +6,12 @@ import '../styles/Topics.css'
 
 export default function Topics () {
     
-    const [topics, setTopics] = useState([]);
+    const [topics, setTopics] = useState([])
 
     useEffect(() => {
         ApiService.GetTopics()
             .then(fetchedTopics => {
-                setTopics(fetchedTopics);
+                setTopics(fetchedTopics)
             })
             .catch(error => {
                 console.error('Error in component fetching topics:', error)

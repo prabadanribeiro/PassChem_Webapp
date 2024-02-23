@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import ApiService from './services/ApiService';
-import { createRouter } from './config/Router'; // Import the createRouter function
+import React, { useEffect, useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
+import ApiService from './services/ApiService'
+import { createRouter } from './config/Router'
 
 export default function App() {
     
@@ -11,8 +11,8 @@ export default function App() {
     useEffect(() => {
         Promise.all([ApiService.GetTopics(), ApiService.GetLesson()])
             .then(([fetchedTopics, fetchedLesson]) => {
-                setTopics(fetchedTopics);
-                setLesson(fetchedLesson);
+                setTopics(fetchedTopics)
+                setLesson(fetchedLesson)
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -23,7 +23,7 @@ export default function App() {
         return <div>Loading...</div>
     }
 
-    const router = createRouter(topics, lesson); // Use the createRouter function
+    const router = createRouter(topics, lesson); 
 
     return (
         <div>

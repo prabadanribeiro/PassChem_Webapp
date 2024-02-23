@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/index.js', // Input 
 
     output: { // Makes destination folder and file for bundle.js
-        path: path.join(__dirname, 'dist'), // I remved '/' before dist
+        path: path.join(__dirname, 'dist'), 
         filename: 'bundle.js',
         publicPath: '/',
     },
@@ -14,7 +14,7 @@ module.exports = {
     plugins: [ // Makes sure index.html is in new dist folder
         new HTMLWebpackPlugin({
             template: './public/index.html',
-        })
+        }),
     ], 
 
     module: { // Makes sure only index.js is taken in and uses babel-loader for JSX

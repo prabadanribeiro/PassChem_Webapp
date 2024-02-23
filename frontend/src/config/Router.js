@@ -21,7 +21,7 @@ export const createRouter = (topics = [], lesson = []) => {
 
     // Initialize dynamicTopicsRoutes only if topics is not empty
     const dynamicTopicsRoutes = topics.length > 0 ? topics.map(topic => {
-        const topicLessons = lesson.filter(lessonItem => lessonItem.topic === topic.id);
+        const topicLessons = lesson.filter(lessonItem => lessonItem.topic === topic.id)
         return {
             path: `/topics/${encodeURIComponent(topic.title)}`,
             element: <LessonsOverview topicLessons={topicLessons} topicTitle={topic.title} topicUnit={topic.unit}/>,
@@ -30,12 +30,13 @@ export const createRouter = (topics = [], lesson = []) => {
 
     // Initialize dynamicLessonRoutes only if both topics and lesson are not empty
     const dynamicLessonRoutes = topics.length > 0 && lesson.length > 0 ? topics.map(topic => {
+        const topicLessons = lesson.filter(lessonItem => lessonItem.topic === topic.id)
         return lesson.filter(lessonItem => lessonItem.topic === topic.id)
             .map(lessonItem => {
                 return {
                     path: `/topics/${encodeURIComponent(topic.title)}/${encodeURIComponent(lessonItem.title)}`,
-                    element: <LessonPage />,
-                };
+                    element: <LessonPage topicLessons={topicLessons} lesson={lessonItem} topicTitle={topic.title} topicUnit={topic.unit}/>,
+                }
         })
     }).flat() : []
 

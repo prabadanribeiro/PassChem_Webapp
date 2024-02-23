@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.unit {
+    font-size: 50px;
+    text-align: center;
+    margin: 50px;
+}
+
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 800px;
+    background-color: #f1f1f1;
+}
+  
+.list_item {
+    display: block;
+    color: #000;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-size: 30px;
+}
+  
+/* Change the link color on hover */
+.list_item:hover {
+    background-color: #555;
+    color: white;
+}

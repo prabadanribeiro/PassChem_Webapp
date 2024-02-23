@@ -2,6 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Topics, Lesson
 from .serializers import TopicsSerializer, LessonSerializer
+from django.views.decorators.clickjacking import xframe_options_exempt
+from django.utils.decorators import method_decorator
 
 class TopicsView(APIView):
     def get(self, request):
@@ -14,7 +16,8 @@ class TopicsView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-    
+
+@method_decorator(xframe_options_exempt, name='dispatch')
 class LessonView(APIView):
     def get(self, request):
         lesson = Lesson.objects.all()
