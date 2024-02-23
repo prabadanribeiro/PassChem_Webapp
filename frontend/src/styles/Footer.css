@@ -5,6 +5,16 @@
 }
 
 .footer-hero {
-  height: 30vh;
+  height: 15vh;
   border-top: solid 2px #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(129, 178, 221, 0.8);
+
+  & p {
+    font-size: 1rem;
+    font-family: DM Sans;
+    font-weight: 900;
+  }
 }
