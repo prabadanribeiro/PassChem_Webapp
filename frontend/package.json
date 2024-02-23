@@ -11,10 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@react-pdf/renderer": "^3.3.8",
     "axios": "^1.6.5",
+    "dompurify": "^3.0.8",
+    "mammoth": "^1.6.0",
+    "pdfjs-dist": "^4.0.379",
     "react": "^18.2.0",
+    "react-doc-viewer": "^0.1.5",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0"
+    "react-pdf": "^7.7.0",
+    "react-router-dom": "^6.20.0",
+    "webpack-html-plugin": "^0.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
@@ -26,7 +33,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^3.3.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }

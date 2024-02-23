@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import Navbar from '../components/Navbar'
+import LessonList from '../components/LessonList'
+import '../styles/LessonOverview.css'
 
-const LessonsOverview = ( {topicLessons, topicUnit, topicTitle} ) => {
-    
+export default function LessonOverview( {topicLessons, topicUnit, topicTitle} ) {
+
     return (
         <div>
-            <h1>{topicUnit}</h1>
-            <h1>{topicTitle}</h1>
-            {
-                topicLessons.map(lesson => 
-                    <div>
-                        <h1>{lesson.title}</h1>
-                    </div>
-                    
-                )
-            }
+            <Navbar />
+            <div>
+                <h1 className='unit'>Unit {topicUnit}: {topicTitle}</h1>
+            </div>
+            <LessonList topicLessons={topicLessons} topicTitle={topicTitle}/>
         </div>
     )
-
 }
-
-export default LessonsOverview

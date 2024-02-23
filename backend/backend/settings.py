@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,13 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    # Custom 
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # CUSTOM
+    'django.middleware.common.CommonMiddleware', # CUSTOM 
+    'topics.custom_middleware.CustomHeaderMiddleware', # CUSTOM
 ]
-
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'backend.urls'
 
