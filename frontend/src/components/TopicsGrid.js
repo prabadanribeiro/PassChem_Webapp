@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom';
-import ApiService from '../services/ApiService';
+import { Link } from 'react-router-dom'
+import ApiService from '../services/ApiService'
 import '../styles/Topics.css'
 
 
