@@ -15,7 +15,7 @@
     "axios": "^1.6.5",
     "dompurify": "^3.0.8",
     "mammoth": "^1.6.0",
-    "pdfjs-dist": "^4.0.379",
+    "pdfjs-dist": "^3.3.122",
     "react": "^18.2.0",
     "react-doc-viewer": "^0.1.5",
     "react-dom": "^18.2.0",
