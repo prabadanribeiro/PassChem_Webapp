@@ -49,7 +49,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
 ]
 
-X_FRAME_OPTIONS = 'ALLOW-FROM http://localhost:8080'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
