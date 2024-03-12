@@ -3,12 +3,12 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import ApiService from '../services/ApiService'
 import '../styles/LanguageDropdown.css'
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
-
+import GoBackButton from './GoBackButton'
+import LessonButtons from './LessonButtons'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
-
-export default function Lesson( {lesson} ) {
+export default function Lesson( {lesson, topicTitle} ) {
 
     const [numPages, setNumPages] = useState(null)
     const [pages, setPages] = useState([])
@@ -104,9 +104,11 @@ export default function Lesson( {lesson} ) {
 
     return (
         <div>
+            <GoBackButton page={"Lesson"} topicTitle={topicTitle}/>
             <h1>LESSON</h1>
             <h1>{lesson.title}</h1>
             {content}
+            <LessonButtons lesson={lesson} topicTitle={topicTitle}/>
         </div>
     )
 
