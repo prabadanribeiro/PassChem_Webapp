@@ -49,7 +49,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
 ]
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'ALLOW-FROM http://localhost:8080'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', # CUSTOM
     'django.middleware.common.CommonMiddleware', # CUSTOM 
-    'topics.custom_middleware.CustomHeaderMiddleware', # CUSTOM
 ]
 
 ROOT_URLCONF = 'backend.urls'

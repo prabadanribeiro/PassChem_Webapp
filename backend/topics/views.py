@@ -1,9 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Topics, Lesson
-from .serializers import TopicsSerializer, LessonSerializer
-from django.views.decorators.clickjacking import xframe_options_exempt
-from django.utils.decorators import method_decorator
+from .models import Topics, Lesson, VideoLanguage
+from .serializers import TopicsSerializer, LessonSerializer, VideoLanguageSerializer
 
 class TopicsView(APIView):
     def get(self, request):
@@ -17,7 +15,6 @@ class TopicsView(APIView):
             serializer.save()
             return Response(serializer.data)
 
-@method_decorator(xframe_options_exempt, name='dispatch')
 class LessonView(APIView):
     def get(self, request):
         lesson = Lesson.objects.all()
@@ -26,6 +23,18 @@ class LessonView(APIView):
     
     def post(self, request):
         serializer = LessonSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+        
+class VideoLanaguageView(APIView):
+    def get(self, request):
+        videoLanguage = VideoLanguage.objects.all()
+        serializer = VideoLanguageSerializer(videoLanguage, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = VideoLanguageSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
