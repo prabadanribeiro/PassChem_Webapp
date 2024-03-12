@@ -25,17 +25,18 @@ class ApiService {
             })
     }
 
-    GetLessonsByTopic(topicID) {
-        return axios.get('http://127.0.0.1:8000/lesson/')
+    GetVideosByLesson(LessonId) {
+        return axios.get('http://127.0.0.1:8000/video_language/')
             .then(res => {
-                const lesson = res
-                const filteredLessons = lesson.filter(lesson => lesson.topic === topicID)
-                return filteredLessons
+                const videos = res.data
+                const filteredVideos = videos.filter(video => video.video === LessonId)
+                return filteredVideos
             })
             .catch(error => {
                 console.error('Error fetching data:', error)
             })
     }
+    
 }
 
 export default new ApiService()

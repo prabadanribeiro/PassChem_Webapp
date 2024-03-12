@@ -61,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', # CUSTOM
     'django.middleware.common.CommonMiddleware', # CUSTOM 
-    'topics.custom_middleware.CustomHeaderMiddleware', # CUSTOM
 ]
 
 ROOT_URLCONF = 'backend.urls'
