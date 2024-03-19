@@ -22,10 +22,12 @@ class Lesson(models.Model):
 
     video_title = models.CharField(blank=True, null=True, max_length=255)
     document = models.FileField(upload_to='documents/worksheets', blank=True, null=True)
+    answer_key = models.FileField(upload_to='documents/answer_keys', blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if self.type == 'video':
             self.documents = None
+            self.answer_key = None
         if self.type == 'text':
             self.video_title = None
         super().save(*args, **kwargs)

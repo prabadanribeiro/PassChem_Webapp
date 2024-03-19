@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Document, Page, pdfjs } from 'react-pdf'
+import { Document, Page, View, pdfjs } from 'react-pdf'
 import ApiService from '../services/ApiService'
 import '../styles/LanguageDropdown.css'
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
@@ -15,9 +15,9 @@ export default function Lesson( {lesson, topicTitle} ) {
     const [videos, setVideos] = useState([])
     const [isVisible, setIsVisible] = useState(false)
     const [videoURL, setVideoURL] = useState()
+    const [documentURL, setDocumentURL] = useState('')
+    const [isAnswerKey, setIsAnswerKey] = useState(false)
     const dropdownRef = useRef(null)
-
-    const documentURL = `http://127.0.0.1:8000/${lesson.document}`
     let content = null
 
     const toggleDropdown = () => setIsVisible(!isVisible)
@@ -31,6 +31,7 @@ export default function Lesson( {lesson, topicTitle} ) {
             .catch(error => {
                 console.error('Error in component fetching video_language:', error)
             })
+        setDocumentURL(`http://127.0.0.1:8000/${lesson.document}`)
     }, [])
 
     useEffect(() => {
@@ -52,6 +53,16 @@ export default function Lesson( {lesson, topicTitle} ) {
     const changeVideo = ({ url_id }) => {
         setVideoURL(`https://www.youtube.com/embed/${url_id}`)
     }    
+
+    const toggleDocument = () => {
+        if (!isAnswerKey) {
+            setDocumentURL(`http://127.0.0.1:8000/${lesson.answer_key}`)
+            setIsAnswerKey(true)
+        } else {
+            setDocumentURL(`http://127.0.0.1:8000/${lesson.document}`)
+            setIsAnswerKey(false)
+        }   
+    }
 
     if (lesson.type === 'video') { 
         content = (
@@ -86,18 +97,37 @@ export default function Lesson( {lesson, topicTitle} ) {
         )
     }
 
+    const docContainerStyle = {
+        width: '725px',
+        height: '750px',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        border: '3px solid black',
+        display: 'flex', 
+        justifyContent: 'center',
+    }
+
     if (lesson.type === 'text') {
         content = (
             <div>
-                <Document file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
-                    {pages.map(pagenumber =>
-                        <Page 
-                            pageNumber={pagenumber}
-                            renderTextLayer={false}
-                            renderAnnotationLayer={false}
-                        />
-                    )}
-                </Document>
+                <div style={docContainerStyle}>
+                    <Document file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
+                        {pages.map(pagenumber =>
+                            <Page 
+                                key={pagenumber}
+                                pageNumber={pagenumber}
+                                renderTextLayer={false}
+                                renderAnnotationLayer={false}
+                                scale={1.3}
+                                wrap={false}
+                            >
+                            </Page>
+                        )}
+                    </Document>
+                </div>
+                <div>
+                    <button onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
+                </div>
             </div>
         )
     }
@@ -108,8 +138,8 @@ export default function Lesson( {lesson, topicTitle} ) {
             <h1>LESSON</h1>
             <h1>{lesson.title}</h1>
             {content}
-            <LessonButtons lesson={lesson} topicTitle={topicTitle}/>
-        </div>
+            <LessonButtons lesson={lesson} topicTitle={topicTitle}/> 
+        </div> // IN THE FUTURE REPLACE LESSON BUTTONS WITH ARROWS WITH THE SAME FUNCTION
     )
 
 }
