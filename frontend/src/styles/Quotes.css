@@ -91,9 +91,13 @@ Testimonial Hierarchy
     width: 15px;
     margin: 5px;
     border-radius: 15px;
-    background: #676565;
+    background-color: #676565;
     cursor: pointer;
-    transition: 0.8s 50ms;
+    transition: width 0.8s 50ms, background-color 200ms 25ms;
+
+    &:hover {
+      background-color: #9f9b9b;
+    }
   }
 }
 
@@ -122,7 +126,6 @@ Testimonial Hierarchy
 .divider-shape .shape-fill {
   fill: #0d0e0e;
 }
-
 
 
 

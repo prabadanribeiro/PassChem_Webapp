@@ -55,7 +55,7 @@ export default function Quotes(){
               </div>
               <div className='testimonial-slide'>
               <section>
-                  <q>...will help students immensely. ...the video demonstrates them [three-dimensional representations] exceptionally well. I plan to use these DVDs in future classes...</q>
+                  <q>...will help students immensely. ...the video demonstrates them [three-dimensional representations] exceptionally well. I plan to use these videos in future classes...</q>
                   <p>Journal of Chemical Education, 2011, 88(1), pp 18-21</p>
                 </section>
               </div>
@@ -73,13 +73,13 @@ export default function Quotes(){
               </div> 
               <div className='testimonial-slide'>
               <section>
-                  <q>These DVDs are perfectly suited for today's learning environment... a great addition to the ambitious high school student or undergraduate's chemistry tool bag.</q>
+                  <q>These videos are perfectly suited for today's learning environment... a great addition to the ambitious high school student or undergraduate's chemistry tool bag.</q>
                   <p>Paul Ford, PH.D., Principal Scientist, McCormick and Company, Inc.</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
               <section>
-                  <q>Students across all disciplines and educational levels will find themselves engaged in these captivating, informative, constructive, and novel instructional tools. These DVDs will no doubt help students achieve their maximum learning potential.</q>
+                  <q>Students across all disciplines and educational levels will find themselves engaged in these captivating, informative, constructive, and novel instructional tools. These videos will no doubt help students achieve their maximum learning potential.</q>
                   <p>Josh Kogot, PH.D., Army Research Scientist</p>
                 </section>
               </div>
@@ -97,7 +97,7 @@ export default function Quotes(){
               </div>
               <div className='testimonial-slide'>
               <section>
-                  <q>These DVD's are an extraordinary instructional and motivational tool for teachers to help students visualize and learn.~ Lessons are clear, focused, engaging, and fun.~ They heighten a student's eagerness to learn.</q>
+                  <q>These videos are an extraordinary instructional and motivational tool for teachers to help students visualize and learn.~ Lessons are clear, focused, engaging, and fun.~ They heighten a student's eagerness to learn.</q>
                   <p>Frances Gatz, Ph.D., Director, Rainforest Workshops (exploring medicinal plant chemistry and use) Environmental Expeditions</p>
                 </section>
               </div>
@@ -109,7 +109,7 @@ export default function Quotes(){
               </div>
               <div className='testimonial-slide'>
                 <section>
-                  <q>The CD's were great... I used all 3 of the CD's in a variety of classes. They are a powerful teaching tool and the students really loved them. The chemical bonding and hybridization theory went over especially well in my organic chemistry class. Students even asked where they could get a copy so I directed them to the bookstore.</q>
+                  <q>The videos were great... I used all 3 of the CD's in a variety of classes. They are a powerful teaching tool and the students really loved them. The chemical bonding and hybridization theory went over especially well in my organic chemistry class. Students even asked where they could get a copy so I directed them to the bookstore.</q>
                   <p>Keith A. Baessler, PH.D. Assistant Professor of Chemistry Suffolk County Community College</p>
                 </section>
               </div>

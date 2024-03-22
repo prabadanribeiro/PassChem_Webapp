@@ -36,25 +36,26 @@
   background-size: cover;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   transition: 0.3s;
-}
 
-.topics-cards:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-  transform: translateY(-10px);
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+  }
 }
 
 .card-content {
   width: 100%;
   background-color: rgba(0,0,0,0.7);
   text-align: center;
+
+  & h4 {
+    display: inline-block;
+    color: #fff;
+    line-height: 50px;
+    font-size: 2rem;
+  }
 }
-.cards-header,
-.cards-unit {
-  display: inline-block;
-  color: #fff;
-  line-height: 50px;
-  font-size: 2rem;
-}
+
 
 .topics-cards:first-child {
   background-image: url(/public/images/topic-img-1.png);
