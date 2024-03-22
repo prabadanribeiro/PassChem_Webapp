@@ -6,12 +6,12 @@ import '../styles/Topics.css'
 
 export default function Topics () {
     
-    const [topics, setTopics] = useState([]);
+    const [topics, setTopics] = useState([])
 
     useEffect(() => {
         ApiService.GetTopics()
             .then(fetchedTopics => {
-                setTopics(fetchedTopics);
+                setTopics(fetchedTopics)
             })
             .catch(error => {
                 console.error('Error in component fetching topics:', error)
@@ -24,7 +24,10 @@ export default function Topics () {
             <div className='topics-container'>
                 { // use topics.img
                     topics.map(topic =>
-                        <Link to={`/topics/${encodeURIComponent(topic.title)}`} className='topics-cards'>
+                        <Link to={`/topics/${encodeURIComponent(topic.title)}`} className='link'>
+                            <div className='topics-cards'>
+                                <img className="topics-images" src={`http://127.0.0.1:8000/${topic.img}`}/>
+                            </div>
                             <l1 key={topic.unit} className="card-content">
                                 <h4>
                                     Unit {topic.unit}:  

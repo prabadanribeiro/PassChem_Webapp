@@ -5,13 +5,14 @@
 }
 
 .footer-hero {
-  height: 18vh;
+  height: 15vh;
   border-top: solid 2px #111;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 80px;
   background-color: rgba(129, 178, 221, 0.8);
+  gap: 70px;
 
   & p {
     font-size: 17px;
@@ -20,17 +21,18 @@
     margin-left: -80px;
   }
 }
-.socials-container svg {
+
+svg {
   height: 40px;
   width: 50px;
-  margin-left: 5px;
   cursor: pointer;
-  transition: 200ms 20ms;
+  fill: rgb(16, 39, 73);
+  transition: all 150ms;
 }
 
-.socials-container a:nth-child(1):hover svg{
-  fill: rgba(255, 0, 0, 0.85);
+.socials a:nth-child(1):hover svg {
+  fill: red;
 }
-.socials-container a:nth-child(2):hover svg{
-  fill: rgba(0, 0, 255, 0.85);
+.socials a:nth-child(2):hover svg {
+  fill: blue;
 }
