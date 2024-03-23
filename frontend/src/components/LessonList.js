@@ -5,19 +5,17 @@ export default function LessonList( {topicLessons, topicTitle}) {
     
     return (
         <div>
-            {
-                topicLessons.map(lesson => 
-                    <ul className='list'>
-                        <li className='list_item'>
+            <ul className='list'>
+                {
+                    topicLessons.map(lesson => 
+                        <li className='list_item' key={lesson.id}>
                             <Link to={`/topics/${encodeURIComponent(topicTitle)}/${encodeURIComponent(lesson.title)}`}>
                                 {lesson.title}
                             </Link> 
                         </li>
-                    </ul>
-                )
-            }
+                    )
+                }
+            </ul>
         </div>
     )
-    
-
 }
