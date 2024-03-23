@@ -4,18 +4,26 @@
   box-sizing: border-box;
 }
 
-.topics-header {
-  font-size: 4rem;
-  width: 100%;
-  text-align: center;
-  font-family: DM Serif;
-  margin-top: 40px;
-  color: rgb(29, 127, 207);
-  display: inline-block;
+.topics-body {
+  height: 120vh;
+}
+
+.topics-body h3 {
+  font-size: 3.5rem;
+  margin-left: 10%;
+  color: rgb(19, 68, 109);
+  margin-top: 80px;
+  font-family: Archivo;
+  font-weight: 900;
+}
+.topics-body hr {
+  width: 80%;
+  margin-left: 10%;
+  border: solid 1px rgb(159, 161, 163);
 }
 
 .topics-container {
-  margin-top: 40px;
+  margin-top: 55px;
   width: 100%;
   display: flex;
   flex-wrap:wrap;
@@ -26,44 +34,70 @@
 
 .topics-cards {
   height: 400px;
-  width: 340px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  border: solid 1px #000;
+  width: 100%;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+}
+
+.topics-images {
+  width: 100%;
+  height: 100%;
+  transition: all 150ms linear 50ms;
+  opacity: 1;
+}
+
+.link {
+  height: 480px;
+  width: 340px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+  }
+}
+.topics-description {
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  background-image: linear-gradient(135deg, rgb(163, 255, 163), rgb(50, 164, 199)); 
+  transition: all 150ms linear 50ms;
+
+  & p {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-size: 1.5rem;
+    color: #211044;
+  }
 }
 
-.topics-cards:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-  transform: translateY(-10px);
+.link:hover > .topics-cards .topics-description{
+  opacity: 1;
 }
+
+
 
 .card-content {
+  display: block;
   width: 100%;
-  background-color: rgba(0,0,0,0.7);
+  height: 80px;
   text-align: center;
-}
-.cards-header,
-.cards-unit {
-  display: inline-block;
-  color: #fff;
-  line-height: 50px;
-  font-size: 2rem;
-}
+  background-color: #111;
+  border: solid 1px #000;
 
-.topics-cards:first-child {
-  background-image: url(/public/images/topic-img-1.png);
-}
-
-.topics-cards:nth-child(2){
-  background-image: url(/public/images/topic-img-2.jpg);
-}
-
-.topics-cards:nth-child(3){
-  background-image: url(/public/images/topic-img-3.png);
+  & h4 {
+    display: inline-block;
+    color: #fff;
+    line-height: 50px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    padding-top: 15px;
+    font-family: Archivo;
+  }
 }

@@ -5,16 +5,32 @@
 }
 
 .footer-hero {
-  height: 15vh;
+  height: 18vh;
   border-top: solid 2px #111;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(129, 178, 221, 0.8);
+  gap: 70px;
 
   & p {
-    font-size: 1rem;
+    font-size: 17px;
     font-family: DM Sans;
     font-weight: 900;
   }
+}
+
+svg {
+  height: 40px;
+  width: 50px;
+  cursor: pointer;
+  fill: rgb(16, 39, 73);
+  transition: all 150ms;
+}
+
+.socials a:nth-child(1):hover svg {
+  fill: rgba(240, 0, 0, 0.85);
+}
+.socials a:nth-child(2):hover svg {
+  fill: rgba(0, 0, 240, 0.85);
 }
