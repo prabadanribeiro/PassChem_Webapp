@@ -32,7 +32,7 @@ export default function Lesson( {lesson, topicTitle} ) {
                 console.error('Error in component fetching video_language:', error)
             })
         setDocumentURL(`http://127.0.0.1:8000/${lesson.document}`)
-    }, [])
+    }, [lesson])
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -89,9 +89,9 @@ export default function Lesson( {lesson, topicTitle} ) {
                     height="315" 
                     src={videoURL}
                     title="YouTube video player" 
-                    frameborder="0" 
+                    frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
+                    allowFullScreen>
                 </iframe>
             </div>
         )
