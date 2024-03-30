@@ -1,10 +1,10 @@
-from .models import Topics, Lesson, VideoLanguage
+from .models import Topic, Lesson, VideoLanguage
 from rest_framework import serializers
 
-class TopicsSerializer(serializers.ModelSerializer):
+class TopicSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Topics
+        model = Topic
         fields = '__all__'
 
 class LessonSerializer(serializers.ModelSerializer):

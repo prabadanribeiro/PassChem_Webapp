@@ -1,16 +1,16 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Topics, Lesson, VideoLanguage
-from .serializers import TopicsSerializer, LessonSerializer, VideoLanguageSerializer
+from .models import Topic, Lesson, VideoLanguage
+from .serializers import TopicSerializer, LessonSerializer, VideoLanguageSerializer
 
-class TopicsView(APIView):
+class TopicView(APIView):
     def get(self, request):
-        topics = Topics.objects.all()
-        serializer = TopicsSerializer(topics, many=True)
+        topic = Topic.objects.all()
+        serializer = TopicSerializer(topic, many=True)
         return Response(serializer.data)
     
     def post(self, request):
-        serializer = TopicsSerializer(data=request.data)
+        serializer = TopicSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)

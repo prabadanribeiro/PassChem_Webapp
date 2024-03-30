@@ -1,9 +1,10 @@
 from django.db import models
 
 # Create your models here.
-class Topics(models.Model):
+
+class Topic(models.Model):
     title = models.CharField(max_length=255)
-    img = models.ImageField(upload_to='topics_images', height_field=None, width_field=None, null=True)
+    img = models.ImageField(upload_to='Topic_images', height_field=None, width_field=None, null=True)
     unit = models.IntegerField()
 
     def __str__(self):
@@ -16,7 +17,7 @@ class Lesson(models.Model):
         ('text', 'Text'),
     ]
 
-    topic = models.ForeignKey(Topics, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     type = models.CharField(max_length=5, choices=LESSON_TYPES)
 
