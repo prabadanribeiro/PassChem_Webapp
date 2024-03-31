@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gradient-blue: linear-gradient(to bottom left, hsl(220, 94%, 50%), hsl(201, 65%, 65%));
+  --gradient-green: linear-gradient(to bottom left, hsl(120, 70%, 70%), hsl(194, 60%, 40%));
+}
+
+.about-hero {
+  background-image: radial-gradient(circle at 1px 1px, rgb(127, 147, 174) 1.5px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -15px -15px;
+  background-color: rgb(251, 248, 241);
+  z-index: 1;
+}
+
+.gradient-text {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 100%;
+}
+
+.blue {
+  background-image: var(--gradient-blue);
+}
+
+.green {
+  background-image: var(--gradient-green);
+}
+
+.about-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.about-content {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  height: 60%;
+  width: 70%;
+  z-index: 2;
+}
+
+.about-content h2 {
+  font-size: 70px;
+  color: #111;
+  font-family: DM Sans;
+}
+
+.about-content p {
+  font-size: 21px;
+  color: #333;
+  font-family: Helvetica;
+  line-height: 24px;
+}
+
+.lewis-structure {
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  left: 10.5%;
+  top: 58%;
+  transform: scale(1.25);
+}
+
+.vr-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 45%;
+}
+
+.vr-container h3 {
+  font-size: 50px;
+  font-family: DM Sans;
+  color: #111;
+}
+
+.vr-container p {
+  font-size: 20px;
+  color: #222;
+  font-family: Helvetica;
+}
+
+.team-flexbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 1000px;
+  padding-bottom: 25px;
+  border: 2px solid #222;
+  margin: 0 auto;
+}
+
+.member-card {
+  height: 300px;
+  width: 350px;
+  border: 2px solid #111;
+  margin-top: 25px;
+}
+
+.about-hero h4 {
+  font-size: 50px;
+  font-family: DM Sans;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.spacing {
+  height: 80px;
+  width: 100%;
+  background-image: radial-gradient(circle at 1px 1px, rgb(127, 147, 174) 1.5px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -15px -15px;
+  background-color: rgb(251, 248, 241);
+}

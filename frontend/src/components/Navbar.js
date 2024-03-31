@@ -57,7 +57,7 @@ export default function Navbar({ isHome }) {
             <div className='vid-overlay' style={vidOverlay}>
                 <div className='overlay-content'>
                     <h1>Start Learning Chemistry</h1>
-                    <p>Disover an abundance of free resources</p>
+                    <p>Discover an abundance of free resources</p>
                     <a href='#section2' onClick={MoreButtonScroll}>More</a>
                 </div>
             </div>   
