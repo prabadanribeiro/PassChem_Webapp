@@ -65,8 +65,7 @@
   position: absolute;
   height: 400px;
   width: 100%;
-  /* background-image: linear-gradient(135deg, rgb(163, 255, 163), rgb(50, 164, 199));  */
-  background-color: rgb(190, 246, 255);
+  background-color: rgb(206, 241, 240);
   transition: all 150ms linear 50ms;
 
   & p {
