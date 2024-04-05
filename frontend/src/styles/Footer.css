@@ -6,11 +6,12 @@
 
 .footer-hero {
   height: 18vh;
+  width: 100vw;
   border-top: solid 2px #111;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(129, 178, 221, 0.8);
+  background-color: rgba(145, 195, 239, 0.85);
   gap: 70px;
 
   & p {
