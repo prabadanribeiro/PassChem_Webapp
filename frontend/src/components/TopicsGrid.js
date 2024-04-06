@@ -20,7 +20,7 @@ export default function Topics () {
 
     return (
         <div className='topics-body'>
-            <h3>AP Chem Curriculum</h3>
+            <h3>General Chem Curriculum</h3>
             <hr></hr>
             <div className='topics-container'>
                 { // use topics.img
