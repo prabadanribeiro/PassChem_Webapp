@@ -146,28 +146,34 @@ canvas {
   margin: 0 auto;
 }
 
+.card-bounds {
+  height: 300px;
+  width: 350px;
+  transition: all 1.2s .2s;
+
+  &:hover > .member-card {
+    transform: rotateY(180deg);
+  }
+}
+
 .member-card {
   height: 300px;
   width: 350px;
   border: 2px solid #111;
   margin-top: 25px;
+  transition: 1.2s .2s;
   background-color: #fbeede;
-  transition: all 1.2s .2s;
   display: flex;
   align-items: center;
   justify-content: center;
   will-change: transform;
-
-  &:hover {
-    transform: rotateY(180deg);
-  }
 }
 
-.member-card:hover > .flipped-content {
+.card-bounds:hover > .member-card .flipped-content {
   opacity: 1;
 }
 
-.member-card:hover > .frontside {
+.card-bounds:hover > .member-card .frontside {
   opacity: 0;
 }
 

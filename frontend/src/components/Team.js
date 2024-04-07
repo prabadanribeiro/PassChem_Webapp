@@ -24,6 +24,7 @@ export default function Team() {
       </div>
       <h4 className='team-header'>Meet the Team</h4>
       <section className='team-flexbox'>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-1.jpeg' alt='Member #1' />
@@ -35,6 +36,8 @@ export default function Team() {
               <p>Dr. Sponholtz earned a PH.D. in organic synthetic chemistry with an emphasis in Natural Products Chemistry from Dartmouth College.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-2.jpeg' alt='Member #2' />
@@ -46,6 +49,8 @@ export default function Team() {
               <p>Dr. Gribble is a native of San Francisco, California, and completed his undergraduate education at the University of California at Berkeley in 1963.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-3.jpeg' alt='Member #3' />
@@ -57,6 +62,8 @@ export default function Team() {
               <p>John Kunz is a founding member of Sponholtz Producitons, LLC.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-4.jpeg' alt='Member #4' />
@@ -68,6 +75,8 @@ export default function Team() {
               <p>David has created novel computer animations previously unavailable to the student and teacher.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-5.jpeg' alt='Member #5' />
@@ -79,6 +88,8 @@ export default function Team() {
               <p>Ryan Gardner is a founding member of Sponholtz Productions, LLC.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-6.jpeg' alt='Member #6' />
@@ -90,6 +101,8 @@ export default function Team() {
               <p>Christopher Atala is the Vice President of Sponholtz Productions, LLC.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-7.jpeg' alt='Member #7' />
@@ -101,6 +114,8 @@ export default function Team() {
               <p>Madeline Pollock is helping to convert previously created digital products into the AR and VR platforms.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-8.jpeg' alt='Member #8' />
@@ -112,6 +127,8 @@ export default function Team() {
               <p>Alex Zades is a former web and animation designer for Sponholtz Productions, LLC.</p>
             </div>
           </div>
+        </div>
+        <div className='card-bounds'>
           <div className='member-card'>
             <div className='frontside'>
               <img src='images/team-img-9.png' alt='Member #9' />
@@ -123,8 +140,9 @@ export default function Team() {
               <p>Andy Kim was the former head of marketing and development at Sponholtz Productions, LLC.</p>
             </div>
           </div>
-        </section>
-        <div className='spacing'/>
+        </div>
+      </section>
+      <div className='spacing'/>
     </div>
   )
 }
