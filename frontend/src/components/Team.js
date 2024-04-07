@@ -22,39 +22,108 @@ export default function Team() {
           </div>
         </div>
       </div>
-      <h4>Meet the Team</h4>
+      <h4 className='team-header'>Meet the Team</h4>
       <section className='team-flexbox'>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-1.jpeg' alt='Member #1' />
+              <h4>Will R. Sponholtz, III, PH.D.</h4>
+              <p className='subtitles'>President and Founder</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Dr. Sponholtz earned a PH.D. in organic synthetic chemistry with an emphasis in Natural Products Chemistry from Dartmouth College.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-2.jpeg' alt='Member #2' />
+              <h4>Gordon W. Gibble, PH.D.</h4>
+              <p className='subtitles'>Narrator</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Dr. Gribble is a native of San Francisco, California, and completed his undergraduate education at the University of California at Berkeley in 1963.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-3.jpeg' alt='Member #3' />
+              <h4>John Kunz</h4>
+              <p className='subtitles'>Computer Modeler/Animator</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>John Kunz is a founding member of Sponholtz Producitons, LLC.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-4.jpeg' alt='Member #4' />
+              <h4>David Nevins</h4>
+              <p className='subtitles'>Computer Animator</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>David has created novel computer animations previously unavailable to the student and teacher.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-5.jpeg' alt='Member #5' />
+              <h4>Ryan Gardner</h4>
+              <p className='subtitles'>Videographer / Editor</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Ryan Gardner is a founding member of Sponholtz Productions, LLC.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-6.jpeg' alt='Member #6' />
+              <h4>Christopher Atala</h4>
+              <p className='subtitles'>Vice President</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Christopher Atala is the Vice President of Sponholtz Productions, LLC.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-7.jpeg' alt='Member #7' />
+              <h4>Madeline Pollock</h4>
+              <p className='subtitles'>Design/Development/Consultant</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Madeline Pollock is helping to convert previously created digital products into the AR and VR platforms.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-8.jpeg' alt='Member #8' />
+              <h4>Alex Zades</h4>
+              <p className='subtitles'>Web/Animation Designer</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Alex Zades is a former web and animation designer for Sponholtz Productions, LLC.</p>
+            </div>
           </div>
           <div className='member-card'>
-
+            <div className='frontside'>
+              <img src='images/team-img-9.png' alt='Member #9' />
+              <h4>Andy Kim</h4>
+              <p className='subtitles'>Marketing/Translator</p>
+            </div>
+            <div className='flipped-content'>
+              <h5>About</h5>
+              <p>Andy Kim was the former head of marketing and development at Sponholtz Productions, LLC.</p>
+            </div>
           </div>
         </section>
-        <div className='gradient-parent' style={{top: 50}}>
-          <canvas className='gradient-band'/>
-        </div>
         <div className='spacing'/>
     </div>
   )
