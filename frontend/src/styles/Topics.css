@@ -65,7 +65,7 @@
   position: absolute;
   height: 400px;
   width: 100%;
-  background-color: rgb(206, 241, 240);
+  background-color: hsl(207, 70%, 90%);
   transition: all 150ms linear 50ms;
 
   & p {
