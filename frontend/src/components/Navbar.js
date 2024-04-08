@@ -52,6 +52,16 @@ export default function Navbar({ isHome }) {
                             Topics
                         </Link>
                     </li>
+                    <li>
+                        <Link className='nav-link' to={'/login'}>
+                            Login
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className='nav-link' to={'/signup'}>
+                            Sign Up
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <div className='vid-overlay' style={vidOverlay}>

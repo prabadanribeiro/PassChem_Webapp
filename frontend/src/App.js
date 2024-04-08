@@ -5,8 +5,8 @@ import { createRouter } from './config/Router'
 
 export default function App() {
     
-    const [topics, setTopics] = useState(null);
-    const [lesson, setLesson] = useState(null);
+    const [topics, setTopics] = useState(null)
+    const [lesson, setLesson] = useState(null)
 
     useEffect(() => {
         Promise.all([ApiService.GetTopics(), ApiService.GetLesson()])

@@ -3,7 +3,7 @@ import axios from 'axios'
 class ApiService {
 
     GetTopics () {
-        return axios.get('http://127.0.0.1:8000/topics/')
+        return axios.get('http://127.0.0.1:8000/api/topic/')
             .then(res => {
                 const topics = res.data
                 topics.sort((a, b) => a.unit - b.unit)
@@ -15,7 +15,7 @@ class ApiService {
     }
 
     GetLesson () {
-        return axios.get('http://127.0.0.1:8000/lesson/')
+        return axios.get('http://127.0.0.1:8000/api/lesson/')
             .then(res => {
                 const lesson = res.data
                 return lesson
@@ -26,7 +26,7 @@ class ApiService {
     }
 
     GetVideosByLesson(LessonId) {
-        return axios.get('http://127.0.0.1:8000/video_language/')
+        return axios.get('http://127.0.0.1:8000/api/video_language/')
             .then(res => {
                 const videos = res.data
                 const filteredVideos = videos.filter(video => video.video === LessonId)

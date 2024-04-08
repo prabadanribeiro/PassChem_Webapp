@@ -6,6 +6,8 @@ import TopicsPage from '../pages/TopicsPage'
 import ErrorPage from '../pages/ErrorPage'
 import LessonPage from '../pages/LessonPage'
 import LessonsOverview from '../pages/LessonsOverview'
+import LoginPage from '../pages/LoginPage'
+import SignupPage from '../pages/SignupPage'
 
 const Root = () => {
     return (
@@ -59,6 +61,14 @@ export const createRouter = (topics = [], lesson = []) => {
                 {
                     path: "/topics",
                     element: <TopicsPage />,
+                },
+                {
+                    path: "/login",
+                    element: <LoginPage />,
+                },
+                {
+                    path: "/signup",
+                    element: <SignupPage />,
                 },
                 ...dynamicTopicsRoutes,
                 ...dynamicLessonRoutes,
