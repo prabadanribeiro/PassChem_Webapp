@@ -5,7 +5,7 @@
 }
 
 .topics-body {
-  height: 120vh;
+  height: fit-content;
 }
 
 .topics-body h3 {
