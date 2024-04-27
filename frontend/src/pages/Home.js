@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 export default function Home() {
     return (
-        <div>
+        <div style={{backgroundColor: '#e7e3e3'}}>
             <Navbar isHome/>
             <Main/>
             <Quotes/>

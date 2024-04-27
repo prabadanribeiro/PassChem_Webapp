@@ -12,7 +12,10 @@ export default function Quotes(){
 
   function slideFunction(num, index){
     let position = btns.indexOf(num);
-    setTranslation(position * -800);
+    let slidesContainer = document.getElementById('slide')
+    let slideInfo = slidesContainer.getBoundingClientRect();
+    let slideWidth = slideInfo.width
+    setTranslation(position * (slideWidth / -11));
     setActiveIndex(index);
   }
   useEffect(() => {
@@ -48,57 +51,57 @@ export default function Quotes(){
           <div className='overflow-content'>
             <div className='slides-container' id='slide' style={{ transform: `translateX(${translation}px)` }}>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>I looked at it twice, and I love it! Superb graphics, in tune with space age computer games and well paced. I think that this would be a great addition to the teachers' arsenal in teaching organic chemistry.</q>
                   <p>Professor K. Peter Vollhardt, PH.D. (UC, Berkeley) Author of world-famous college text, Organic Chemistry</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>...will help students immensely. ...the video demonstrates them [three-dimensional representations] exceptionally well. I plan to use these videos in future classes...</q>
                   <p>Journal of Chemical Education, 2011, 88(1), pp 18-21</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>3-dimensionality of representations is excellent. The molecules moving across a cloud/stellar background adds nicely to 3-D feeling. ...blackboard interpolations are very nice, good connection to standard practice. I also like the shrinking and expansion of the p lobes to show two representations of p-bonds.</q>
                   <p>Professor Roald Hoffmann, PH.D. (Cornell) Nobel Prize, Chemistry, 1981</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>The graphics are awesome. Overall, I like it and would advise beginning students to purchase it or view it.</q>
                   <p>Professor James J. Worman, PH.D. (RIT)</p>
                 </section>
               </div> 
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>These videos are perfectly suited for today's learning environment... a great addition to the ambitious high school student or undergraduate's chemistry tool bag.</q>
                   <p>Paul Ford, PH.D., Principal Scientist, McCormick and Company, Inc.</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>Students across all disciplines and educational levels will find themselves engaged in these captivating, informative, constructive, and novel instructional tools. These videos will no doubt help students achieve their maximum learning potential.</q>
                   <p>Josh Kogot, PH.D., Army Research Scientist</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>They are brillant! I will make good use of these and will recommend others buy them.</q>
                   <p>Sandy Humphrey, BSc., Nechako Valley Secondary School</p>
                 </section>
               </div> 
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>Every one of my students greatly enjoyed and learned about hybridization today via your video. There is no better way to convey the 3-D aspect of the molecules. Your students have created an impressive series of videos!</q>
                   <p>Wendy Athens, B.S., M.S. AP, Honors and Regular Chemistry Evangelical Christian School Fort Myers, FL</p>
                 </section>
               </div>
               <div className='testimonial-slide'>
-              <section>
+                <section>
                   <q>These videos are an extraordinary instructional and motivational tool for teachers to help students visualize and learn.~ Lessons are clear, focused, engaging, and fun.~ They heighten a student's eagerness to learn.</q>
-                  <p>Frances Gatz, Ph.D., Director, Rainforest Workshops (exploring medicinal plant chemistry and use) Environmental Expeditions</p>
+                  <p>Frances Gatz, Ph.D., Director, Rainforest Workshops Environmental Expeditions</p>
                 </section>
               </div>
               <div className='testimonial-slide'>

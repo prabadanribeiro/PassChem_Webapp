@@ -35,7 +35,7 @@ export default function Navbar({ isHome }) {
                 </video>
             </div>
             <nav className="navbar" style={navColor}>
-                <a className="logo"><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
+                <a><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
                 <ul>
                     <li>
                         <Link className='nav-link' to={'/'}>
