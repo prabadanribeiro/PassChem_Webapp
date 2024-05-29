@@ -5,6 +5,7 @@
 
 
 /node_modules
+/src/config/config.js
 /.pnp
 .pnp.js
 /coverage

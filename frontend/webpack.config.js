@@ -1,23 +1,28 @@
-const path = require('path') // Defines path in os
-const HTMLWebpackPlugin = require('html-webpack-plugin') // Defines HTMLWebpackPlugin
+const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+require('dotenv').config()
 
 module.exports = {
 
-    entry: './src/index.js', // Input 
+    entry: './src/index.js',
 
-    output: { // Makes destination folder and file for bundle.js
+    output: {
         path: path.join(__dirname, 'dist'), 
         filename: 'bundle.js',
         publicPath: '/',
     },
 
-    plugins: [ // Makes sure index.html is in new dist folder
+    plugins: [ 
         new HTMLWebpackPlugin({
             template: './public/index.html',
         }),
+        new webpack.DefinePlugin({
+            'process.env.REACT_APP_GOOGLE_CLIENT_ID': JSON.stringify(process.env.REACT_APP_GOOGLE_CLIENT_ID),
+        }),
     ], 
 
-    module: { // Makes sure only index.js is taken in and uses babel-loader for JSX
+    module: { 
         rules: [
             {
                 test: /.js$/,
