@@ -5,10 +5,11 @@
 }
 
 .quotes-page-hero {
-  height: 110vh;
+  height: fit-content;
   width: 100%;
   position: relative;
   background-color: #e7e3e3;
+  padding: 40px;
 }
 
 /*
@@ -21,85 +22,85 @@ Testimonial Hierarchy
   height: 600px;
   width: 100%;
   position: relative;
-
-  & .testimonial-container {
-    width: 800px;
-    height: 400px;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);  
-    z-index: 99;
-
-    & .overflow-content {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      /* background-image: linear-gradient(120deg, rgba(244, 10, 10, 0.25), rgba(10, 10, 242, 0.25)); */
-      background-image: linear-gradient(to bottom right, rgba(162, 255, 162, 0.65), rgba(50, 164, 199, 0.65));
-      border-radius: 13px;
-
-      & .slides-container {
-        display: flex;
-        width: 8800px;
-        transition: all 0.8s ease-in-out 50ms;
-    
-        & .testimonial-slide {
-          width: 800px;
-          height: 400px;
-          position: relative;
-    
-          & section {
-            width: 80%;
-            height: 300px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-    
-            & q {
-              font-size: 1.5rem;
-              font-family: DM Sans;
-    
-              & + p {
-                color: #222;
-                font-size: 1.2rem;
-                margin-top: 30px;
-                font-family: DM Sans;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
+
+.testimonial-container {
+  width: 800px;
+  height: 400px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  z-index: 99;
+}
+
+.overflow-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, rgba(162, 255, 162, 0.65), rgba(50, 164, 199, 0.65));
+  border-radius: 13px;
+}
+
+.slides-container {
+  display: flex;
+  width: 8800px;
+  transition: all 0.8s ease-in-out 50ms;
+}
+
+.testimonial-slide {
+  width: 800px;
+  height: 400px;
+  position: relative;
+}
+
+.testimonial-slide section {
+  width: 80%;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.testimonial-slide section q {
+  font-size: 1.5rem;
+  font-family: DM Sans;
+}
+
+.testimonial-slide section p {
+  color: #222;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  font-family: DM Sans;
+}
+            
 
 .indicator {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: -50px;
+}
 
-  & span {
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    margin: 5px;
-    border-radius: 15px;
-    background: #676565;
-    cursor: pointer;
-    transition: width 0.8s 50ms, background-color 200ms 25ms;
+.indicator span {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin: 5px;
+  border-radius: 15px;
+  background: #676565;
+  cursor: pointer;
+  transition: width 0.8s 50ms, background-color 200ms 25ms;
+}
 
-    &:hover {
-      background-color: #9f9b9b;
-    }
-  }
+.indicator span:hover {
+  background: #9f9b9b;
 }
 
 .indicator .active {
@@ -125,5 +126,58 @@ Testimonial Hierarchy
 }
 
 .divider-shape .shape-fill {
-  fill: #0d0e0e;
+  fill: hsl(180, 4%, 5%);
+}
+
+@media screen and (max-width: 840px) {
+  .testimonial-container {
+    width: 100vw;
+    height: 400px;
+  }
+
+  .testimonial-slide {
+    width: 100vw;
+  }
+
+  .slides-container {
+    width: 1100vw;
+  }
+
+  .overflow-content {
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .testimonial-container,
+  .testimonial-slide {
+    height: 460px;
+  }
+
+  .testimonial-slide section {
+    height: 400px;
+  }
+
+  .indicator {
+    width: 100%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .testimonial-container,
+  .testimonial-slide {
+    height: 560px;
+  }
+
+  .testimonial-slide section {
+    height: 480px;
+  }
+
+  .testimonial-slide section q {
+    font-size: 1.4rem;
+  }
 }

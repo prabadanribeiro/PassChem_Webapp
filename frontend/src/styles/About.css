@@ -1,0 +1,342 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.about-hero {
+  padding-top: 60px;
+  height: fit-content;
+  width: 100%;
+}
+
+.blur-container {
+  height: 100%;
+  width: 100%;
+  transition: filter .2s;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.blur-container.active {
+  filter: blur(14px) brightness(90%);
+}
+
+canvas {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.gradient-parent {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: 500px;
+  transform-origin: 0 100%;
+  transform: skewY(-8deg);
+  overflow: hidden;
+  z-index: -1;
+}
+.gradient-band {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.gradient-parent::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  min-width:1000px;
+  width:100%;
+  height: 100%;
+  background: radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, hsl(155, 70%, 70%);
+}
+
+.about-container {
+  height: fit-content;
+  width: 75%;
+  margin: -2vw auto 0; 
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 99;
+  border-radius: 17px;
+  padding: 50px;
+  backdrop-filter: blur(100px);
+  box-sizing: content-box;
+}
+
+.about-content {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 45%;
+  width: 100%;
+}
+
+.about-content h2 {
+  font-size: clamp(55px, 5vw, 90px);
+  color: #111;
+  font-family: DM Sans;
+  text-decoration: underline solid hsl(215, 84%, 60%) clamp(4px, 12%, 12px);
+  text-decoration-skip-ink: none;
+  text-underline-offset: clamp(4px, 12%, 16px);
+}
+
+.about-content p {
+  margin-top: 30px;
+  font-size: 22px;
+  color: hsl(231, 71%, 11%);
+  font-family: Helvetica;
+  line-height: 34px;
+  font-weight: 510;
+  display: block;
+  width: 90%;
+}
+
+.team-flexbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1155px;
+  height: fit-content;
+  padding: 0px 25px 50px 25px;
+  border: 1px solid #aaa;
+  border-radius: 13px;
+  margin: 0 auto;
+  background-image: linear-gradient(130deg, hsl(186, 68%, 96%), hsl(215, 84%, 98%));
+  gap: 25px;
+  position: relative;
+}
+
+.card-bounds {
+  display: inline-block;
+  height: 300px;
+  width: 350px;
+  transition: all 0.7s .1s;
+
+  &:hover > .member-card {
+    transform: rotateY(180deg);
+    box-shadow: -2px 2px 12px #999;
+  }
+}
+
+.member-card {
+  height: 300px;
+  width: 350px;
+  border: 1px solid #bbbbbb;
+  margin-top: 25px;
+  transition: 0.7s .1s;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  border-radius: 3px;
+}
+
+.card-bounds:hover > .member-card .flipped-content {
+  opacity: 1;
+}
+
+.card-bounds:hover > .member-card .frontside {
+  opacity: 0;
+}
+
+.about-hero .team-header {
+  font-size: 50px;
+  font-family: DM Sans;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #111;
+  margin-top: 100px;
+}
+
+.frontside h4 {
+  margin-top: 5px;
+  font-size: 28px;
+  text-align: center;
+  font-family: DM Sans;
+}
+
+.frontside p {
+  text-align: center;
+  font-size: 20px;
+  font-family: Archivo;
+  font-weight: 600;
+  padding-bottom: 50px;
+}
+
+.member-card img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin-top: 35px;
+}
+
+.frontside {
+  opacity: 1;
+  position: absolute;
+  transition: all .4s .1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.flipped-content {
+  position: absolute;
+  opacity: 0;
+  transition: all .4s .1s;
+  width: 80%;
+  margin: 0 auto;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.flipped-content h5 {
+  font-size: 28px;
+  font-family: DM Sans;
+  color: #629ef1;
+}
+
+.flipped-content p {
+  font-family: Archivo;
+  text-align: center;
+  font-size: 19px;
+  color: #111;
+  margin-top: 10px;
+}
+
+.flipped-content button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: hsl(215, 84%, 46%);
+}
+
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding-left: 25px;
+  left: 50%;
+  background-image: linear-gradient(130deg, hsl(186, 68%, 92%), hsl(215, 84%, 94%));
+  border-radius: 13px;
+  border-bottom: 5px solid #aaa;
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0.5);
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: translate(-50%, 0%) scale(1);
+  transition: transform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19), opacity 150ms linear;
+  z-index: 9999;
+  pointer-events: all;
+}
+
+.popup svg {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  cursor: pointer;
+  fill: rgb(67, 67, 67);
+  transition: fill 100ms ease;
+}
+
+.popup svg:hover {
+  fill: hsl(0, 0%, 45%);
+}
+
+.bio-container p {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 19px;
+  font-family: Helvetica;
+  color: #111;
+}
+
+.bio-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.bio-container h4 {
+  text-align: center;
+  font-family: Georgia;
+  font-size: 1.8rem;
+}
+
+.bio-container h5 {
+  font-family: DM Sans;
+  font-size: 1.6rem;
+}
+.bio-container .bio-link {
+  color: rgb(54, 54, 219);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1250px){
+  .team-flexbox {
+    width: 778px;
+  }
+}
+
+@media screen and (max-width: 855px){
+  .team-flexbox {
+    width: 402px;
+  }
+
+  .about-content {
+    align-items: center;
+  }
+  
+
+  .about-content h2,
+  .about-content p {
+    text-align: center;
+  }
+
+  .popup p,
+  .bio-container h5 {
+    text-align: center;
+    width: 90%;
+  }
+
+  .bio-container h4 {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 410px){
+  .team-flexbox {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 35px;
+    justify-content: center;
+  }
+}

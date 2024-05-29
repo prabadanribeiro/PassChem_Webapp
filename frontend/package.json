@@ -17,7 +17,7 @@
     "dotenv": "^16.4.5",
     "js-cookie": "^3.0.5",
     "mammoth": "^1.6.0",
-    "pdfjs-dist": "^4.0.379",
+    "pdfjs-dist": "^3.11.174",
     "react": "^18.2.0",
     "react-doc-viewer": "^0.1.5",
     "react-dom": "^18.2.0",

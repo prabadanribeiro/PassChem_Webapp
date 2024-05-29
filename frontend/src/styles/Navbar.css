@@ -26,7 +26,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #000;
-  z-index: 99;
+  z-index: 999;
 
   & li {
     display: inline-block;
@@ -130,7 +130,7 @@
         display: inline-block;
         color: #f0f8ff;
         margin-top: 25px;
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         padding: 5px 10px;
         border: 2px solid #f0f8ff;
         font-family: sans-serif;
