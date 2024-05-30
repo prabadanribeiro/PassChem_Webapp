@@ -48,8 +48,18 @@ export default function Navbar({ isHome }) {
                         </Link>
                     </li>
                     <li>
-                        <Link className='nav-link' to={'/topics'}>
-                            Topics
+                        <Link className='nav-link' to={'/curriculum'}>
+                            Curriculum
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className='nav-link' to={'/login'}>
+                            Login
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className='nav-link' to={'/signup'}>
+                            Sign Up
                         </Link>
                     </li>
                 </ul>

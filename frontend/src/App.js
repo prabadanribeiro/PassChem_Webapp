@@ -5,25 +5,30 @@ import { createRouter } from './config/Router'
 
 export default function App() {
     
-    const [topics, setTopics] = useState(null);
-    const [lesson, setLesson] = useState(null);
+    const [units, setUnits] = useState(null)
+    const [topics, setTopics] = useState(null)
+    const [lessons, setLessons] = useState(null)
 
     useEffect(() => {
-        Promise.all([ApiService.GetTopics(), ApiService.GetLesson()])
-            .then(([fetchedTopics, fetchedLesson]) => {
+        Promise.all([ApiService.GetUnits(), ApiService.GetTopics(), ApiService.GetLessons()])
+            .then(([fetchedUnits, fetchedTopics, fetchedLessons]) => {
+                setUnits(fetchedUnits)
                 setTopics(fetchedTopics)
-                setLesson(fetchedLesson)
+                setLessons(fetchedLessons)
+                console.log(fetchedUnits)
+                console.log(fetchedTopics)
+                console.log(fetchedLessons)
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching data:', error)
             })
     }, [])
 
-    if (topics === null || lesson === null) {
+    if (units === null || topics === null || lessons === null) {
         return <div>Loading...</div>
     }
 
-    const router = createRouter(topics, lesson); 
+    const router = createRouter(units, topics, lessons)
 
     return (
         <div>

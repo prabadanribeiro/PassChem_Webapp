@@ -1,11 +1,15 @@
 import React from 'react'
-import { createHashRouter, Outlet } from 'react-router-dom'
+import { createBrowserRouter, Outlet } from 'react-router-dom'
 import Home from '../pages/Home'
 import About from '../pages/About'
-import TopicsPage from '../pages/TopicsPage'
+import UnitsPage from '../pages/UnitsPage'
 import ErrorPage from '../pages/ErrorPage'
+import TopicPage from '../pages/TopicPage'
+import UnitTopics from '../pages/UnitTopics'
+import LoginPage from '../pages/LoginPage'
 import LessonPage from '../pages/LessonPage'
-import LessonsOverview from '../pages/LessonsOverview'
+import SignupPage from '../pages/SignupPage'
+import URLService from '../services/URLService'
 
 const Root = () => {
     return (
@@ -17,32 +21,46 @@ const Root = () => {
     )
 }
 
-export const createRouter = (topics = [], lesson = []) => {
-
-    // Initialize dynamicTopicsRoutes only if topics is not empty
-    const dynamicTopicsRoutes = topics.length > 0 ? topics.map(topic => {
-        const topicLessons = lesson.filter(lessonItem => lessonItem.topic === topic.id)
+export const createRouter = (units = [], topics = [], lessons = []) => {
+    
+    const dynamicUnitsRoutes = units.length > 0 ? units.map(unit => {
+        const unitSlug = URLService.slugify(unit.title)
+        const unitTopics = topics.filter(topic => topic.unit === unit.id)
         return {
-            path: `/topics/${encodeURIComponent(topic.title)}`,
-            element: <LessonsOverview topicLessons={topicLessons} topicTitle={topic.title} topicUnit={topic.unit}/>,
+            path: `/curriculum/${unitSlug}`,
+            element: <UnitTopics unitTitle={unit.title} unitTopics={unitTopics} unitNumber={unit.unit_number} unit={unit} />,
         }
     }) : []
 
-    // Initialize dynamicLessonRoutes only if both topics and lesson are not empty
-    const dynamicLessonRoutes = topics.length > 0 && lesson.length > 0 ? topics.map(topic => {
-        const topicLessons = lesson.filter(lessonItem => lessonItem.topic === topic.id)
-        return lesson.filter(lessonItem => lessonItem.topic === topic.id)
-            .map(lessonItem => {
-                return {
-                    path: `/topics/${encodeURIComponent(topic.title)}/${encodeURIComponent(lessonItem.title)}`,
-                    element: <LessonPage topicLessons={topicLessons} lesson={lessonItem} topicTitle={topic.title} topicUnit={topic.unit}/>,
-                }
-        })
+    const dynamicTopicRoutes = topics.length > 0 && units.length > 0 ? topics.map(topic => {
+        const unit = units.find(unit => unit.id === topic.unit)
+        const unitSlug = URLService.slugify(unit.title)
+        const topicSlug = URLService.slugify(topic.title)
+        const topicLessons = lessons.filter(lesson => lesson.topic === topic.id)
+        return {
+            path: `/curriculum/${unitSlug}/${topicSlug}`,
+            element: <TopicPage unitTitle={unit.title} topicTitle={topic.title} topicLessons={topicLessons} topic={topic}/>,
+        }
     }).flat() : []
 
+    const dynamicLessonRoutes = lessons.length > 0 && topics.length > 0 && units.length > 0 ? lessons.map(lesson => {
+        const topic = topics.find(topic => topic.id === lesson.topic)
+        const unit = units.find(unit => unit.id === topic.unit)
+        const unitSlug = URLService.slugify(unit.title)
+        const topicSlug = URLService.slugify(topic.title)
+        const lessonSlug = URLService.slugify(lesson.title)
+        const topicLessons = lessons.filter(lessonItem => lessonItem.topic === topic.id)
+        return {
+            path: `/curriculum/${unitSlug}/${topicSlug}/${lessonSlug}`,
+            element: <LessonPage lesson={lesson} unitTitle={unit.title} topicTitle={topic.title} topicLessons={topicLessons} />,
+        }
+    }).flat() : []
 
-    // Browser which creates paths for every page
-    const router = createHashRouter([
+    console.log('Units Routes:', dynamicUnitsRoutes)
+    console.log('Topics Routes:', dynamicTopicRoutes)
+    console.log('Lessons Routes:', dynamicLessonRoutes)
+
+    const router = createBrowserRouter([
         {
             path: "/",
             element: <Root />,
@@ -57,14 +75,25 @@ export const createRouter = (topics = [], lesson = []) => {
                     element: <About />,
                 },
                 {
-                    path: "/topics",
-                    element: <TopicsPage />,
+                    path: "/curriculum",
+                    element: <UnitsPage />,
                 },
-                ...dynamicTopicsRoutes,
+                {
+                    path: "/login",
+                    element: <LoginPage />,
+                },
+                {
+                    path: "/signup",
+                    element: <SignupPage />,
+                },
+                ...dynamicUnitsRoutes,
+                ...dynamicTopicRoutes,
                 ...dynamicLessonRoutes,
             ],
         }
     ])
+
+    console.log(router)
 
     return router
 }

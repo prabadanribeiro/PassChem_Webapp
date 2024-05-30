@@ -5,25 +5,34 @@ import '../styles/LanguageDropdown.css'
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 import GoBackButton from './GoBackButton'
 import LessonButtons from './LessonButtons'
+import Cookies from 'js-cookie'
+import axios from 'axios'
+import api from '../services/AxiosServices'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
-export default function Lesson( {lesson, topicTitle} ) {
+export default function Lesson( {lesson, topicTitle, unitTitle} ) {
 
     const [numPages, setNumPages] = useState(null)
     const [pages, setPages] = useState([])
     const [videos, setVideos] = useState([])
     const [isVisible, setIsVisible] = useState(false)
     const [videoURL, setVideoURL] = useState()
-    const [documentURL, setDocumentURL] = useState('')
+    const [documentURL, setDocumentURL] = useState('') 
     const [isAnswerKey, setIsAnswerKey] = useState(false)
     const dropdownRef = useRef(null)
+    const [completed, setCompleted] = useState(false)
+    const [message, setMessage] = useState('')
+    const accessToken = Cookies.get('access_token')
+    const refreshToken = Cookies.get('refresh_token')
+    let docType = null
     let content = null
 
     const toggleDropdown = () => setIsVisible(!isVisible)
 
     useEffect(() => {
-        ApiService.GetVideosByLesson(lesson.id)
+        if (lesson.video_title) {
+            ApiService.GetVideosByLesson(lesson.id)
             .then(fetchedVideos =>{
                 setVideos(fetchedVideos)
                 setVideoURL(`https://www.youtube.com/embed/${fetchedVideos[0].url_id}`)
@@ -31,8 +40,29 @@ export default function Lesson( {lesson, topicTitle} ) {
             .catch(error => {
                 console.error('Error in component fetching video_language:', error)
             })
-        setDocumentURL(`http://127.0.0.1:8000/${lesson.document}`)
-    }, [lesson])
+        }
+       
+        if (lesson.worksheet) {
+            docType = 'worksheet'
+            setDocumentURL(`http://127.0.0.1:8000/${lesson[docType]}`)
+        } else if (lesson.notes) {
+            docType = 'notes'
+            setDocumentURL(`http://127.0.0.1:8000/${lesson[docType]}`)
+        }
+        
+        if (accessToken && refreshToken) {
+            const fetchCompletionStatus = async () => {
+                try {
+                    const completionStatus = await ApiService.GetLessonCompletionStatus(lesson.id, accessToken)
+                    setCompleted(completionStatus)
+                } catch (error) {
+                    console.error('Error fetching lesson completion status:', error)
+                }
+            }
+            fetchCompletionStatus()
+        }
+
+    }, [lesson, accessToken])
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -59,9 +89,36 @@ export default function Lesson( {lesson, topicTitle} ) {
             setDocumentURL(`http://127.0.0.1:8000/${lesson.answer_key}`)
             setIsAnswerKey(true)
         } else {
-            setDocumentURL(`http://127.0.0.1:8000/${lesson.document}`)
+            if (lesson.worksheet) 
+                docType = 'worksheet'
+            else if (lesson.notes) 
+                docType = 'notes'
+            setDocumentURL(`http://127.0.0.1:8000/${lesson[docType]}`)
             setIsAnswerKey(false)
         }   
+    }
+
+    const handleToggleCompletion = async () => {
+        try {
+            const response = await api.post(
+                `mark_lesson_completed/${lesson.id}/`,
+                { completed: !completed },
+                {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+                }
+            )
+            if (response.data.status === 'success') {
+                setCompleted(!completed)
+                setMessage('Lesson completion status updated.')
+            } else {
+                setMessage('Error updating lesson completion status: ' + response.data.message)
+            }
+        } catch (error) {
+            setMessage('Error updating lesson completion status: ' + error.message)
+        }
     }
 
     if (lesson.type === 'video') { 
@@ -134,12 +191,12 @@ export default function Lesson( {lesson, topicTitle} ) {
 
     return (
         <div>
-            <GoBackButton page={"Lesson"} topicTitle={topicTitle}/>
-            <h1>LESSON</h1>
             <h1>{lesson.title}</h1>
             {content}
-            <LessonButtons lesson={lesson} topicTitle={topicTitle}/> 
-        </div> // IN THE FUTURE REPLACE LESSON BUTTONS WITH ARROWS WITH THE SAME FUNCTION
+            <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
+            { accessToken && refreshToken ? (<button onClick={handleToggleCompletion}>change completion</button>) : []}
+            { accessToken && refreshToken ? (completed ? <p>Lesson Completed</p> : <p>Lesson Not Completed</p>) : []}
+        </div>
     )
 
 }
