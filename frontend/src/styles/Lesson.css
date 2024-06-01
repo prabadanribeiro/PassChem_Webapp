@@ -1,0 +1,22 @@
+
+.lesson-content {
+  display: inline-block;
+  vertical-align: top;
+  width: 1160px;
+  height: calc(100vh - 80px);
+}
+
+.lesson-content h2 {
+  font-size: 56px;
+  font-family: DM Sans;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.video-player,
+.text-pdf {
+  height: 315px;
+  width: 560px;
+}

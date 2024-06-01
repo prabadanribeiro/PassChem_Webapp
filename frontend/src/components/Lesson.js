@@ -5,6 +5,7 @@ import '../styles/LanguageDropdown.css'
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 import GoBackButton from './GoBackButton'
 import LessonButtons from './LessonButtons'
+import '../styles/Lesson.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
@@ -85,6 +86,7 @@ export default function Lesson( {lesson, topicTitle} ) {
                     </div>
                 )}
                 <iframe 
+                    className='video-player'
                     width="560" 
                     height="315" 
                     src={videoURL}
@@ -97,21 +99,11 @@ export default function Lesson( {lesson, topicTitle} ) {
         )
     }
 
-    const docContainerStyle = {
-        width: '725px',
-        height: '750px',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        border: '3px solid black',
-        display: 'flex', 
-        justifyContent: 'center',
-    }
-
     if (lesson.type === 'text') {
         content = (
             <div>
-                <div style={docContainerStyle}>
-                    <Document file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
+                <div>
+                    <Document file={documentURL} onLoadSuccess={onDocumentLoadSuccess} className='text-pdf'>
                         {pages.map(pagenumber =>
                             <Page 
                                 key={pagenumber}
@@ -133,13 +125,12 @@ export default function Lesson( {lesson, topicTitle} ) {
     }
 
     return (
-        <div>
-            <GoBackButton page={"Lesson"} topicTitle={topicTitle}/>
-            <h1>LESSON</h1>
-            <h1>{lesson.title}</h1>
-            {content}
-            <LessonButtons lesson={lesson} topicTitle={topicTitle}/> 
-        </div> // IN THE FUTURE REPLACE LESSON BUTTONS WITH ARROWS WITH THE SAME FUNCTION
+            <div className='lesson-content'>
+                <h2>LESSON {lesson.title}</h2>
+                {content}
+                <LessonButtons lesson={lesson} topicTitle={topicTitle}/> 
+            </div>
+         // IN THE FUTURE REPLACE LESSON BUTTONS WITH ARROWS WITH THE SAME FUNCTION
     )
 
 }

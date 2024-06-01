@@ -7,11 +7,12 @@ function GoBackButton({ page, topicTitle }) {
 
     const backButton = {
         position: 'absolute',
-        top: '108px',
-        left: '40px',
-
-        borderRight: '3px solid #111',
-        borderBottom: '3px solid #111',
+        top: '100px',
+        left: '20px',
+        height: '40px',
+        width: '50px',
+        borderRight: '3px solid rgb(145, 195, 239)',
+        zIndex: '99'
     }
 
     if (page === "Lesson") {

@@ -8,8 +8,8 @@ export default function LessonPage( {topicLessons, lesson, topicTitle} ) { // to
     return (
         <div>
             <Navbar />
+            <LessonList topicLessons={topicLessons} topicTitle={topicTitle} isLessonPage={true}/>
             <Lesson key={lesson.id} lesson={lesson} topicTitle={topicTitle}/>
-            <LessonList topicLessons={topicLessons} topicTitle={topicTitle}/>
         </div>
     )
 
