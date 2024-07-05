@@ -8,6 +8,7 @@ import LessonButtons from './LessonButtons'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import api from '../services/AxiosServices'
+import '../styles/Lesson.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
@@ -190,8 +191,8 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
     }
 
     return (
-        <div>
-            <h1>{lesson.title}</h1>
+        <div className='lesson-content'>
+            <h2>{lesson.title}</h2>
             {content}
             <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
             { accessToken && refreshToken ? (<button onClick={handleToggleCompletion}>change completion</button>) : []}

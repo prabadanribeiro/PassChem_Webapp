@@ -82,7 +82,7 @@ canvas {
 
 .about-content h2 {
   font-size: clamp(55px, 5vw, 90px);
-  color: #111;
+  color: #121212;
   font-family: DM Sans;
   text-decoration: underline solid hsl(215, 84%, 60%) clamp(4px, 12%, 12px);
   text-decoration-skip-ink: none;
@@ -151,7 +151,7 @@ canvas {
 }
 
 .about-hero .team-header {
-  font-size: 50px;
+  font-size: 55px;
   font-family: DM Sans;
   text-align: center;
   margin-bottom: 15px;
@@ -170,8 +170,9 @@ canvas {
   text-align: center;
   font-size: 20px;
   font-family: Archivo;
-  font-weight: 600;
+  font-weight: 400;
   padding-bottom: 50px;
+  color: #444;
 }
 
 .member-card img {

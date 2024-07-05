@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import URLService from '../services/URLService'
+import '../styles/LessonOverview.css'
 
 export default function TopicsList( {topics, unitTitle}) { // ADD DROPDOWN MENU FOR EACH TOPIC WHERE ALL LESSONS ASSOCIATED APPEAR
     

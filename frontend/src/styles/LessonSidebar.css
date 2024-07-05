@@ -1,0 +1,38 @@
+.lesson-sidebar {
+  display: inline-block;
+  width: 280px;
+  height: calc(100vh - 90px);
+  background-color: white;
+  border-right: 1px solid #aaa;
+}
+
+.sidebar-list {
+  width: 100%;
+}
+
+.sidebar-list:first-child {
+  margin-top: 90px;
+  border-top: 1px solid #bbb;
+}
+
+.sidebar-list li {
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.list_item {
+  display: block;
+  color: #000;
+  padding: 20px 30px;
+  font-size: 28px;
+  font-family: Helvetica;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+.list_item:hover {
+  background-color: #555;
+  color: white;
+}

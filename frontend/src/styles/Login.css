@@ -1,0 +1,72 @@
+
+.login-hero {
+  height: calc(100vh - 90px);
+  width: 100vw;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, hsl(207, 14%, 74%), hsl(207, 22%, 53%));
+}
+
+.login-hero form {
+  height: 100%;
+  width: 50%;
+  background-color: aliceblue;
+}
+
+#form-info {
+  width: fit-content;
+  margin: 0 0 0 15%;
+  padding-top: 15%;
+}
+
+#form-info h3 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-family: DM Sans;
+}
+
+.form-input {
+  margin-bottom: 40px;
+}
+
+.form-input label {
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Archivo;
+  color: #333;
+}
+
+.form-input input {
+  height: 42px;
+  width: 450px;
+  display: block;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: solid 1px #999;
+}
+
+input::placeholder {
+  padding-left: 12px;
+  font-size: 14px;
+}
+
+form button {
+  padding: 8px 198px;
+  font-size: 17px;
+  font-family: Archivo;
+  background-color: hsl(207, 44%, 56%);
+  color: rgb(242, 248, 254);
+  border: 1px solid #888;
+  border-radius: 8px;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: hsl(207, 44%, 60%);
+}
+
+.chair-logo {
+  display: inline-block;
+  width: 500px;
+  height: 400px;
+}

@@ -15,7 +15,7 @@ export default function Navbar({ isHome }) {
     const bgvideo = isHome ? 'nebula.mp4' : ''
     
     const hero = {
-        height: isHome ? '100vh' : '80px'
+        height: isHome ? '100vh' : '90px'
     }
 
     const navColor = {
@@ -35,21 +35,16 @@ export default function Navbar({ isHome }) {
                 </video>
             </div>
             <nav className="navbar" style={navColor}>
-                <a><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
+                <Link to={'/'}><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></Link>
                 <ul>
-                    <li>
-                        <Link className='nav-link' to={'/'}>
-                            Home
-                        </Link>
-                    </li>
                     <li> 
-                        <Link className='nav-link' to={'/about'}>
-                            About
-                        </Link>
-                    </li>
-                    <li>
                         <Link className='nav-link' to={'/curriculum'}>
                             Curriculum
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className='nav-link' to={'/about'}>
+                            About
                         </Link>
                     </li>
                     <li>
