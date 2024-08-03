@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import config from '../config/Config'
 import api from '../services/AxiosServices'
@@ -152,8 +152,9 @@ export default function LoginForm() {
                     <button type="submit">Sign In</button>
                     <div id='GoogleSignIn'></div>
                 </div>
+                <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>
             </form>
-            <img src='images/chair-logo.png' className='chair-logo'/>
+            <img src='/images/chair-logo.png' className='chair-logo'/>
        </div>
     )
 }

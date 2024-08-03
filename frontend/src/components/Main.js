@@ -10,7 +10,7 @@ export default function Main(){
         <div className='courses-overview'>
           <h2 className='header'>Access <span className='gradient-green'>free</span> courses <br></br>with videos and <br></br>exercises</h2>
           <p>Lessons include practice problems, narrated videos, and stunning visual effects. Master the material from each unit and grow your chemistry skills by following each lesson.</p>
-          <Link className='page-link-button' to={'/topics'}>Take me there</Link>
+          <Link className='page-link-button' to={'/curriculum'}>Take me there</Link>
         </div>
         <div className='lesson-display'>
           <img src='' alt='Lesson UI' />

@@ -24,17 +24,17 @@
 
   & li {
     display: inline-block;
-    margin: 0 25px;
+    margin: 0 28px;
     position: relative;
   }
 }
 
 .nav-link {
   text-decoration: none;
-  color: #f6f7f2;
-  font-family: Helvetica;
+  color: #f2f3ed;
+  font-family: Archivo;
   font-weight: 500;
-  font-size: 21px;
+  font-size: 22px;
 
   &::before {
     content: '';
@@ -108,6 +108,7 @@
     font-family: Archivo;
     font-weight: 450;
     line-height: 80px;
+    isolation: isolate;
     letter-spacing: 0;
     font-size: clamp(50px, 5rem, 140px);
     color: rgb(190, 246, 255);
@@ -117,16 +118,17 @@
       color: #babfcb;
       font-size: 1.8rem;
       font-weight: 400;
+      isolation: isolate;
       font-family: Archivo;
 
       & + a {
         text-decoration: none;
         display: inline-block;
-        color: #f0f8ff;
+        color: #fafcff;
         margin-top: 25px;
         font-size: 1.75rem;
         padding: 5px 10px;
-        border: 2px solid #f0f8ff;
+        border: 1px solid #f0f8ff;
         font-family: sans-serif;
         transition: all 400ms normal;
         cursor: pointer;

@@ -1,21 +1,62 @@
 .lesson-content {
   display: inline-block;
   vertical-align: top;
+  position: relative;
   width: 1160px;
-  height: calc(100vh - 90px);
+  height: fit-content;
 }
 
 .lesson-content h2 {
   font-size: 56px;
   font-family: DM Sans;
-  text-align: center;
   letter-spacing: 2px;
   font-weight: 700;
-  margin-top: 20px;
+  text-align: center;
+  padding-top: 65px;
 }
 
-.video-player,
-.text-pdf {
+.lesson-content p {
+  font-size: 18px;
+  font-family: Helvetica;
+  text-align: center;
+  color: #555;
+  margin-top: 3px;
+}
+
+.video-player {
   height: 315px;
   width: 560px;
+}
+.docContainer {
+  width: 100%;
+  height: calc(100vh - 90px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.text-pdf {
+  width: 725px;
+  height: inherit;
+  margin: 0 auto;
+  transform: scale(1.6);
+  transform-origin: top;
+}
+.react-pdf__Page canvas {
+  margin: 0 auto;
+}
+
+.answerKey-worksheet-button {
+  padding: 8px 12px;
+  background-color: hsl(207, 70%, 90%);
+  z-index: 9999;
+  border: 1px solid #111;
+  font-family: DM Sans;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.6) translateX(-70px);
+  padding-bottom: 30px;
 }

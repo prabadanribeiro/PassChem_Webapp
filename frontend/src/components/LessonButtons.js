@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ApiService from '../services/ApiService'
 import URLService from '../services/URLService'
+import '../styles/LessonButtons.css'
 
 function LessonButtons({ lesson, topicTitle, unitTitle }) {
     const [lessons, setLessons] = useState([])
@@ -54,12 +55,12 @@ function LessonButtons({ lesson, topicTitle, unitTitle }) {
     return (
         <div>
             {nextLesson && (
-                <Link to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(nextLesson.title)}`}>
+                <Link id='next-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(nextLesson.title)}`}>
                     NEXT
                 </Link>
             )}
             {previousLesson && (
-                <Link to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(previousLesson.title)}`}>
+                <Link id='previous-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(previousLesson.title)}`}>
                     PREVIOUS
                 </Link>
             )}
