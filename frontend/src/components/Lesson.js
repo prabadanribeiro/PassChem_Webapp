@@ -8,6 +8,7 @@ import LessonButtons from './LessonButtons'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import api from '../services/AxiosServices'
+import '../styles/Lesson.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
@@ -124,6 +125,15 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
     if (lesson.type === 'video') { 
         content = (
             <div>
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src={videoURL}
+                    title="YouTube video player" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen>
+                </iframe>
                 {videos.length > 0 && (
                     <div className="dropdown" ref={dropdownRef}>
                         <button 
@@ -141,59 +151,38 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                         )}
                     </div>
                 )}
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src={videoURL}
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen>
-                </iframe>
             </div>
         )
     }
 
-    const docContainerStyle = {
-        width: '725px',
-        height: '750px',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        border: '3px solid black',
-        display: 'flex', 
-        justifyContent: 'center',
-    }
-
     if (lesson.type === 'text') {
         content = (
-            <div>
-                <div style={docContainerStyle}>
-                    <Document file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
+                <div className='docContainer'>
+                    <h2>{lesson.title}</h2>
+                    <Document className='text-pdf' file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
                         {pages.map(pagenumber =>
                             <Page 
                                 key={pagenumber}
                                 pageNumber={pagenumber}
                                 renderTextLayer={false}
                                 renderAnnotationLayer={false}
-                                scale={1.3}
+                                scale={1.0}
                                 wrap={false}
                             >
                             </Page>
                         )}
+                        <div className='buttons-container'>
+                            <button className='answerKey-worksheet-button' onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
+                            <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
+                        </div>
                     </Document>
                 </div>
-                <div>
-                    <button onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
-                </div>
-            </div>
         )
     }
 
     return (
-        <div>
-            <h1>{lesson.title}</h1>
+        <div className='lesson-content'>
             {content}
-            <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
             { accessToken && refreshToken ? (<button onClick={handleToggleCompletion}>change completion</button>) : []}
             { accessToken && refreshToken ? (completed ? <p>Lesson Completed</p> : <p>Lesson Not Completed</p>) : []}
         </div>

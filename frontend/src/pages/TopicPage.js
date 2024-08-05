@@ -11,6 +11,13 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
 
+    const topicsHeader = {
+        fontSize: '50px',
+        textAlign: 'center',
+        margin: '50px 0 40px 0',
+        fontFamily: 'DM Sans'
+    }
+
     useEffect(() => {
         if (accessToken && refreshToken) {
             const fetchProgression = async () => {
@@ -29,9 +36,7 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
         <div>
             <Navbar />
             <GoBackButton page={"Topic Page"} topicTitle={topicTitle} unitTitle={unitTitle}/>
-            <div>
-                <h1 className='topic-title'>{topicTitle}</h1>
-            </div>
+            <h2 style={topicsHeader}>{topicTitle}</h2>
             {accessToken && refreshToken ? (<h3>Progression: {progression}%</h3>) : []}
             <LessonList topicTitle={topicTitle} lessons={topicLessons} unitTitle={unitTitle}/>
         </div>

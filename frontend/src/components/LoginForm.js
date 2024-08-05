@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import config from '../config/Config'
 import api from '../services/AxiosServices'
+import '../styles/Login.css'
 
 function loadGoogleScript() {
     
@@ -122,22 +123,22 @@ export default function LoginForm() {
     }
 
     return (
-        <div>
+        <div className='login-hero'>
             <form onSubmit={submit}>
-                <div>
-                    <h3>Log In</h3>
+                <div id='form-info'>
+                    <h3>Login to PassChem</h3>
                     {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-                    <div>
+                    <div className='form-input'>
                         <label>Email</label>
                         <input
-                            placeholder="Email" 
+                            placeholder="Email address" 
                             name='email'  
                             type='email' value={email}
                             required 
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className='form-input'>
                         <label>Password</label>
                         <input 
                             name='Password' 
@@ -148,12 +149,12 @@ export default function LoginForm() {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <button type="submit">Submit</button>
-                    </div>
+                    <button type="submit">Sign In</button>
+                    <div id='GoogleSignIn'></div>
                 </div>
+                <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>
             </form>
-            <div id='GoogleSignIn'></div>
+            <img src='/images/chair-logo.png' className='chair-logo'/>
        </div>
     )
 }

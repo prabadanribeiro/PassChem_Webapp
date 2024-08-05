@@ -1,0 +1,6 @@
+#next-button, #previous-button {
+  padding: 8px 12px;
+  background-color: hsl(207, 70%, 90%);
+  border: 1px solid #111;
+  font-size: 1rem;
+}

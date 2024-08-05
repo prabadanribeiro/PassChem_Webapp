@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 
-export default function Navbar({ isHome }) {
+export default function Navbar({ isHome, isLessonPage }) {
 
     const MoreButtonScroll = (event) => {
         event.preventDefault()
@@ -15,10 +15,10 @@ export default function Navbar({ isHome }) {
     const bgvideo = isHome ? 'nebula.mp4' : ''
     
     const hero = {
-        height: isHome ? '100vh' : '80px'
+        height: isHome ? '100vh' : '90px'
     }
 
-    const navColor = {
+    const navSpecs = {
         backgroundColor: isHome ? 'transparent' : '#000'
     }
 
@@ -34,22 +34,17 @@ export default function Navbar({ isHome }) {
                     {/*Free Stock Videos by <a href="http://www.videezy.com">Videezy</a>*/}
                 </video>
             </div>
-            <nav className="navbar" style={navColor}>
-                <a><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></a>
+            <nav className="navbar" style={navSpecs}>
+                <Link to={'/'}><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></Link>
                 <ul>
-                    <li>
-                        <Link className='nav-link' to={'/'}>
-                            Home
-                        </Link>
-                    </li>
                     <li> 
-                        <Link className='nav-link' to={'/about'}>
-                            About
-                        </Link>
-                    </li>
-                    <li>
                         <Link className='nav-link' to={'/curriculum'}>
                             Curriculum
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className='nav-link' to={'/about'}>
+                            About
                         </Link>
                     </li>
                     <li>

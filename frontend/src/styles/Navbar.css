@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .hero {
   z-index: 0;
@@ -20,27 +15,26 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 90px;
   padding: 20px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
   z-index: 999;
 
   & li {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 28px;
     position: relative;
   }
 }
 
 .nav-link {
   text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-family: Helvetica;
-  font-size: 20px;
+  color: #f2f3ed;
+  font-family: Archivo;
+  font-weight: 500;
+  font-size: 22px;
 
   &::before {
     content: '';
@@ -67,7 +61,7 @@
 
   & video {
     object-fit: fill;
-    filter: brightness(90%);
+    filter: brightness(95%);
     height: 100%;
     width: 110%;
   }
@@ -81,7 +75,7 @@
   align-items: flex-end;
   justify-content: center;
   position: relative;
-  background-image: linear-gradient(100deg, #000 30%, rgba(0, 0, 0, 0.1) 60%, transparent 70%);
+  background-image: linear-gradient(100deg, #000 45%, rgba(0, 0, 0, 0.1) 70%, transparent 80%);
 
   &::before {
     content: '';
@@ -92,7 +86,7 @@
     bottom: 35%;
     border-radius: 50%;
     background-image: radial-gradient(rgb(81, 193, 213), rgb(100, 24, 136));
-    filter: blur(100px);
+    filter: blur(100px) brightness(95%);
   } 
   &::after {
     content: '';
@@ -103,36 +97,38 @@
     bottom: 55%;
     border-radius: 50%;
     background-image: radial-gradient(rgb(71, 63, 177), rgb(100, 24, 136));
-    filter: blur(115px);
+    filter: blur(115px) brightness(95%);
   }  
 } 
 
 .overlay-content {
   width: 80%;
-  transform: translateY(-5%);
 
   & h1 {
     font-family: Archivo;
-    font-weight: 700;
+    font-weight: 450;
     line-height: 80px;
-    letter-spacing: 2px;
+    isolation: isolate;
+    letter-spacing: 0;
     font-size: clamp(50px, 5rem, 140px);
     color: rgb(190, 246, 255);
 
     & + p {
       margin-top: 20px;
-      color: rgb(214, 227, 233);
-      font-size: 2rem;
+      color: #babfcb;
+      font-size: 1.8rem;
+      font-weight: 400;
+      isolation: isolate;
       font-family: Archivo;
 
       & + a {
         text-decoration: none;
         display: inline-block;
-        color: #f0f8ff;
+        color: #fafcff;
         margin-top: 25px;
         font-size: 1.75rem;
         padding: 5px 10px;
-        border: 2px solid #f0f8ff;
+        border: 1px solid #f0f8ff;
         font-family: sans-serif;
         transition: all 400ms normal;
         cursor: pointer;

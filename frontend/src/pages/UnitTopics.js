@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import TopicsList from '../components/TopicsList'
 import GoBackButton from '../components/GoBackButton'
 import Cookies from 'js-cookie' 
 import ApiService from '../services/ApiService'
-import '../styles/LessonOverview.css'
+import TopicsList from '../components/TopicsList'
 
 export default function UnitTopics( {unitTopics, unitTitle, unitNumber, unit} ) {
 
@@ -30,11 +29,8 @@ export default function UnitTopics( {unitTopics, unitTitle, unitNumber, unit} ) 
         <div>
             <Navbar />
             <GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null}/>
-            <div>
-                <h1 className='unit'>Unit {unitNumber}: {unitTitle}</h1>
-            </div>
             {accessToken && refreshToken ? (<h3>Progression: {progression}%</h3>) : []}
-            <TopicsList topics={unitTopics} unitTitle={unitTitle}/>
+            <TopicsList topics={unitTopics} unitTitle={unitTitle} />
         </div>
     )
 }
