@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const api = axios.create({ // CHANGE ALL INSTANCES WHERE AXIOS IS BEING USED TO USE API AS IT WILL MAKE THE INTECEPTOR RUN EVERY TIME
+const api = axios.create({
     baseURL: 'http://127.0.0.1:8000/'
 })
 
