@@ -1,8 +1,53 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 import '../styles/Navbar.css'
 
 export default function Navbar({ isHome, isLessonPage }) {
+
+    const navigate = useNavigate()
+    const [isGoogleApiLoaded, setIsGoogleApiLoaded] = useState(false)
+    const accessToken = Cookies.get('access_token')
+    const refreshToken = Cookies.get('refresh_token')
+
+    useEffect(() => {
+        const isLoggedInWithGoogle = Cookies.get('isLoggedInWithGoogle') === 'true'
+
+        if (isLoggedInWithGoogle) {
+            if (window.google) {
+                setIsGoogleApiLoaded(true)
+                return
+            }
+            const script = document.createElement('script')
+            script.src = 'https://accounts.google.com/gsi/client'
+            script.onload = () => {
+                setIsGoogleApiLoaded(true)
+            }
+            document.body.appendChild(script)
+
+            return () => {
+                document.body.removeChild(script)
+            }
+        }
+    }, [])
+
+    const logout = async (event) => {
+        event.preventDefault()
+        Cookies.remove('access_token')
+        Cookies.remove('refresh_token')
+        
+        if (isGoogleApiLoaded) {
+            window.google.accounts.id.disableAutoSelect()
+            window.google.accounts.id.revoke(Cookies.get('user_email'), () => {
+                Cookies.remove('isLoggedInWithGoogle')
+                console.log('User logged out of Google')
+                navigate('/')
+            })
+        } else {
+            navigate('/')
+        }
+    }
 
     const MoreButtonScroll = (event) => {
         event.preventDefault()
@@ -47,16 +92,33 @@ export default function Navbar({ isHome, isLessonPage }) {
                             About
                         </Link>
                     </li>
-                    <li>
-                        <Link className='nav-link' to={'/login'}>
-                            Login
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className='nav-link' to={'/signup'}>
-                            Sign Up
-                        </Link>
-                    </li>
+                    { !(accessToken && refreshToken) ? (
+                        <>
+                            <li>
+                                <Link className='nav-link' to={'/login'}>
+                                    Login
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='nav-link' to={'/signup'}>
+                                    Sign Up
+                                </Link>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <Link className='nav-link' to={'/profile'}>
+                                    Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <button className='nav-link' onClick={logout}>
+                                    Logout
+                                </button>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </nav>
             <div className='vid-overlay' style={vidOverlay}>
