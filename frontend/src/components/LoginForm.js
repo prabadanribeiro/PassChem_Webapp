@@ -32,7 +32,6 @@ export default function LoginForm() {
     function handleCallbackResponse(response) {
 
         const loginUrl = 'api/users/google-login/'
-        console.log(response.credential)
 
         const tokenPayload = {
             token: response.credential,
@@ -100,11 +99,9 @@ export default function LoginForm() {
         }
 
         try {
-            const {data} = await api.post("api/token/", user)
-            console.log(data.access)
-
-            Cookies.set('access_token', data.access)
-            Cookies.set('refresh_token', data.refresh)
+            const {data} = await api.post("api/users/login/", user)
+            Cookies.set('access_token', data.access_token)
+            Cookies.set('refresh_token', data.refresh_token)
             setIsAuthenticated(true)
 
             navigate("/")
@@ -133,7 +130,8 @@ export default function LoginForm() {
                         <input
                             placeholder="Email address" 
                             name='email'  
-                            type='email' value={email}
+                            type='email' 
+                            value={email}
                             required 
                             onChange={e => setEmail(e.target.value)}
                         />
