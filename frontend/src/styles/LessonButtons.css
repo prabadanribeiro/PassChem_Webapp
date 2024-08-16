@@ -1,6 +1,48 @@
-#next-button, #previous-button {
-  padding: 8px 12px;
-  background-color: hsl(207, 70%, 90%);
-  border: 1px solid #111;
-  font-size: 1rem;
+.lesson-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 12px 17px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background-image: linear-gradient(135deg, rgba(221, 221, 221, 0.1), rgb(180, 180, 180, 0.1));
 }
+
+.lesson-links:hover {
+  cursor: pointer;
+  background-image: linear-gradient(135deg, rgba(181, 181, 221, 0.1), rgb(140, 140, 180, 0.1));
+}
+
+#next-button svg, #previous-button svg {
+  min-height: 32px;
+  min-width: 32px;
+  max-width: 36px;
+  fill: #555;
+}
+
+#next-button svg {
+  transform: translateX(2px);
+}
+#previous-button svg {
+  transform: translateX(7px);
+}
+
+.lesson-buttons-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#previous-button {
+  position: absolute;
+  left: 35px;
+}
+
+#next-button {
+  position: absolute;
+  right: 35px;
+}
+
+

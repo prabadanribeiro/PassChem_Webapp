@@ -53,15 +53,15 @@ function LessonButtons({ lesson, topicTitle, unitTitle }) {
     }, [lessons, topics, lesson.id]) // Dependency array
 
     return (
-        <div>
+        <div className='lesson-buttons-container'>
             {nextLesson && (
-                <Link id='next-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(nextLesson.title)}`}>
-                    NEXT
+                <Link className='lesson-links' id='next-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(nextLesson.title)}`}>  
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
                 </Link>
             )}
             {previousLesson && (
-                <Link id='previous-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(previousLesson.title)}`}>
-                    PREVIOUS
+                <Link className='lesson-links' id='previous-button' to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(previousLesson.title)}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
                 </Link>
             )}
         </div>

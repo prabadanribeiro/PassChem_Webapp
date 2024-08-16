@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 
-export default function Navbar({ isHome, isLessonPage }) {
+export default function Navbar({ isHome }) {
 
     const MoreButtonScroll = (event) => {
         event.preventDefault()

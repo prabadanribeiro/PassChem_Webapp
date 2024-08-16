@@ -8,7 +8,7 @@
   font-size: 3.7rem;
   margin-left: 10%;
   color: rgb(19, 68, 109);
-  margin-top: 80px;
+  margin-top: 60px;
   font-family: Archivo;
   letter-spacing: -1px;
   font-weight: 500;
@@ -77,8 +77,6 @@
 .link:hover > .topics-cards .topics-description{
   opacity: 1;
 }
-
-
 
 .card-content {
   display: block;

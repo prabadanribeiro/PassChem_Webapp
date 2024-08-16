@@ -124,7 +124,7 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
 
     if (lesson.type === 'video') { 
         content = (
-            <div>
+            <div className='video-container'>
                 <iframe 
                     width="560" 
                     height="315" 
@@ -151,6 +151,9 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                         )}
                     </div>
                 )}
+                <div className='video-buttons-container'>
+                    <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
+                </div>
             </div>
         )
     }
@@ -161,21 +164,21 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                     <h2>{lesson.title}</h2>
                     <Document className='text-pdf' file={documentURL} onLoadSuccess={onDocumentLoadSuccess}>
                         {pages.map(pagenumber =>
-                            <Page 
+                            <Page className='page-scale'
                                 key={pagenumber}
                                 pageNumber={pagenumber}
                                 renderTextLayer={false}
                                 renderAnnotationLayer={false}
-                                scale={1.0}
+                                scale={1.0 /*Scale function not used here because transform-origin could not be targeted separately*/}
                                 wrap={false}
                             >
                             </Page>
                         )}
-                        <div className='buttons-container'>
-                            <button className='answerKey-worksheet-button' onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
-                            <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
-                        </div>
                     </Document>
+                    <div className='buttons-container'>
+                            <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
+                            <button className='answerKey-worksheet-button' onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
+                        </div>
                 </div>
         )
     }
