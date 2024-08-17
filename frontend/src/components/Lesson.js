@@ -124,12 +124,12 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
 
     if (lesson.type === 'video') { 
         content = (
-            <div className='video-container'>
+            <div className='video-lesson-container'>
+                <div className='content_container'>
                 <iframe 
-                    width="560" 
-                    height="315" 
                     src={videoURL}
                     title="YouTube video player" 
+                    className='video-player'
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowFullScreen>
@@ -151,6 +151,7 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                         )}
                     </div>
                 )}
+                </div>
                 <div className='video-buttons-container'>
                     <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
                 </div>
