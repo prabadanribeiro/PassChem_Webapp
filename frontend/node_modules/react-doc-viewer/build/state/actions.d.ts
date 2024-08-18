@@ -39,4 +39,4 @@ export interface SetMainConfig {
     config: IConfig;
 }
 export declare const setMainConfig: (config: IConfig) => SetMainConfig;
-export declare type MainStateActions = SetAllDocuments | SetDocumentLoading | NextDocument | PreviousDocument | UpdateCurrentDocument | SetRendererRect | SetMainConfig;
+export type MainStateActions = SetAllDocuments | SetDocumentLoading | NextDocument | PreviousDocument | UpdateCurrentDocument | SetRendererRect | SetMainConfig;
