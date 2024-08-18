@@ -34,7 +34,7 @@
   color: #f2f3ed;
   font-family: Archivo;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 21px;
 
   &::before {
     content: '';

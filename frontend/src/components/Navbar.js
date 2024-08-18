@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Navbar.css'
 
-export default function Navbar({ isHome, isLessonPage }) {
+export default function Navbar({ isHome }) {
 
     const navigate = useNavigate()
     const [isGoogleApiLoaded, setIsGoogleApiLoaded] = useState(false)
