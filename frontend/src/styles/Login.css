@@ -55,24 +55,24 @@ input[type=email], input[type=password] {
   font-size: 14px;
 }
 
-form button {
+.login-hero form #form-info button {
   padding: 8px 60px;
   display: inline-block;
   vertical-align: top;
   font-size: 17px;
   font-family: Archivo;
-  background-color: rgb(57, 145, 222);
+  background-color: hsl(208, 71%, 55%);
   color: rgb(242, 248, 254);
   border: 1px solid #888;
   border-radius: 5px;
 }
 
-form button:hover {
+.login-hero form #form-info button:hover {
   cursor: pointer;
-  background-color: hsl(207, 44%, 60%);
+  background-color: hsl(208, 71%, 60%);
 }
 
-#GoogleSignIn {
+.google-login {
   display: inline-block;
   margin-left: 18px;
   vertical-align: top;

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import config from '../config/Config'
 import api from '../services/AxiosServices'
+import '../styles/SignUp.css'
 
 function loadGoogleScript() {
     
@@ -76,7 +77,7 @@ export default function SignupForm() {
             
             google.accounts.id.renderButton(
                 document.getElementById('GoogleSignIn'),
-                { theme: 'outline', size: 'large' }
+                { theme: 'outline', size: 'large', type: 'icon' }
             )
         })
     }, [])
@@ -110,11 +111,11 @@ export default function SignupForm() {
     }
 
     return (
-        <div>
+        <div className='sign-up-hero'>
             <form onSubmit={submit}>
-                <div>
-                    <h3>Register</h3>
-                    <div>
+                <div className='sign-up-content'>
+                    <h3>Register an account</h3>
+                    <div className='sign-up-input'>
                         <label>First Name</label>
                         <input
                             placeholder="First Name" 
@@ -125,7 +126,7 @@ export default function SignupForm() {
                             onChange={e => setFirstName(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className='sign-up-input'>
                         <label>Last Name</label>
                         <input
                             placeholder="Last Name" 
@@ -136,7 +137,7 @@ export default function SignupForm() {
                             onChange={e => setLastName(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className='sign-up-input'>
                         <label>Email</label>
                         <input
                             placeholder="Email" 
@@ -147,7 +148,7 @@ export default function SignupForm() {
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className='sign-up-input'>
                         <label>Password</label>
                         <input 
                             name='password' 
@@ -158,12 +159,12 @@ export default function SignupForm() {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className='sign-up-buttons-container'>
                         <button type="submit">Register</button>
+                        <div id='GoogleSignIn' className='google-sign-up' data-type='icon'></div>
                     </div>
                 </div>
             </form>
-            <div id='GoogleSignIn'></div>
        </div>
     )
 }
