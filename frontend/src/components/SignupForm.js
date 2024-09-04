@@ -20,39 +20,45 @@ function loadGoogleScript() {
         document.body.appendChild(script)
     })
 }
+
 export default function SignupForm() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const navigate = useNavigate()
 
-    function handleCallbackResponse(response) { 
-
-        const url = 'api/users/google-login/'
+    async function handleCallbackResponse(response) {
+        const url = 'api/users/google-register/'
         const tokenPayload = {
             token: response.credential,
-        }
+        };
+    
+        try {
+            await api.post(url, tokenPayload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+    
+            const response = await api.post('api/users/google-login/', tokenPayload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+    
+            const { access_token, refresh_token } = response.data
+    
+            Cookies.set('access_token', access_token)
+            Cookies.set('refresh_token', refresh_token)
+            navigate('/')
 
-        api.post(url, tokenPayload, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => { 
-            console.log(response.data.access)
-            Cookies.set('access_token', response.data.access, { path: '/' })
-            Cookies.set('refresh_token', response.data.refresh, { path: '/' })
-            setIsAuthenticated(true)
-            console.log(Cookies.get('access_token'))
-            navigate("/")
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('Error logging in with Google:', error.response ? error.response.data : error.message);
-        })
+        }
     }
+    
 
     useEffect(() => {
         loadGoogleScript().then(() => {
@@ -76,17 +82,6 @@ export default function SignupForm() {
         })
     }, [])
 
-    useEffect(() => {
-        
-        const accessToken = Cookies.get('access_token')
-        const refreshToken = Cookies.get('refresh_token')
-
-        if (accessToken && refreshToken) {
-            setIsAuthenticated(true)
-        }
-    }, [])
-
-
     const submit = async (event) => {
 
         event.preventDefault()
@@ -104,20 +99,15 @@ export default function SignupForm() {
         }
 
         try {
-            await axios.post("http://localhost:8000/api/users/register/", userRegister)
-            const {data} = await axios.post("http://localhost:8000/api/token/", user)
-            Cookies.set('access_token', data.access)
-            Cookies.set('refresh_token', data.refresh)
-            setIsAuthenticated(true)
+            await api.post("api/users/register/", userRegister)
+            const {data} = await api.post("api/users/login/", user)
+            Cookies.set('access_token', data.access_token)
+            Cookies.set('refresh_token', data.refresh_token)
             navigate("/")
         }
         catch (error) {
             console.error("error in registration: ", error.response.data);
         }
-    }
-
-    if (isAuthenticated) {
-        return null
     }
 
     return (

@@ -22,4 +22,4 @@ export interface SetCurrentPage {
     value: number;
 }
 export declare const setCurrentPage: (value: number) => SetCurrentPage;
-export declare type PDFActions = SetZoomLevel | SetPDFPaginated | SetNumPages | SetCurrentPage;
+export type PDFActions = SetZoomLevel | SetPDFPaginated | SetNumPages | SetCurrentPage;

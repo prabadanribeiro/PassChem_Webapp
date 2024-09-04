@@ -11,7 +11,7 @@ export interface IHeaderConfig {
     retainURLParams?: boolean;
     overrideComponent?: IHeaderOverride;
 }
-export declare type IHeaderOverride = (state: IMainState, previousDocument: () => void, nextDocument: () => void) => ReactElement<any, any> | null;
+export type IHeaderOverride = (state: IMainState, previousDocument: () => void, nextDocument: () => void) => ReactElement<any, any> | null;
 export interface ITheme {
     primary?: string;
     secondary?: string;
