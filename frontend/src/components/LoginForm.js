@@ -85,7 +85,7 @@ export default function LoginForm() {
 
             google.accounts.id.renderButton(
                 document.getElementById('GoogleSignIn'),
-                { theme: 'outline', size: 'large' }
+                { theme: 'outline', size: 'large', type: 'icon' }
             )
         })
     }, [])
@@ -150,7 +150,7 @@ export default function LoginForm() {
                         />
                     </div>
                     <button type="submit">Sign In</button>
-                    <div id='GoogleSignIn' className='google-login'></div>
+                    <div id='GoogleSignIn' className='google-login' style={{transform: 'scale(1.3)', transformOrigin: 'center'}}></div>
                 </div>
                 <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>
             </form>

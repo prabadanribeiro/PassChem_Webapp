@@ -48,7 +48,12 @@ export default function Team() {
               <h4>William R. Sponholtz, III, B.S., M.S., PH.D.<br/> President Sponholtz Productions, LLC, Chemistry Research/Teacher</h4>
               <h5>YouTube Channel: <a href='https://www.youtube.com/@SponholtzProductions' target='_blank' alt="PassChem YT" className='bio-link'>“PassChem: Sponholtz Productions”</a></h5>
               <p>Dr. Sponholtz holds a Ph.D. in Organic Chemistry, specializing in Natural Products Chemistry, from Dartmouth College. With over three decades of experience, he has conducted research and taught chemistry at institutions including Dartmouth College, the University of Hawaii, and the University of Tennessee. His expertise lies in isolating and determining the structures of novel medicinal compounds. Notably, his contributions have garnered him accolades such as the &quot;Massachusetts High School Chemistry Teacher of The Year Award&quot; from the American Institute of Chemists and recognition as a Morehead-Caine Impact Educator. Additionally, he holds a patent for discovering an anticancer compound and a broad-spectrum antibiotic. Dr. Sponholtz&#39;s research extends to publications in scientific journals, detailing innovative synthetic routes to previously undiscovered compounds with applications ranging from high-energy/high-density explosives to medicinal compounds. Beyond academia, he has coached soccer, skiing, and tennis for his students.<br/><br/> However, Dr. Sponholtz&#39;s true passion lies in making introductory and organic chemistry more accessible to young learners worldwide. He achieves this by leveraging cutting-edge technology to develop novel teaching tools, including augmented reality/virtual reality experiences and instructional videos. These resources, available for free on his YouTube Channel &quot;PassChem: Sponholtz Productions,&quot; have been translated into multiple languages such as Spanish, French, Hindi, Korean, Farsi, Polish, Mandarin, and Russian, which have garnered millions of views. Currently residing in the mountains of western North Carolina, Dr. Sponholtz continues to innovate and create educational resources for students globally.</p>
-            </div>     
+              <div className='bio-images'>
+                <img src='images/sponholtz-bio-1.png' style={{width: '25%', minWidth: '200px'}}/>
+                <img src='images/sponholtz-bio-2.png' style={{width: '40%', minWidth: '300px'}}/>
+                <img src='images/sponholtz-bio-3.png' style={{width: '25%', minWidth: '200px'}}/>
+              </div>
+            </div>    
           ) : null}
           {buttonClicked === 2 ? (
             <div className='bio-container'>
