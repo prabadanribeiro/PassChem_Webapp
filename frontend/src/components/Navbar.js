@@ -76,11 +76,11 @@ export default function Navbar({ isHome }) {
             <div className='video-container'>
                 <video autoPlay loop muted playsInline>
                     <source src={bgvideo} type='video/mp4'/>
-                    {/*Free Stock Videos by <a href="http://www.videezy.com">Videezy</a>*/}
                 </video>
             </div>
             <nav className="navbar" style={navSpecs}>
-                <Link to={'/'}><img src="images/logo-light.png" alt="Pass Chem logo" className="logo-img"></img></Link>
+                <Link to={'/'}><img src={`http://127.0.0.1:8000/media/other_images/logo-light.png`} alt="Pass Chem logo" className="logo-img"></img>
+                </Link>
                 <ul>
                     <li> 
                         <Link className='nav-link' to={'/curriculum'}>

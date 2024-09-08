@@ -18,6 +18,42 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
         fontFamily: 'DM Sans'
     }
 
+    // Inline styles for the gradient background
+    const gradientParentStyle = {
+        position: 'absolute',
+        top: '-300px', // Adjusted top to make the diagonal line appear higher
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        transformOrigin: '0 60%', // Adjusted to make sure the diagonal effect looks natural
+        transform: 'skewY(-8deg)',
+        overflow: 'hidden',
+        zIndex: '-1',
+    };
+
+    const gradientAfterStyle = {
+        content: '""',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        minWidth: '1000px',
+        width: '100%',
+        height: '100%',
+        background:
+            'radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, ' +
+            'radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
+            'radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, ' +
+            'hsl(155, 70%, 70%)',
+        zIndex: '-1',
+    };
+
+    const UnitHeader = {
+        fontSize: '50px',
+        textAlign: 'center',
+        margin: '50px 0 0px 0',
+        fontFamily: 'DM Sans',
+    };
+
     useEffect(() => {
         if (accessToken && refreshToken) {
             const fetchProgression = async () => {
@@ -34,6 +70,10 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
     
     return (
         <div>
+            <div style={gradientParentStyle}>
+                <div style={gradientAfterStyle}></div>
+            </div>
+            
             <Navbar />
             <GoBackButton page={"Topic Page"} topicTitle={topicTitle} unitTitle={unitTitle}/>
             <h2 style={topicsHeader}>{topicTitle}</h2>

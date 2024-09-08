@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ApiService from '../services/ApiService'
 import URLService from '../services/URLService'
-import '../styles/Topics.css'
+import '../styles/Units.css'
 
 export default function UnitsGrid() {
     const [units, setUnits] = useState([])
@@ -20,7 +20,7 @@ export default function UnitsGrid() {
     return (
         <div className='topics-body'>
             <h3>General Chemistry Curriculum</h3>
-            <hr></hr>
+            <hr />
             <div className='topics-container'>
                 {
                     units.map(unit =>
@@ -33,11 +33,11 @@ export default function UnitsGrid() {
                             </div>
                             <li className="card-content">
                                 <h4>
-                                    Unit {unit.unit_number}:  
+                                    Unit {unit.unit_number}:&nbsp;{unit.title}
                                 </h4>
-                                <h4>
+                                {/* <h4>
                                     &nbsp;{unit.title} 
-                                </h4>
+                                </h4> */}
                             </li>
                         </Link>
                     )
