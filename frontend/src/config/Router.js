@@ -10,6 +10,7 @@ import LoginPage from '../pages/LoginPage'
 import LessonPage from '../pages/LessonPage'
 import SignupPage from '../pages/SignupPage'
 import URLService from '../services/URLService'
+import ProfilePage from '../pages/ProfilePage'
 
 const Root = () => {
     return (
@@ -85,6 +86,10 @@ export const createRouter = (units = [], topics = [], lessons = []) => {
                 {
                     path: "/signup",
                     element: <SignupPage />,
+                },
+                {
+                    path: "/profile",
+                    element: <ProfilePage />,
                 },
                 ...dynamicUnitsRoutes,
                 ...dynamicTopicRoutes,

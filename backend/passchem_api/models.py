@@ -14,6 +14,7 @@ class Unit(models.Model):
 class Topic(models.Model):
     unit = models.ForeignKey(Unit, related_name='units', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True, null=True)
     topic_number = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
