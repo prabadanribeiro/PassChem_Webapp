@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import URLService from '../services/URLService'
 import '../styles/LessonOverview.css'
 
-export default function TopicsList( {topics, unitTitle}) { // ADD DROPDOWN MENU FOR EACH TOPIC WHERE ALL LESSONS ASSOCIATED APPEAR
+export default function TopicsList( {topics, unitTitle}) {
     
     return (
         <div>
@@ -13,8 +13,8 @@ export default function TopicsList( {topics, unitTitle}) { // ADD DROPDOWN MENU 
                         <li className='list_item' key={topic.id}>
                             <Link to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topic.title)}`}>
                                 {topic.title}
-                            </Link> 
-                        </li>
+                            </Link>
+                        </li> 
                     )
                 }
             </ul>

@@ -6,7 +6,6 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 import GoBackButton from './GoBackButton'
 import LessonButtons from './LessonButtons'
 import Cookies from 'js-cookie'
-import axios from 'axios'
 import api from '../services/AxiosServices'
 import '../styles/Lesson.css'
 

@@ -23,7 +23,7 @@ export default function Topics () {
             <h3>General Chem Curriculum</h3>
             <hr></hr>
             <div className='topics-container'>
-                { // use topics.img
+                {
                     topics.map(topic =>
                         <Link to={`/topics/${encodeURIComponent(topic.title)}`} className='link'>
                             <div className='topics-cards'>

@@ -16,41 +16,41 @@ function LessonButtons({ lesson, topicTitle, unitTitle }) {
         ApiService.GetLessons()
             .then(fetchedLessons => {
                 setLessons(fetchedLessons)
-                setLessonsLoading(false) // Set to false after fetching lessons
+                setLessonsLoading(false) 
             })
             .catch(error => {
                 console.error('Error fetching lessons:', error)
-                setLessonsLoading(false) // Ensure loading state is updated even on error
+                setLessonsLoading(false) 
             })
         ApiService.GetTopics()
             .then(fetchedTopics => {
                 setTopics(fetchedTopics)
-                setTopicsLoading(false) // Set to false after fetching topics
+                setTopicsLoading(false) 
             })
             .catch(error => {
                 console.error('Error fetching topics:', error)
-                setTopicsLoading(false) // Ensure loading state is updated even on error
+                setTopicsLoading(false) 
             })
     }, [])
 
     useEffect(() => {
-        if (!lessonsLoading && !topicsLoading) { // Ensure both lessons and topics are fully loaded
-            const currentIndex = lessons.findIndex(lessonItem => lessonItem.id === lesson.id) // Find current lesson index
-            const topic = topics.find(topicItem => topicItem.id === lesson.topic) // Find current lesson's topic
+        if (!lessonsLoading && !topicsLoading) { 
+            const currentIndex = lessons.findIndex(lessonItem => lessonItem.id === lesson.id) 
+            const topic = topics.find(topicItem => topicItem.id === lesson.topic) 
 
             if (currentIndex > 0 && lessons[currentIndex - 1].topic === topic.id) {
-                setPreviousLesson(lessons[currentIndex - 1]) // Set previous lesson if within the same topic
+                setPreviousLesson(lessons[currentIndex - 1]) 
             } else {
-                setPreviousLesson(null) // Clear previous lesson if none found
+                setPreviousLesson(null)
             }
 
             if (currentIndex !== -1 && currentIndex < lessons.length - 1 && lessons[currentIndex + 1].topic === topic.id) {
-                setNextLesson(lessons[currentIndex + 1]) // Set next lesson if within the same topic
+                setNextLesson(lessons[currentIndex + 1]) 
             } else {
-                setNextLesson(null) // Clear next lesson if none found
+                setNextLesson(null) 
             }
         }
-    }, [lessons, topics, lesson.id]) // Dependency array
+    }, [lessons, topics, lesson.id])
 
     return (
         <div className='lesson-buttons-container'>
