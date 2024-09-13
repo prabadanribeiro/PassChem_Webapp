@@ -25,16 +25,19 @@ export default function SignupForm() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate()
+
+    
 
     async function handleCallbackResponse(response) {
         const url = 'api/users/google-register/'
         const tokenPayload = {
             token: response.credential,
-        };
-    
+        }
         try {
             await api.post(url, tokenPayload, {
                 headers: {
@@ -55,8 +58,9 @@ export default function SignupForm() {
             navigate('/')
 
         } catch (error) {
-            console.error('Error logging in with Google:', error.response ? error.response.data : error.message);
+            console.error('Error logging in with Google:', error.response ? error.response.data : error.message)
         }
+        
     }
     
 
@@ -97,16 +101,19 @@ export default function SignupForm() {
             email: email,
             password: password,
         }
-
-        try {
-            await api.post("api/users/register/", userRegister)
-            const {data} = await api.post("api/users/login/", user)
-            Cookies.set('access_token', data.access_token)
-            Cookies.set('refresh_token', data.refresh_token)
-            navigate("/")
-        }
-        catch (error) {
-            console.error("error in registration: ", error.response.data);
+        if (password == confirmPassword) {
+            try {
+                await api.post("api/users/register/", userRegister)
+                const {data} = await api.post("api/users/login/", user)
+                Cookies.set('access_token', data.access_token)
+                Cookies.set('refresh_token', data.refresh_token)
+                navigate("/")
+            }
+            catch (error) {
+                console.error("error in registration: ", error.response.data);
+            }
+        } else {
+            setErrorMessage('Passwords do not match. Please Try Again.')
         }
     }
 
@@ -159,6 +166,18 @@ export default function SignupForm() {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
+                    <div className='sign-up-input'>
+                        <label>Confirm Password</label>
+                        <input 
+                            name='Confirm Password' 
+                            type="password"     
+                            placeholder="Enter password"
+                            value={confirmPassword}
+                            required
+                            onChange={e => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    {errorMessage && <div>{errorMessage}</div>}
                     <div className='sign-up-buttons-container'>
                         <button type="submit">Register</button>
                         <div id='GoogleSignIn' className='google-sign-up' data-type='icon'></div>

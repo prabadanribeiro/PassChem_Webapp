@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import GoBackButton from '../components/GoBackButton'
+import ProgressBar from '../components/ProgressBar'
 import Cookies from 'js-cookie'
 import ApiService from '../services/ApiService'
 import TopicsList from '../components/TopicsList'
-import Footer from '../components/Footer'
+import '../styles/Progression.css'
 
 export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) {
 
-    const [progression, setProgression] = useState(null)
+    const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
 
@@ -52,7 +53,7 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
             const fetchProgression = async () => {
                 try {
                     const progressionStatus = await ApiService.GetUnitProgressionStatus(unit.id, accessToken)
-                    setProgression(progressionStatus)
+                    setProgress(progressionStatus)
                 } catch (error) {
                     console.error('Error fetching progression status:', error)
                 }
@@ -63,19 +64,20 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
 
     return (
         <div>
-            {/* Gradient Background */}
             <div style={gradientParentStyle}>
                 <div style={gradientAfterStyle}></div>
             </div>
-
             <Navbar />
             <GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null} />
             <h1 style={UnitHeader}>{unitTitle}</h1>
-
             {accessToken && refreshToken && (
-                <h3>Progression: {progression}%</h3>
+                <div className="progress-container">
+                    <div className="progress-inner">
+                        <h3>Progression: {progress}%</h3>
+                        <ProgressBar progress={progress} />
+                    </div>
+                </div>
             )}
-
             <TopicsList topics={unitTopics} unitTitle={unitTitle} />
         </div>
     )
