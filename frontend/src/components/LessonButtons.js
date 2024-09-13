@@ -7,8 +7,8 @@ import '../styles/LessonButtons.css'
 function LessonButtons({ lesson, topicTitle, unitTitle }) {
     const [lessons, setLessons] = useState([])
     const [topics, setTopics] = useState([])
-    const [lessonsLoading, setLessonsLoading] = useState(true) // Initialize as true, change to false once loaded
-    const [topicsLoading, setTopicsLoading] = useState(true) // Initialize as true, change to false once loaded
+    const [lessonsLoading, setLessonsLoading] = useState(true) 
+    const [topicsLoading, setTopicsLoading] = useState(true) 
     const [previousLesson, setPreviousLesson] = useState(null)
     const [nextLesson, setNextLesson] = useState(null)
 
