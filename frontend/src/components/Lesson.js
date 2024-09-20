@@ -8,6 +8,7 @@ import LessonButtons from './LessonButtons'
 import Cookies from 'js-cookie'
 import api from '../services/AxiosServices'
 import '../styles/Lesson.css'
+import '../styles/Spinning.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
@@ -20,9 +21,10 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
     const [videoURL, setVideoURL] = useState()
     const [documentURL, setDocumentURL] = useState('') 
     const [isAnswerKey, setIsAnswerKey] = useState(false)
-    const dropdownRef = useRef(null)
     const [completed, setCompleted] = useState(false)
     const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(true)
+    const dropdownRef = useRef(null)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
     let docType = null
@@ -61,6 +63,8 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
             }
             fetchCompletionStatus()
         }
+
+        setLoading(false)
 
     }, [lesson, accessToken])
 
@@ -184,11 +188,19 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
     }
 
     return (
-        <div className='lesson-content'>
-            {content}
-            { accessToken && refreshToken ? (<button onClick={handleToggleCompletion}>change completion</button>) : []}
-            { accessToken && refreshToken ? (completed ? <p>Lesson Completed</p> : <p>Lesson Not Completed</p>) : []}
-        </div>
+        <>
+            {loading ? (
+                <div className="spinner-container" style={{height: '550px'}}>
+                    <div className="spinner" style={{height: '120px', width: '120px', border: '12px solid rgba(0, 0, 0, 0.1)'}}></div>
+                </div>
+            ) : (
+                <div className='lesson-content'>
+                    {content}
+                    { accessToken && refreshToken ? (<button onClick={handleToggleCompletion}>change completion</button>) : []}
+                    { accessToken && refreshToken ? (completed ? <p>Lesson Completed</p> : <p>Lesson Not Completed</p>) : []}
+                </div>
+            )}
+        </>
     )
 
 }

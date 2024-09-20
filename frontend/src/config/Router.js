@@ -98,7 +98,5 @@ export const createRouter = (units = [], topics = [], lessons = []) => {
         }
     ])
 
-    console.log(router)
-
     return router
 }
