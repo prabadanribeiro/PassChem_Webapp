@@ -57,7 +57,7 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
                 } catch (error) {
                     console.error('Error fetching progression status:', error)
                 }
-            };
+            }
             fetchProgression()
         }
     }, [unit, accessToken, refreshToken])

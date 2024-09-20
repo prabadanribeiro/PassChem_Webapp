@@ -86,7 +86,7 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
                     </div>
                 </div>
             )}
-            <LessonList topicTitle={topicTitle} lessons={topicLessons} unitTitle={unitTitle}/>
+            <LessonList topicTitle={topicTitle} lessons={topicLessons} unitTitle={unitTitle} topic={topic}/>
         </div>
     )
 
