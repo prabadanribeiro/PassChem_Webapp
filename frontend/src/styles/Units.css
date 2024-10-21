@@ -1,97 +1,121 @@
 .topics-body {
-  height: fit-content;
-}
-
-.topics-body h3 {
-  display: inline-block;
-  font-size: 3.7rem;
-  margin-left: 10%;
-  color: rgb(19, 68, 109);
-  margin-top: 60px;
-  font-family: Archivo;
-  letter-spacing: -1px;
-  font-weight: 500;
-}
-.topics-body hr {
-  width: 80%;
-  margin-left: 10%;
-  border: solid 1px rgb(159, 161, 163);
-}
-
-.topics-container {
-  margin-top: 55px;
-  width: 100%;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 70px;
-}
-
-.topics-cards {
-  height: 360px;
-  width: 100%;
-  cursor: pointer;
-  position: relative;
-}
-
-.topics-images {
-  width: 100%;
-  height: 100%;
-  transition: all 150ms linear 50ms;
-  opacity: 1;
-}
-
-.link {
-  height: 440px;
-  width: 340px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-  transition: 0.3s;
-
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-    transform: translateY(-10px);
+    height: fit-content;
+    padding-bottom: 50px;
   }
-}
-.topics-description {
-  opacity: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  height: 360px;
-  width: 100%;
-  background-color: hsl(207, 70%, 90%);
-  transition: all 150ms linear 50ms;
-
-  & p {
+  
+  .topics-body h3 {
+    font-size: 3.5rem;
+    margin-left: 10%;
+    color: rgb(34, 84, 133);
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -1px;
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+  
+  .topics-body hr {
     width: 80%;
-    margin: 0 auto;
-    margin-top: 25px;
-    font-family: Helvetica;
-    font-size: 1.5rem;
-    color: #211044;
+    margin-left: 10%;
+    border: solid 2px rgba(159, 161, 163, 0.8); 
+    margin-bottom: 30px;
   }
-}
+  
+  .topics-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; 
+    padding-left: 10%; 
+    padding-right: 10%; 
+    justify-items: center; 
+  }
+  
 
-.link:hover > .topics-cards .topics-description{
-  opacity: 1;
-}
-
-.card-content {
-  display: block;
-  width: 100%;
-  height: 80px;
-  text-align: center;
-  background-color: #111;
-  border: solid 1px #000;
-
-  & h4 {
-    display: inline-block;
+  .topics-cards {
+    height: 316px; 
+    width: 279px; 
+    cursor: pointer;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .topics-images {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+  }
+  
+  .card-content {
+    background-color: #222;
     color: #fff;
-    line-height: 50px;
-    font-size: 27px;
-    font-weight: 400;
-    padding-top: 16px;
-    font-family: Archivo;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: inset 0px -4px 10px rgba(0, 0, 0, 0.2);
   }
-}
+  
+  .topics-cards:hover .card-content {
+    background-color: #444;
+  }
+  
+  .card-content h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .topics-description {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(19, 68, 109, 0.85);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+  }
+  
+  
+  .topics-cards:hover .topics-description {
+    opacity: 1;
+  }
+  
+  .topics-description p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    margin: 0;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .link:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

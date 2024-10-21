@@ -24,10 +24,10 @@ canvas {
 
 .gradient-parent {
   position: absolute;
-  top: 90px;
+  top: 80px;
   left: 0;
   width: 100vw;
-  height: 490px;
+  height: 500px;
   transform-origin: 0 100%;
   transform: skewY(-8deg);
   overflow: hidden;
@@ -352,13 +352,5 @@ canvas {
     padding: 0;
     padding-bottom: 35px;
     justify-content: center;
-  }
-  .about-content h2 {
-    margin-top: -30px;
-    font-size: 44px;
-    width: 100%;
-  }
-  .about-hero .team-header {
-    font-size: 42px;
   }
 }
