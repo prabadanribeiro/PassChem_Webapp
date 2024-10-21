@@ -9,10 +9,10 @@
 }
 
 .sign-up-hero form {
-  height: clamp(280px, 77vh, 800px);
-  width: clamp(360px, 34vw, 1100px);
+  height: clamp(280px, 74vh, 800px);
+  width: 560px;
   background-color: #fff;
-  border-radius: 13px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -20,38 +20,33 @@
   position: relative;
 }
 
-.sign-up-hero form::before {
-  content: '';
-  background-color: rgba(255,255,255,0.01);
-  position: absolute;
-  height: 100%;
+.name-fields-container {
   width: 100%;
-  backdrop-filter: blur(60px);
-  clip-path: polygon(evenodd, 
-    0% 0%, 
-    100% 0%,
-    100% 100%, 
-    0% 100%,
-    0% 0%,
-    16px 16px,
-    calc(100% - 16px) 16px,
-    calc(100% - 16px) calc(100% - 16px),
-    16px calc(100% - 16px),
-    16px 16px
-  );
+  height: fit-content;
+  margin-top: 40px;
+}
+
+.name-fields-container input {
+  min-width: 100% !important;
+  padding: none !important;
+}
+
+.inline-container {
+  width: 46%;
+  display: inline-block;
 }
 
 .sign-up-content {
   height: 100%;
   width: 100%;
   padding: 3rem;
-  text-align: center;
   padding-top: 40px;
 }
 
 .sign-up-content h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: Archivo;
+  text-align: center;
   font-weight: 500;
   color: #111;
 }
@@ -60,8 +55,9 @@
   margin-top: 20px;
 }
 
-.sign-up-input label {
-  color: #666;
+.sign-up-input label,
+.name-fields-container label {
+  color: #555;
   display: block;
   font-family: Archivo;
   width: fit-content;
@@ -70,7 +66,8 @@
   font-weight: 600;
 }
 
-.sign-up-input input {
+.sign-up-input input, 
+.name-fields-container input {
   width: 100%;
   height: 38px;
   font-size: 16px;
@@ -85,7 +82,7 @@ input[type=text] {
 
 .sign-up-buttons-container {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   left: 50%;
   display: flex;
   transform: translateX(-50%);
@@ -110,4 +107,21 @@ input[type=text] {
 .google-sign-up {
   transform: scale(1.3);
   transform-origin: top;
+}
+
+@media screen and (max-width: 480px) {
+  .sign-up-hero {
+    background-color: #fff;
+  }
+  .sign-up-hero form {
+    width: 100vw;
+}
+  .sign-up-content h3 {
+    margin-top: 15px;
+    font-size: 1.8rem;
+  }
+
+  .sign-up-content {
+    padding: 20px;
+  }
 }

@@ -8,11 +8,20 @@
 
 .sidebar-list {
     width: 100%;
+    /* position: relative; */
 }
 
-.sidebar-list:first-child {
-    margin-top: 90px;
-    border-top: 2px solid #bbb;
+.sidebar-header {
+    background-color: hsl(229, 87%, 64%);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: DM Sans;
+    color: rgb(234, 245, 255);
+    gap: 10px;
+    font-weight: 600;
+    font-size: 25px !important;
 }
 
 .sidebar-list li {
@@ -36,19 +45,19 @@
     background-color: #4fa7f6;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
 }
 
 .list_item {
-    display: flex;
-    align-items: center;
     color: #000;
     padding: 25px 35px;
     font-size: 28px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
     background-color: #fafafa;
-    margin: 20px 0;
     border-radius: 10px;
     text-decoration: none;
+    font-weight: 600;
+    margin: 20px 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 

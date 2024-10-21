@@ -155,7 +155,7 @@ export default function Team() {
             <div className='frontside'>
               <img src='images/team-img-9.png' alt='Member #9' />
               <h4>Andy Kim</h4>
-              <p>Marketing/Translator</p>
+              <p>Former Marketing/Translator</p>
             </div>
             <div className='flipped-content'>
               <h5>About</h5>

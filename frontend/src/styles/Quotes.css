@@ -169,4 +169,7 @@
   .testimonial-slide section q {
     font-size: 1.4rem;
   }
+  .divider-shape {
+    height: 80px;
+  }
 }
