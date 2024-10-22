@@ -18,6 +18,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   position: relative;
+  margin-top: 50px;
 }
 
 .name-fields-container {

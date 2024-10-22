@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import LessonList from '../components/LessonList'
 import GoBackButton from '../components/GoBackButton'
+import ProgressBar from '../components/ProgressBar'
 import ApiService from '../services/ApiService'
 import Cookies from 'js-cookie'
 
 export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} ) {
 
-    const [progression, setProgression] = useState(null)
+    const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
 
@@ -18,14 +19,14 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
         fontFamily: 'DM Sans'
     }
 
-    // Inline styles for the gradient background
+    
     const gradientParentStyle = {
         position: 'absolute',
-        top: '-300px', // Adjusted top to make the diagonal line appear higher
+        top: '-300px', 
         left: '0',
         width: '100vw',
         height: '100vh',
-        transformOrigin: '0 60%', // Adjusted to make sure the diagonal effect looks natural
+        transformOrigin: '0 60%',
         transform: 'skewY(-8deg)',
         overflow: 'hidden',
         zIndex: '-1',
@@ -59,7 +60,7 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
             const fetchProgression = async () => {
                 try {
                     const progressionStatus = await ApiService.GetTopicProgressionStatus(topic.id, accessToken)
-                    setProgression(progressionStatus)
+                    setProgress(progressionStatus)
                 } catch (error) {
                     console.error('Error fetching progression status:', error)
                 }
@@ -77,8 +78,15 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
             <Navbar />
             <GoBackButton page={"Topic Page"} topicTitle={topicTitle} unitTitle={unitTitle}/>
             <h2 style={topicsHeader}>{topicTitle}</h2>
-            {accessToken && refreshToken ? (<h3>Progression: {progression}%</h3>) : []}
-            <LessonList topicTitle={topicTitle} lessons={topicLessons} unitTitle={unitTitle}/>
+            {accessToken && refreshToken && (
+                <div className="progress-container">
+                    <div className="progress-inner">
+                        <h3>Progression: {progress}%</h3>
+                        <ProgressBar progress={progress} />
+                    </div>
+                </div>
+            )}
+            <LessonList topicTitle={topicTitle} lessons={topicLessons} unitTitle={unitTitle} topic={topic}/>
         </div>
     )
 

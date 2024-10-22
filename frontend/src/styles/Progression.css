@@ -1,0 +1,32 @@
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    font-size: 20px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.progress-inner {
+    width: 800px;
+    text-align: left;
+}
+
+.progress-bar-container {
+    height: 30px;
+    width: 800px;
+    background-color: #edede7;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar-filler {
+    height: 100%;
+    background-color: #5ed6f9;
+    border-radius: inherit;
+    transition: width 0.5s ease-in-out;
+    text-align: center;
+    color: white;
+}
