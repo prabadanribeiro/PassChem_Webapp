@@ -21,12 +21,12 @@
   justify-content: space-between;
   align-items: center;
   z-index: 999;
+}
 
-  & li {
-    display: inline-block;
-    margin: 0 28px;
-    position: relative;
-  }
+.navbar li {
+  display: inline-block;
+  margin: 0 28px;
+  position: relative;
 }
 
 .nav-link {
@@ -58,13 +58,13 @@
   bottom: 0;
   position: absolute;
   z-index: -1;
+}
 
-  & video {
-    object-fit: fill;
-    filter: brightness(95%);
-    height: 100%;
-    width: 110%;
-  }
+.video-container video {
+  object-fit: fill;
+  filter: brightness(95%);
+  height: 100%;
+  width: 110%;
 }
 
 .vid-overlay {
@@ -103,46 +103,121 @@
 
 .overlay-content {
   width: 80%;
-
-  & h1 {
-    font-family: Archivo;
-    font-weight: 450;
-    line-height: 80px;
-    isolation: isolate;
-    letter-spacing: 0;
-    font-size: clamp(50px, 5rem, 140px);
-    color: rgb(190, 246, 255);
-
-    & + p {
-      margin-top: 20px;
-      color: #babfcb;
-      font-size: 1.7rem;
-      font-weight: 400;
-      isolation: isolate;
-      font-family: Archivo;
-
-      & + a {
-        text-decoration: none;
-        display: inline-block;
-        color: #fafcff;
-        margin-top: 25px;
-        font-size: 1.75rem;
-        padding: 5px 10px;
-        border: 1px solid #f0f8ff;
-        font-family: sans-serif;
-        transition: all 400ms normal;
-        cursor: pointer;
-
-        &:hover {
-          color: #000;
-          background-color: #f0f8ff;
-        }
-      }
-    }
-  }
 }
+
+.overlay-content h1 {
+  font-family: Archivo;
+  font-weight: 450;
+  line-height: 80px;
+  isolation: isolate;
+  letter-spacing: 0;
+  font-size: 5rem;
+  color: rgb(190, 246, 255);
+}
+
+.overlay-content p {
+  margin-top: 20px;
+  color: #babfcb;
+  font-size: 1.7rem;
+  font-weight: 400;
+  isolation: isolate;
+  font-family: Archivo;
+}
+
+.overlay-content a {
+  text-decoration: none;
+  display: inline-block;
+  color: #fafcff;
+  margin-top: 25px;
+  font-size: 1.75rem;
+  padding: 5px 10px;
+  border: 1px solid #f0f8ff;
+  font-family: sans-serif;
+  transition: all 400ms normal;
+  cursor: pointer;
+}
+
+.overlay-content a:hover {
+  color: #000;
+  background-color: #f0f8ff;
+}
+      
+    
 
 .logo-img {
     height: 60px;
     width: 240px;
+}
+
+@media screen and (max-width: 1100px){
+  .video-container {
+    width: 90%;
+  }
+  .video-container video {
+    width: 120%;
+  }
+  .vid-overlay {
+    width: 80vw;
+  }
+  .overlay-content {
+    width: 90%;
+  }
+  .overlay-content h1 {
+    font-size: 4.6rem;
+  }
+  .vid-overlay {
+    background-image: linear-gradient(100deg, #000 45%, rgba(0, 0, 0, 0.1) 80%, transparent 85%);
+  }
+}
+
+@media screen and (max-width: 960px){
+  .video-container {
+    width: 100%;
+  }
+  .video-container video {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .vid-overlay {
+    background-image: linear-gradient(100deg, rgba(0, 0, 0, 0.5) 55%, transparent 80%);
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .overlay-content {
+    width: 100%;
+  }
+  .overlay-content h1 {
+    font-size: 4rem;
+    line-height: 68px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .overlay-content p {
+    font-size: 1.55rem;
+    width: 90%;
+    margin: 25px auto 0;
+  }
+  .overlay-content a {
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .overlay-content h1 {
+    text-align: center;
+    font-size: 3.6rem;
+  }
+  .overlay-content p {
+    text-align: center;
+  }
+  .overlay-content a {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .vid-overlay {
+    background-image: linear-gradient(100deg, rgba(0, 0, 0, 0.65) 55%, transparent 80%);
+  }
 }

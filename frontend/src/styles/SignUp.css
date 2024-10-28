@@ -9,7 +9,7 @@
 }
 
 .sign-up-hero form {
-  height: clamp(280px, 74vh, 800px);
+  height: fit-content;
   width: 560px;
   background-color: #fff;
   border-radius: 3px;
@@ -18,13 +18,14 @@
   align-items: flex-start;
   justify-content: flex-start;
   position: relative;
-  margin-top: 50px;
+  border-bottom: 3px solid hsl(208, 71%, 60%);
+  padding-bottom: 20px;
 }
 
 .name-fields-container {
   width: 100%;
   height: fit-content;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .name-fields-container input {
@@ -81,12 +82,19 @@ input[type=text] {
   font-size: 14px;
 }
 
+.sign-up-content p {
+  font-family: Archivo;
+  font-size: 14px;
+  margin-top: 13px;
+  font-style: italic;
+}
+
 .sign-up-buttons-container {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  top: 22px;
   display: flex;
-  transform: translateX(-50%);
   gap: 20px;
 }
 
