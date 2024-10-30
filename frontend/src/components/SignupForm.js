@@ -122,27 +122,29 @@ export default function SignupForm() {
             <form onSubmit={submit}>
                 <div className='sign-up-content'>
                     <h3>Register an account</h3>
-                    <div className='sign-up-input'>
-                        <label>First Name</label>
-                        <input
-                            placeholder="First Name" 
-                            name='firstName'  
-                            type='text' 
-                            value={firstName}
-                            required 
-                            onChange={e => setFirstName(e.target.value)}
-                        />
-                    </div>
-                    <div className='sign-up-input'>
-                        <label>Last Name</label>
-                        <input
-                            placeholder="Last Name" 
-                            name='lastName'  
-                            type='text' 
-                            value={lastName}
-                            required 
-                            onChange={e => setLastName(e.target.value)}
-                        />
+                    <div className='name-fields-container'>
+                        <div className='inline-container'>
+                            <label>First Name</label>
+                            <input
+                                placeholder="First Name" 
+                                name='firstName'  
+                                type='text' 
+                                value={firstName}
+                                required 
+                                onChange={e => setFirstName(e.target.value)}
+                            />
+                        </div>
+                        <div className='inline-container' style={{marginLeft: '8%'}}>
+                            <label>Last Name</label>
+                            <input
+                                placeholder="Last Name" 
+                                name='lastName'  
+                                type='text' 
+                                value={lastName}
+                                required 
+                                onChange={e => setLastName(e.target.value)}
+                            />
+                        </div>
                     </div>
                     <div className='sign-up-input'>
                         <label>Email</label>
@@ -178,6 +180,7 @@ export default function SignupForm() {
                         />
                     </div>
                     {errorMessage && <div>{errorMessage}</div>}
+                    <p>*Sponholtz Productions will not sell or distrbute your information</p>
                     <div className='sign-up-buttons-container'>
                         <button type="submit">Register</button>
                         <div id='GoogleSignIn' className='google-sign-up' data-type='icon'></div>

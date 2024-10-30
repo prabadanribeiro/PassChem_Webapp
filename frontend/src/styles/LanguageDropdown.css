@@ -9,7 +9,7 @@
 
 .dropdown {
     position: relative;
-    bottom: 5px;
+    top: 3px;
 }
 
 .dropdown-content {

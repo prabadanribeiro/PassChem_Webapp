@@ -35,28 +35,28 @@
 }
 
 .upper-main {
-  display: flex;
   height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 100px 0 100px 110px;
-  align-items: flex-start;
-  justify-content: left;
-  flex-wrap: wrap;
-  row-gap: 50px;
+  padding: 70px 0 100px 150px;
   position: relative;
   background-color: hsl(180, 4%, 5%);
 }
 
-
 .courses-overview {
-  width: 40%;
+  min-width: max(40%, 400px);
   height: 100%;
-  display: block;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  z-index: 99;
 }
 
 .courses-overview p {
   margin-top: 30px;
-  width: 70%;
+  width: 80%;
   font-size: 1.5rem;
   font-family: Helvetica;
   font-weight: 300;
@@ -65,6 +65,7 @@
 
 .page-link-button {
   display: inline-block;
+  width: fit-content;
   margin-top: 30px;
   position: relative;
   text-decoration: none;
@@ -77,48 +78,10 @@
   background-color: hsl(231, 19%, 14%);
   border-left: solid 2px #fff;
   box-shadow: 0px 20px 90px -21px #8bb9ff;
-
-  &:hover {
-    background-color: hsl(231, 19%, 17%);
-    color: hsl(193, 71%, 80%);
-  }
 }
-
-.lesson-display {
-  width: clamp(700px, 58%, 90vw);
-  height: 550px;
-  border-radius: 13px;
-  border: solid 2px #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-image: var(--gradient-green) 30 round;
-}
-
-.anim-container {
-  width: 100%;
-  height: 820px;
-  background-image: linear-gradient(hsl(180, 4%, 5%), hsl(180, 4%, 9%) 75%, hsl(180, 4%, 5%));
-  padding-top: 100px;
-}
-
-.anim-showcase {
-  height: 500px;
-  width: 80%;
-  border-radius: 13px;
-  border: solid 2px #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 40px auto 0;
-  border-image: var(--gradient-blue) 30 round;
-}
-
-.anim-showcase p {
-  color: #fff;
-  font-family: Archivo;
-  font-size: 2rem;
-  font-weight: 300;
+.page-link-button:hover {
+  background-color: hsl(231, 19%, 17%);
+  color: hsl(193, 71%, 80%);
 }
 
 .light {
@@ -173,11 +136,10 @@
   width: 100%;
   height: fit-content;
   padding-top: 100px;
-  padding-left: 120px;
   padding-bottom: 100px;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   column-gap: 80px;
   row-gap: 120px;
   flex-wrap: wrap;
@@ -186,9 +148,7 @@
 
 .ar-app-image {
   height: 380px;
-  width: 550px;
-  min-width: 360px;
-  min-height: 240px;
+  width: clamp(450px, 45%, 600px);
   border-left: 2px solid #e0eaf4;
   border-right: 2px solid #e0eaf4;
   border-radius: 8px;
@@ -196,7 +156,8 @@
 }
 
 .ar-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: clamp(350px, 40%, 600px);
   height: 300px;
 }
@@ -216,3 +177,92 @@
   color: #a2a4c1;
   line-height: 30px;
 }
+
+@media screen and (max-width: 1300px){
+  .courses-overview {
+    transform: translateX(50px);
+  }
+}
+
+@media screen and (max-width: 1090px){
+  .upper-main {
+    flex-direction: column;
+    padding: 80px 0 0 0;
+  }
+  .courses-overview {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    transform: none;
+    margin: none;
+  }
+  .courses-overview p {
+    text-align: center;
+  }
+
+  .courses-overview .header {
+    text-align: center;
+    width: 75%;
+  }
+
+  .ar-hero {
+    flex-direction: column;
+  }
+  .ar-container {
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+  .ar-container p {
+    text-align: center;
+    width: 90%;
+  }
+  .ar-app-image {
+    width: 550px;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 780px){
+  .courses-overview {
+    width: 100vw;
+  }
+  .courses-overview .header {
+    width: 92%;
+    font-size: 50px;
+    line-height: 54px;
+  }
+}
+
+@media screen and (max-width: 610px){
+  .ar-app-image {
+    width: 450px;
+    height: 280px;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .ar-app-image {
+    width: 380px;
+    height: 250px;
+  }
+  .ar-container h3 {
+    font-size: 52px;
+  }
+  .ar-container p {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .ar-app-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 0;
+    margin-top: 50px;
+  }
+  .ar-container h3 {
+    font-size: 46px;
+  }
+}
+

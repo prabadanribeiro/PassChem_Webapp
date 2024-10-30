@@ -60,7 +60,7 @@ export default function Navbar({ isHome }) {
     const bgvideo = isHome ? 'nebula.mp4' : ''
     
     const hero = {
-        height: isHome ? '100vh' : '90px'
+        height: isHome ? 'min(100vh, 800px)' : '90px'
     }
 
     const navSpecs = {

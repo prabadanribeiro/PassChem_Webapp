@@ -19,7 +19,7 @@ function GoBackButton({ page, topicTitle, unitTitle }) {
         left: '20px',
         height: '40px',
         width: '50px',
-        borderRight: '3px solid rgb(145, 195, 239)',
+        borderRight: '3px solid rgb(175, 218, 255)',
         zIndex: '99'
     }
 
@@ -39,6 +39,12 @@ function GoBackButton({ page, topicTitle, unitTitle }) {
         buttonType = (
             <div>
                 <Link to={'/curriculum'} style={backButton}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#111111"><path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"/></svg></Link>
+            </div>
+        )
+    } else if (page === "Subtopic Page") {
+        buttonType = (
+            <div>
+                <Link to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(lesson.title)}`} style={backButton}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#111111"><path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"/></svg></Link>
             </div>
         )
     }
