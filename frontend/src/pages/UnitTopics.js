@@ -5,9 +5,10 @@ import ProgressBar from '../components/ProgressBar'
 import Cookies from 'js-cookie'
 import ApiService from '../services/ApiService'
 import TopicsList from '../components/TopicsList'
+import LessonList from '../components/LessonList'
 import '../styles/Progression.css'
 
-export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) {
+export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNumber, unit }) {
 
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
@@ -48,6 +49,8 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
         fontFamily: 'DM Sans',
     }
 
+    console.log(unitLessons.length)
+
     useEffect(() => {
         if (accessToken && refreshToken) {
             const fetchProgression = async () => {
@@ -78,7 +81,21 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
                     </div>
                 </div>
             )}
-            <TopicsList topics={unitTopics} unitTitle={unitTitle} />
+            {
+                // make it so depending on which is null, either load the lessons or topics
+                unitTopics.length > 0 ? (
+                    <>
+                        <TopicsList topics={unitTopics} unitTitle={unitTitle} />
+                    </>
+                ) : unitLessons.length > 0 ? (
+                    <>
+                        <LessonList lessons={unitLessons} unitTitle={unitTitle} topicTitle={null}/>
+                    </>
+                ) : (
+                    <p>No topics or lessons available.</p>
+                )
+            }
+            
         </div>
     )
 }
