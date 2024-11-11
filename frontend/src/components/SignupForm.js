@@ -180,7 +180,7 @@ export default function SignupForm() {
                         />
                     </div>
                     {errorMessage && <div>{errorMessage}</div>}
-                    <p>*Sponholtz Productions will not sell or distrbute your information</p>
+                    <p>*Sponholtz Productions will not sell or distribute your information</p>
                     <div className='sign-up-buttons-container'>
                         <button type="submit">Register</button>
                         <div id='GoogleSignIn' className='google-sign-up' data-type='icon'></div>

@@ -46,6 +46,7 @@ export default function UnitTopics({ unitTopics, unitTitle, unitNumber, unit }) 
         textAlign: 'center',
         margin: '50px 0 0px 0',
         fontFamily: 'DM Sans',
+        fontWeight: '550'
     }
 
     useEffect(() => {

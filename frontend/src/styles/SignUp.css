@@ -19,6 +19,7 @@
   justify-content: flex-start;
   position: relative;
   border-bottom: 3px solid hsl(208, 71%, 60%);
+  border-top: 3px solid hsl(208, 71%, 60%);
   padding-bottom: 20px;
 }
 

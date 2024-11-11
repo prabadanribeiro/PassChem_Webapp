@@ -42,7 +42,7 @@
   width: 100%;
   padding: 70px 0 100px 150px;
   position: relative;
-  background-color: hsl(180, 4%, 5%);
+  background-image: linear-gradient(to bottom, #000, hsl(180, 2%, 7%));
 }
 
 .courses-overview {
@@ -95,6 +95,7 @@
   filter: blur(105px);
   animation: light-anim 28s ease-out infinite alternate-reverse;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes light-anim {
@@ -143,7 +144,7 @@
   column-gap: 80px;
   row-gap: 120px;
   flex-wrap: wrap;
-  background-color: hsl(180, 4%, 5%);
+  background-color: hsl(180, 2%, 7%);
 }
 
 .ar-app-image {
@@ -167,6 +168,7 @@
   font-family: DM Sans;
   color: #eeeeeb;
   width: max-content;
+  font-weight: 550;
 }
 
 .ar-container p {

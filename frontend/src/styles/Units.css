@@ -47,12 +47,13 @@
   width: 340px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   transition: 0.3s;
-
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-    transform: translateY(-10px);
-  }
 }
+
+.link:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+}
+
 .topics-description {
   opacity: 0;
   top: 0;
@@ -62,15 +63,16 @@
   width: 100%;
   background-color: hsl(207, 70%, 90%);
   transition: all 150ms linear 50ms;
+}
 
-  & p {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 25px;
-    font-family: Helvetica;
-    font-size: 1.5rem;
-    color: #211044;
-  }
+.topics-description p {
+  width: calc(80%);
+  margin: 0 auto;
+  margin-top: 25px;
+  font-family: Helvetica;
+  font-size: 1.5rem;
+  color: #211044;
+  overflow: hidden;
 }
 
 .link:hover > .topics-cards .topics-description{
@@ -84,14 +86,14 @@
   text-align: center;
   background-color: #111;
   border: solid 1px #000;
+}
 
-  & h4 {
-    display: inline-block;
-    color: #fff;
-    line-height: 50px;
-    font-size: 27px;
-    font-weight: 400;
-    padding-top: 16px;
-    font-family: Archivo;
-  }
+.card-content h4 {
+  display: inline-block;
+  color: #fff;
+  line-height: 50px;
+  font-size: 27px;
+  font-weight: 400;
+  padding-top: 16px;
+  font-family: Archivo;
 }

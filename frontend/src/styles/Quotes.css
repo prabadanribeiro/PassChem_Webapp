@@ -115,7 +115,8 @@
 }
 
 .divider-shape .shape-fill {
-  fill: hsl(180, 4%, 5%);
+  fill: hsl(180, 2%, 7%);
+  pointer-events: none;
 }
 
 @media screen and (max-width: 840px) {

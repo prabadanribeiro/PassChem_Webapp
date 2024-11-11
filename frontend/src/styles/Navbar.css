@@ -87,6 +87,7 @@
     border-radius: 50%;
     background-image: radial-gradient(rgb(81, 193, 213), rgb(100, 24, 136));
     filter: blur(100px) brightness(95%);
+    -moz-filter: blur(100px) brightness(95%);
   } 
   &::after {
     content: '';
@@ -141,7 +142,13 @@
   color: #000;
   background-color: #f0f8ff;
 }
-      
+
+.underline-blue {
+  text-decoration: underline solid rgba(65, 97, 250, 0.7) 11px;
+  text-underline-offset: 8px;
+  text-decoration-skip-ink: none;
+  -webkit-text-decoration: underline solid rgba(65, 97, 250, 0.7) 11px;
+}
     
 
 .logo-img {

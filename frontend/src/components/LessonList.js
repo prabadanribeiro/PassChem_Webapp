@@ -38,7 +38,7 @@ export default function LessonList( {unitTitle, topicTitle, lessons, isLessonPag
         return (
             <div className='lesson-sidebar'>
                 <ul className='sidebar-list'>
-                    <li className='sidebar-header'><GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null} className=".back-button-style" />Unit Page</li>
+                    <li className='sidebar-header'><GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null} className="back-button-style" />Unit Page</li>
                     {
                         lessons.map(lesson => 
                             <li className='list_item' style={{margin: 0}} key={lesson.id}>

@@ -64,6 +64,7 @@ canvas {
   z-index: 99;
   border-radius: 17px;
   padding: 50px;
+  -webkit-backdrop-filter: blur(100px);
   backdrop-filter: blur(100px);
   box-sizing: content-box;
 }
@@ -81,18 +82,20 @@ canvas {
   font-size: clamp(55px, 5vw, 90px);
   color: #121212;
   font-family: DM Sans;
+  font-weight: 550;
   text-decoration: underline solid hsl(215, 84%, 60%) clamp(4px, 12%, 12px);
   text-decoration-skip-ink: none;
   text-underline-offset: clamp(4px, 12%, 16px);
+  -webkit-text-decoration: underline solid rgb(67, 139, 239) clamp(4px, 12%, 12px);
 }
 
 .about-content p {
   margin-top: 30px;
   font-size: 22px;
-  color: hsl(231, 71%, 11%);
-  font-family: Helvetica;
+  color: hsl(232, 71%, 8%);
+  font-family: Archivo;
   line-height: 34px;
-  font-weight: 510;
+  font-weight: 500;
   display: block;
   width: 90%;
 }
@@ -154,6 +157,7 @@ canvas {
   margin-bottom: 15px;
   color: #111;
   margin-top: 100px;
+  font-weight: 500;
 }
 
 .frontside h4 {
@@ -161,6 +165,7 @@ canvas {
   font-size: 28px;
   text-align: center;
   font-family: DM Sans;
+  font-weight: 500;
 }
 
 .frontside p {
@@ -206,6 +211,7 @@ canvas {
 .flipped-content h5 {
   font-size: 28px;
   font-family: DM Sans;
+  font-weight: 600;
   color: #629ef1;
 }
 
@@ -291,6 +297,7 @@ canvas {
 
 .bio-container h5 {
   font-family: DM Sans;
+  font-weight: 500;
   font-size: 1.6rem;
 }
 .bio-container .bio-link {
