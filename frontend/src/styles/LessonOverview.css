@@ -8,7 +8,6 @@
 
 .sidebar-list {
     width: 100%;
-    /* position: relative; */
 }
 
 .sidebar-header {
@@ -20,7 +19,7 @@
     font-family: DM Sans;
     color: rgb(234, 245, 255);
     gap: 10px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 25px !important;
 }
 
@@ -56,6 +55,7 @@
     padding: 25px 35px;
     font-size: 28px;
     font-family: 'DM Sans', sans-serif;
+    font-weight: 580;
     background-color: #fafafa;
     border-radius: 10px;
     text-decoration: none;

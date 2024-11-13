@@ -61,8 +61,19 @@
   position: absolute;
   height: 360px;
   width: 100%;
+  overflow: hidden;
   background-color: hsl(207, 70%, 90%);
   transition: all 150ms linear 50ms;
+}
+
+.topics-description::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  height: 35px;
+  width: 100%;
+  background-image: linear-gradient(to top, #111 20%, transparent);
 }
 
 .topics-description p {
@@ -70,9 +81,8 @@
   margin: 0 auto;
   margin-top: 25px;
   font-family: Helvetica;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #211044;
-  overflow: hidden;
 }
 
 .link:hover > .topics-cards .topics-description{

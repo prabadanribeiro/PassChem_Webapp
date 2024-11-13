@@ -24,8 +24,6 @@
 }
 
 .video-player {
-  /* height: 315px;
-  width: 560px; */
   aspect-ratio: 16/9;
   width: 60vw;
 }
@@ -50,6 +48,7 @@
   height: fit-content;
   margin: 0 auto;
 }
+
 .react-pdf__Page canvas {
   margin: 0 auto;
 }

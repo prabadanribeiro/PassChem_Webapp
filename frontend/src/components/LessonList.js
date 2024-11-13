@@ -38,20 +38,32 @@ export default function LessonList( {unitTitle, topicTitle, lessons, isLessonPag
         return (
             <div className='lesson-sidebar'>
                 <ul className='sidebar-list'>
-                    <li className='sidebar-header'><GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null} className="back-button-style" />Unit Page</li>
-                    {
-                        lessons.map(lesson => 
-                            <li className='list_item' style={{margin: 0}} key={lesson.id}>
-                                <Link to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(lesson.title)}`}>
-                                    {lesson.title}
-                                </Link> 
-                            </li>
-                        )
-                    }
+                    <li className='sidebar-header'>
+                        <GoBackButton
+                            page={"Unit Page"}
+                            topicTitle={null}
+                            unitTitle={null}
+                            className=".back-button-style"
+                        />
+                        Unit Page
+                    </li>
+                    {lessons.map((lesson) => (
+                        <li className='list_item' style={{ margin: 0 }} key={lesson.id}>
+                            <Link
+                                to={`/curriculum/${URLService.slugify(unitTitle)}${
+                                    topicTitle
+                                        ? `/${URLService.slugify(topicTitle)}`
+                                        : ''
+                                }/${URLService.slugify(lesson.title)}`}
+                            >
+                                {lesson.title}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
-        )
-    }
+        );
+    }    
 
     
     return (
@@ -61,21 +73,29 @@ export default function LessonList( {unitTitle, topicTitle, lessons, isLessonPag
                     <div className="spinner" style={{height: '120px', width: '120px', border: '12px solid rgba(0, 0, 0, 0.1)'}}></div>
                 </div>
                 ) : (
-                <ul className="list">
-                    {lessons.map((lesson) => (
-                        <li
-                            className={`list_item ${completedLessons[lesson.id] ? 'completed' : ''}`}
-                            key={lesson.id}
-                        >
-                            <Link
-                                to={`/curriculum/${URLService.slugify(unitTitle)}/${URLService.slugify(topicTitle)}/${URLService.slugify(lesson.title)}`}
+                    <ul className="list">
+                        {lessons.map((lesson) => (
+                            <li
+                                className={`list_item ${
+                                    completedLessons[lesson.id] ? 'completed' : ''
+                                }`}
+                                key={lesson.id}
                             >
-                                {lesson.title}
-                            </Link>
-                            {completedLessons[lesson.id] && <div className="completion-indicator"></div>} 
-                        </li>
-                    ))}
-                </ul>   
+                                <Link
+                                    to={`/curriculum/${URLService.slugify(unitTitle)}${
+                                        topicTitle
+                                            ? `/${URLService.slugify(topicTitle)}`
+                                            : ''
+                                    }/${URLService.slugify(lesson.title)}`}
+                                >
+                                    {lesson.title}
+                                </Link>
+                                {completedLessons[lesson.id] && (
+                                    <div className="completion-indicator"></div>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
             )}
         </div>
     )
