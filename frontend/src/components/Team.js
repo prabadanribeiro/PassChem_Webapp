@@ -5,11 +5,11 @@ import '../styles/About.css'
 export default function Team() {
 
   function popup() {
-    document.getElementsByClassName('popup')[0].classList.add('active')
+    document.getElementsByClassName('bio-popup')[0].classList.add('active')
   }
 
   function dismiss(){
-    document.getElementsByClassName("popup")[0].classList.remove("active")
+    document.getElementsByClassName("bio-popup")[0].classList.remove("active")
   }
 
   const [isActive, setIsActive] = useState(false);
@@ -41,7 +41,7 @@ export default function Team() {
         <h4 className='team-header'>Meet the Team</h4>
       </div>
       <section className='team-flexbox' id='flexbox'>
-        <div className='popup'>
+        <div className='bio-popup'>
           <svg xmlns="http://www.w3.org/2000/svg" onClick={() => {dismiss(); toggleBlur()}} viewBox="0 0 320 512">{/*! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. */}<path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
           {buttonClicked === 1 ? (
             <div className='bio-container'>
@@ -58,7 +58,7 @@ export default function Team() {
           {buttonClicked === 2 ? (
             <div className='bio-container'>
               <h4>Gordon W. Gribble, Narrator</h4>
-              <p>Gordon W. Gribble is a native of San Francisco, California, and completed his undergraduate education at the University of California at Berkeley in 1963. He earned a Ph.D. in organic chemistry at the University of Oregon in 1967. After a National Cancer Institute Postdoctoral Fellowship at the University of California, Los Angeles, he joined the faculty of Dartmouth College in 1968 where has been Full Professor of Chemistry since 1980. He served as Department Chair from 1988-1991. Professional awards include a National Institutes of Health Research Career Development Award, 1971-76, a National Science Foundation Science Faculty Professional Development Award, 1977-78, and the American Cyanamid Academic Award in 1988. He won the Dartmouth Distinguished Teaching Award in 1997, and in 1998 was awarded the Chemistry Alumni Award by the University of Oregon. In 2005, he was named to the newly endowed Chair as "The Dartmouth Professor of Chemistry," and in 2006 won the Arts and Sciences Graduate Faculty Mentoring Award. Dr. Gribble has published 315 papers in natural product synthesis, synthetic methodology, heterocyclic chemistry, natural organohalogen compounds, and synthetic triterpenoids, one of which is currently in Phase 2 clinical trials for the treatment of melanoma and pancreatic cancer. Another group of compounds, "DNA Bis-Intercalators", shows promise against the brain tumor glioblastoma in mice. Since 1995 he has co-edited the annual series "Progress in Heterocyclic Chemistry", and the 2nd edition of "Palladium in Heterocyclic Chemistry", co-authored with Jack Li, was published last year. Dr. Gribble has had a long-standing interest in organic chemical toxicity, chemical carcinogenesis, chemicals in the environment, and naturally occurring organohalogen compounds, and he has just finished his second monograph on naturally occurring organohalogen compounds. As a home winemaker for the past 30 years, he has a strong interest in the chemistry of wine and winemaking.</p>
+              <p>Gordon W. Gribble is a native of San Francisco, California, and completed his undergraduate education at the University of California at Berkeley in 1963. He earned a Ph.D. in organic chemistry at the University of Oregon in 1967. After a National Cancer Institute Postdoctoral Fellowship at the University of California, Los Angeles, he joined the faculty of Dartmouth College in 1968 where has been Full Professor of Chemistry since 1980. He served as Department Chair from 1988-1991. Professional awards include a National Institutes of Health Research Career Development Award, 1971-76, a National Science Foundation Science Faculty Professional Development Award, 1977-78, and the American Cyanamid Academic Award in 1988. He won the Dartmouth Distinguished Teaching Award in 1997, and in 1998 was awarded the Chemistry Alumni Award by the University of Oregon. In 2005, he was named to the newly endowed Chair as "The Dartmouth Professor of Chemistry," and in 2006 won the Arts and Sciences Graduate Faculty Mentoring Award. <br/><br/> Dr. Gribble has published 315 papers in natural product synthesis, synthetic methodology, heterocyclic chemistry, natural organohalogen compounds, and synthetic triterpenoids, one of which is currently in Phase 2 clinical trials for the treatment of melanoma and pancreatic cancer. Another group of compounds, "DNA Bis-Intercalators", shows promise against the brain tumor glioblastoma in mice. Since 1995 he has co-edited the annual series "Progress in Heterocyclic Chemistry", and the 2nd edition of "Palladium in Heterocyclic Chemistry", co-authored with Jack Li, was published last year. Dr. Gribble has had a long-standing interest in organic chemical toxicity, chemical carcinogenesis, chemicals in the environment, and naturally occurring organohalogen compounds, and he has just finished his second monograph on naturally occurring organohalogen compounds. As a home winemaker for the past 30 years, he has a strong interest in the chemistry of wine and winemaking.</p>
             </div>
             ) : null}
           {buttonClicked === 3 ? (

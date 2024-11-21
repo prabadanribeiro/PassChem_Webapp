@@ -6,6 +6,7 @@
   display: inline-block;
   font-size: 3.7rem;
   margin-left: 10%;
+  margin-right: 10%;
   color: rgb(19, 68, 109);
   margin-top: 60px;
   font-family: Archivo;
@@ -73,7 +74,7 @@
   left: 0;
   height: 35px;
   width: 100%;
-  background-image: linear-gradient(to top, #111 20%, transparent);
+  background-image: linear-gradient(to top, #111 10%, transparent);
 }
 
 .topics-description p {
@@ -106,4 +107,33 @@
   font-weight: 400;
   padding-top: 16px;
   font-family: Archivo;
+}
+
+@media screen and (max-width: 620px) {
+  .topics-body h3 {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .topics-body hr {
+    margin-left: 20px;
+  }
+  .link {
+    transform: scale(0.95);
+  }
+  .link:hover {
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topics-body h3 {
+    text-align: center;
+  }
+  .topics-body hr {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

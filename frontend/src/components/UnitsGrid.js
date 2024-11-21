@@ -23,7 +23,7 @@ export default function UnitsGrid() {
 
     return (
         <div className='topics-body'>
-            <h3>General Chemistry Curriculum</h3>
+            <h3>General Chemistry</h3>
             <hr />
             {loading ? (
                 <div className="spinner-container" style={{height: '350px'}}>

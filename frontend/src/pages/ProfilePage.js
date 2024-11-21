@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 import api from "../services/AxiosServices"
@@ -9,6 +9,10 @@ import ResetPassword from "../components/ResetPassword"
 import LoginMethod from "../components/LoginMethod"
 
 export default function ProfilePage() {
+
+    useEffect(() => {
+        document.title = 'Profile - PassChem';
+    }, []);
 
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')

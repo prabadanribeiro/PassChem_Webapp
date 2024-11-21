@@ -10,6 +10,10 @@ import '../styles/Progression.css'
 
 export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNumber, unit }) {
 
+    useEffect(() => {
+        document.title = unitTitle;
+    }, []);
+
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')

@@ -8,6 +8,10 @@ import Cookies from 'js-cookie'
 
 export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} ) {
 
+    useEffect(() => {
+        document.title = topicTitle;
+    }, []);
+
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')

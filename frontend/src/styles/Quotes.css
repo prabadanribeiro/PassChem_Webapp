@@ -160,11 +160,11 @@
 @media screen and (max-width: 480px){
   .testimonial-container,
   .testimonial-slide {
-    height: 560px;
+    height: 520px;
   }
 
   .testimonial-slide section {
-    height: 480px;
+    height: 460px;
   }
 
   .testimonial-slide section q {
@@ -172,5 +172,8 @@
   }
   .divider-shape {
     height: 80px;
+  }
+  .testimonial-slide section q {
+    font-size: 20px;
   }
 }
