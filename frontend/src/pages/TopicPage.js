@@ -8,6 +8,10 @@ import Cookies from 'js-cookie'
 
 export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} ) {
 
+    useEffect(() => {
+        document.title = topicTitle;
+    }, []);
+
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
@@ -16,7 +20,8 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
         fontSize: '50px',
         textAlign: 'center',
         margin: '50px 0 40px 0',
-        fontFamily: 'DM Sans'
+        fontFamily: 'DM Sans', 
+        fontWeight: '550'
     }
 
     

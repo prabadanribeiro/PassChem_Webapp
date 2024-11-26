@@ -147,7 +147,7 @@ export default function LoginForm() {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit">Sign In</button>
+                    <button type="submit">Login</button>
                     <div id='GoogleSignIn' className='google-login' style={{transform: 'scale(1.3)', transformOrigin: 'center'}}></div>
                 </div>
                 <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>

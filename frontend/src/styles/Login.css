@@ -25,11 +25,12 @@
 #form-info h3 {
   font-size: 40px;
   margin-bottom: 30px;
+  font-weight: 600;
   font-family: DM Sans;
 }
 
 .form-input {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .form-input label {
@@ -57,6 +58,7 @@ input[type=email], input[type=password] {
 
 .login-hero form #form-info button {
   padding: 8px 60px;
+  margin-top: 20px;
   display: inline-block;
   vertical-align: top;
   font-size: 17px;
@@ -76,6 +78,7 @@ input[type=email], input[type=password] {
   display: inline-block;
   margin-left: 18px;
   vertical-align: top;
+  margin-top: 20px;
 }
 
 .chair-logo {
@@ -90,4 +93,8 @@ input[type=email], input[type=password] {
   display: block;
   margin-left: 15%;
   margin-top: 20px;
+  font-size: 17px;
+  text-underline-offset: 1px;
+  text-decoration: underline;
+  width: fit-content;
 }

@@ -10,6 +10,10 @@ import '../styles/Progression.css'
 
 export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNumber, unit }) {
 
+    useEffect(() => {
+        document.title = unitTitle;
+    }, []);
+
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
@@ -47,6 +51,7 @@ export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNum
         textAlign: 'center',
         margin: '50px 0 0px 0',
         fontFamily: 'DM Sans',
+        fontWeight: '550'
     }
 
     console.log(unitLessons.length)
@@ -72,7 +77,7 @@ export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNum
             </div>
             <Navbar />
             <GoBackButton page={"Unit Page"} topicTitle={null} unitTitle={null} />
-            <h1 style={UnitHeader}>{unitTitle}</h1>
+            <h2 style={UnitHeader}>{unitTitle}</h2>
             {accessToken && refreshToken && (
                 <div className="progress-container">
                     <div className="progress-inner">

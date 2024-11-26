@@ -40,16 +40,17 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 70px 0 100px 150px;
+  padding: 70px 0 100px 100px;
   position: relative;
-  background-color: hsl(180, 4%, 5%);
+  background-image: linear-gradient(to bottom, #000, hsl(180, 2%, 7%));
 }
 
 .courses-overview {
   min-width: max(40%, 400px);
+  transform: translateX(50px);
   height: 100%;
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   z-index: 99;
 }
@@ -86,8 +87,8 @@
 
 .light {
   position: absolute;
-  height: 140px;
-  width: 120px;
+  height: 120px;
+  width: 100px;
   left: 10%;
   bottom: 55%;
   border-radius: 50%;
@@ -95,6 +96,7 @@
   filter: blur(105px);
   animation: light-anim 28s ease-out infinite alternate-reverse;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes light-anim {
@@ -143,7 +145,7 @@
   column-gap: 80px;
   row-gap: 120px;
   flex-wrap: wrap;
-  background-color: hsl(180, 4%, 5%);
+  background-color: hsl(180, 2%, 7%);
 }
 
 .ar-app-image {
@@ -167,6 +169,7 @@
   font-family: DM Sans;
   color: #eeeeeb;
   width: max-content;
+  font-weight: 550;
 }
 
 .ar-container p {
@@ -190,11 +193,11 @@
     padding: 80px 0 0 0;
   }
   .courses-overview {
-    width: 100%;
+    min-width: 100%;
     justify-content: center;
     align-items: center;
     transform: none;
-    margin: none;
+    margin: 0;
   }
   .courses-overview p {
     text-align: center;
@@ -224,13 +227,11 @@
 }
 
 @media screen and (max-width: 780px){
-  .courses-overview {
-    width: 100vw;
-  }
   .courses-overview .header {
     width: 92%;
     font-size: 50px;
     line-height: 54px;
+    margin-top: 20px;
   }
 }
 
@@ -238,6 +239,17 @@
   .ar-app-image {
     width: 450px;
     height: 280px;
+  }
+  .courses-overview p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .courses-overview .header {
+    font-size: 46px;
+    line-height: 48px;
+  }
+  .page-link-button {
+    font-size: 22px;
   }
 }
 
@@ -247,10 +259,11 @@
     height: 250px;
   }
   .ar-container h3 {
-    font-size: 52px;
+    font-size: 48px;
   }
   .ar-container p {
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 25px;
   }
 }
 
@@ -262,7 +275,7 @@
     margin-top: 50px;
   }
   .ar-container h3 {
-    font-size: 46px;
+    font-size: 44px;
   }
 }
 

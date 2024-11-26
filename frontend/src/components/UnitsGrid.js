@@ -23,7 +23,7 @@ export default function UnitsGrid() {
 
     return (
         <div className='topics-body'>
-            <h3>General Chemistry Curriculum</h3>
+            <h3>General Chemistry</h3>
             <hr />
             {loading ? (
                 <div className="spinner-container" style={{height: '350px'}}>
@@ -37,7 +37,7 @@ export default function UnitsGrid() {
                                 <div className='topics-cards'>
                                     <img className="topics-images" src={`http://127.0.0.1:8000/${unit.img}`} alt='Unit Images'/>
                                     <div className='topics-description'>
-                                        <p>{/* needs unit.description */}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>{/* needs unit.description */}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. A great leader leads not by what he says, but by what he does day to day to lead himself.</p>
                                     </div>
                                 </div>
                                 <li className="card-content">

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import SignupForm from '../components/SignupForm'
 import Logout from '../components/Logout'
 
 export default function SignupPage() {
+
+    useEffect(() => {
+        document.title = 'Sign Up - PassChem';
+    }, []);
 
     const gradientParentStyle = {
         position: 'absolute',

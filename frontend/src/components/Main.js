@@ -21,7 +21,7 @@ export default function Main(){
           <p>Our augmented reality teaching tool (compatible with iPad and iPhone only) will fully immerse the student into unprecedented three-dimensional visuals as well as allow them to interact and build molecules in three-dimensions.</p>
           <a className='page-link-button' href='https://apps.apple.com/vn/app/a-r-chem/id1377946463#?platform=iphone' target='_blank'>AR with PassChem</a>
         </div>
-        <img src='images/ar-app.png' className='ar-app-image'/>
+        <img src='images/ar-app.png' className='ar-app-image' alt='AR app image'/>
       </section>
     </div>
   )
