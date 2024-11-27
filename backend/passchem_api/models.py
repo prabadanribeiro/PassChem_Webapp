@@ -41,7 +41,7 @@ class Topic(models.Model):
         __str__: 
             Returns the title of the topic as its string representation.
     """
-    unit = models.ForeignKey(Unit, related_name='units', on_delete=models.CASCADE)
+    unit = models.ForeignKey(Unit, related_name='topics', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255, blank=True, null=True)
     topic_number = models.IntegerField(blank=True, null=True)
@@ -90,8 +90,8 @@ class Lesson(models.Model):
         ('text', 'Text'),
     ]
 
-    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, null=True)
-    topic = models.ForeignKey(Topic, related_name='topics', on_delete=models.CASCADE, blank=True, null=True)
+    unit = models.ForeignKey(Unit, related_name='lessons', on_delete=models.CASCADE, null=True)
+    topic = models.ForeignKey(Topic, related_name='lessons', on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=255)
     lesson_number = models.IntegerField(blank=True, null=True)
     type = models.CharField(max_length=5, choices=LESSON_TYPES)
@@ -199,15 +199,16 @@ class UserUnit(models.Model):
     def update_progression(self):
         """
         Calculates and updates the progression field based on the number of completed 
-        lessons. Uses UserLesson to count lessons marked as completed by the user 
-        within this unit.
+        lessons in the unit. Uses UserLesson to count lessons marked as completed by the user.
         - If there are lessons in the unit, progression is calculated as the percentage 
-          of completed lessons.
+        of completed lessons.
         - If no lessons exist in the unit, progression is set to 0.
         """
         total_lessons = Lesson.objects.filter(unit=self.unit).count()
         if total_lessons > 0:
-            completed_lessons = UserLesson.objects.filter(user=self.user, lesson__unit=self.unit, completed=True).count()
+            completed_lessons = UserLesson.objects.filter(
+                user=self.user, lesson__unit=self.unit, completed=True
+            ).count()
             self.progression = (completed_lessons / total_lessons) * 100
         else:
             self.progression = 0
@@ -244,7 +245,7 @@ class UserTopic(models.Model):
             counts all lessons within the topic and then counts only those marked as 
             completed by the user. Progression is set as a percentage of completed 
             lessons to total lessons. If there are no lessons, progression defaults to 0.
-            Also updates the associated UserUnit’s progression if it exists.
+            Also updates the associated UserUnit's progression if it exists.
 
         __str__:
             Returns a string representation of the UserTopic instance, combining the 
@@ -268,9 +269,9 @@ class UserTopic(models.Model):
         Calculates and updates the progression field based on the number of completed 
         lessons in the topic. Progression is updated as a percentage of completed 
         lessons. If no lessons exist in the topic, progression is set to 0.
-        Also triggers an update to the associated UserUnit’s progression.
+        Also triggers an update to the associated UserUnit's progression.
         """
-        total_lessons = self.topic.lessons.count()
+        total_lessons = self.topic.lessons.count() if self.topic else 0
         if total_lessons > 0:
             completed_lessons = UserLesson.objects.filter(
                 user=self.user, lesson__topic=self.topic, completed=True
@@ -297,7 +298,7 @@ class UserTopic(models.Model):
         that contains this topic, ensuring accurate tracking between related topic 
         and unit progression.
         """
-        user_unit, created = UserUnit.objects.get_or_create(user=self.user, unit=self.topic.unit)
+        user_unit = UserUnit.objects.get(user=self.user, unit=self.topic.unit)
         return user_unit
 
 
@@ -348,8 +349,8 @@ class UserLesson(models.Model):
     def get_user_topic(self):
         """
         Retrieves or creates the UserTopic instance associated with the user's topic 
-        that contains this lesson, ensuring accurate tracking between related lesson 
-        and topic completion statuses.
+        that contains this lesson. Returns None if the lesson has no topic.
         """
-        user_topic, created = UserTopic.objects.get_or_create(user=self.user, topic=self.lesson.topic)
-        return user_topic
+        if self.lesson.topic:
+            return UserTopic.objects.get(user=self.user, topic=self.lesson.topic)
+        return None 

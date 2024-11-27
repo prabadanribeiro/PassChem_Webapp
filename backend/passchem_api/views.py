@@ -120,17 +120,19 @@ def mark_lesson_completed(request, lesson_id):
     Returns:
         JSON response with a success message and HTTP 200 status.
     """
-    lesson = get_object_or_404(Lesson, id=lesson_id)
-    user_lesson, created = UserLesson.objects.get_or_create(user=request.user, lesson=lesson)
+    user_lesson = get_object_or_404(UserLesson, user=request.user, lesson_id=lesson_id)
     user_lesson.completed = request.data.get('completed', user_lesson.completed)
     user_lesson.save()
 
-    # Update progression for the associated topic and unit
-    user_topic = user_lesson.get_user_topic()
-    user_topic.update_progression()
-
-    user_unit = user_topic.get_user_unit()
-    user_unit.update_progression()
+    if user_lesson.lesson.topic:
+        user_topic = user_lesson.get_user_topic()
+        user_topic.update_progression()
+        
+        user_unit = user_topic.get_user_unit()
+        user_unit.update_progression()  
+    else:
+        user_unit = UserUnit.objects.filter(user=request.user, unit=user_lesson.lesson.unit).first()
+        user_unit.update_progression()
 
     return Response({'status': 'success', 'message': 'Lesson completion status updated.'}, status=status.HTTP_200_OK)
 

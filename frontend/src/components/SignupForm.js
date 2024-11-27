@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import config from '../config/Config'
 import api from '../services/AxiosServices'
+import PasswordStrengthVerifier from '../services/PasswordStrenghVerifier'
 import '../styles/SignUp.css'
 
 function loadGoogleScript() {
@@ -117,6 +118,13 @@ export default function SignupForm() {
         }
     }
 
+    const requirements = [
+      { id: 1, text: 'At least 8 characters', isValid: (pwd) => pwd.length >= 8 },
+      { id: 2, text: 'At least one number', isValid: (pwd) => /\d/.test(pwd) },
+      { id: 3, text: 'At least one uppercase letter', isValid: (pwd) => /[A-Z]/.test(pwd) },
+      { id: 4, text: 'At least one special character', isValid: (pwd) => /[!@#$%^&*(),.?":{}|<>]/.test(pwd) },
+    ];
+
     return (
         <div className='sign-up-hero'>
             <form onSubmit={submit}>
@@ -168,6 +176,38 @@ export default function SignupForm() {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
+                    <div style={{marginTop:'10px', fontFamily:'DM Sans'}}>
+                      <ul
+                          style={{
+                              transform: password ? 'translateY(0)' : 'translateY(-30px)',
+                              opacity: password ? 1 : 0,
+                              transition: 'transform 0.7s ease, opacity 0.7s ease'
+                          }}
+                      >
+                          {password &&
+                              requirements.map((req) => (
+                                  <li
+                                      key={req.id}
+                                      style={{
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          marginBottom: '10px',
+                                          color: req.isValid(password) ? 'green' : 'red',
+                                      }}
+                                  >
+                                      <span
+                                          style={{
+                                              marginRight: '10px',
+                                              fontSize: '18px',
+                                          }}
+                                      >
+                                          {req.isValid(password) ? '✔' : '✖'}
+                                      </span>
+                                      {req.text}
+                                  </li>
+                              ))}
+                      </ul>
+                    </div>
                     <div className='sign-up-input'>
                         <label>Confirm Password</label>
                         <input 
@@ -182,7 +222,7 @@ export default function SignupForm() {
                     {errorMessage && <div>{errorMessage}</div>}
                     <p>*Sponholtz Productions will not sell or distribute your information</p>
                     <div className='sign-up-buttons-container'>
-                        <button type="submit">Register</button>
+                        <button disabled={!firstName || !lastName || !email || !PasswordStrengthVerifier.checkPassword(password)} type="submit">Register</button>
                         <div id='GoogleSignIn' className='google-sign-up' data-type='icon'></div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
         extra_kwargs = {
-            'password': {'write_only': True},  # Hides password field from read operations
+            'password': {'write_only': True},
         }
 
     def create(self, validated_data):

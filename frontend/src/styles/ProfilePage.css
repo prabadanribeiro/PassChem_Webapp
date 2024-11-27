@@ -1,0 +1,309 @@
+  .profilepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 600px;
+    font-family: DM Sans;
+    z-index: 1;
+  }
+
+  .profile-container {
+    margin-top: 100px;
+    width: 60%;
+    min-height: 500px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    z-index: 1;
+  }
+
+  .login-method-container {
+    width: 100%;
+    height: 220px;
+  }
+
+  .login-method-component-container {
+    width: 100%;
+    height: 150px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .login-method-description {
+    font-size: 25px;
+    font-weight: 500;
+    height: 45%;
+  }
+
+  .interactive-container {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email-container {
+    height: 50%;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .email-container h3{
+    font-size: 20px;
+  }
+
+  .email-container button {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: white;
+    border: 1px solid hsl(208, 71%, 60%);
+    border-radius: 4px;
+    color: hsl(208, 71%, 60%);
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .email-container button:hover {
+    background-color: hsl(208, 71%, 60%);
+    border: 1px solid white;
+    color: white;
+  }
+
+  .email-form-label {
+    margin-right: 10px;
+  }
+
+  .email-form-input {
+    margin-right: 10px;
+    height: 25px;
+  }
+
+  /* PASSWORDS SECTION */
+
+  .everything-password-container {
+    width: 100%;
+    height: 220px;
+    display: flex;
+  }
+
+  .everything-reset-password {
+    width: 55%;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-password-section {
+    width: 100%;
+    height: 175px;
+    display: flex;
+  }
+
+  .password-change-form {
+    width: 100%;
+    height: 165px;
+  }
+
+  .new-password-container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .new-password-container label {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .new-password-container input {
+    height: 25px;
+  }
+  
+  .new-password-container button {
+    min-width: 120px;
+    min-height: 40px;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid hsl(208, 71%, 60%);
+    border-radius: 4px;
+    color: hsl(208, 71%, 60%);
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .new-password-container button:hover {
+    background-color: hsl(208, 71%, 60%);
+    border: 1px solid white;
+    color: white;
+  }
+
+  .new-password-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .new-password-container button:disabled:hover {
+    background-color: #ccc;
+    border: 1px solid hsl(208, 71%, 60%);
+    cursor: not-allowed;
+    color: hsl(208, 71%, 60%);
+  }
+
+  .password-requirements-container {
+    height: 100%;
+    width: 45%;
+    box-sizing: border-box;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .password-requirements-container ul {
+    list-style-position: inside;
+  }
+
+  .user-password-requirement-text {
+    width: 100%;
+    height: 35%;
+  }
+
+  .user-password-requirement-text h3 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  .user-password-requirement-bulletpoints {
+    height: 65%;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .user-password-requirement-bulletpoints ul {
+    list-style-type: none;
+  }
+
+  .user-password-requirement-bulletpoints li {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  .delete-modal, .delete-modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+  
+  .delete-modal {
+    z-index: 1;
+  }
+
+  .delete-modal-overlay {
+    background: rgba(49, 49, 49, 0.8);
+  }
+
+  .delete-modal-content {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background: whitesmoke;
+    top: 30%;
+    left: 32.5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-modal-text {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 18px;
+    font-size: 20px;
+  }
+
+  .delete-modal-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    height: 50%;
+    padding: 0 15px 0 15px;
+  }
+
+  .delete-modal-input h3 {
+    font-weight: 400;
+    font-size: 17px;
+  }
+
+  .delete-modal-buttons {
+    height: 20%;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .delete-modal-buttons button {
+    width: 110px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .delete-modal-buttons-delete {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+    transition-duration: 0.4s ease;
+  }
+
+  .delete-modal-buttons-delete:hover {
+    background-color: red;
+    color: white;
+  }
+
+  .delete-modal-buttons-close {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition-duration: 0.4s ease;
+  }
+
+  .delete-modal-buttons-close:hover {
+    background-color: black;
+    color: white;
+  }

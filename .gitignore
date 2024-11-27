@@ -3,7 +3,7 @@
 
 ## Frontend ##
 
-
+frontend/node_modules
 /node_modules
 /src/config/config.js
 /.pnp
