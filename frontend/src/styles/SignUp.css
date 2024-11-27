@@ -19,6 +19,7 @@
   justify-content: flex-start;
   position: relative;
   border-bottom: 3px solid hsl(208, 71%, 60%);
+  border-top: 3px solid hsl(208, 71%, 60%);
   padding-bottom: 20px;
 }
 
@@ -103,7 +104,7 @@ input[type=text] {
   background-color: rgb(57, 145, 222);
   border: solid 1px #aaa;
   font-family: DM Sans;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   border-radius: 5px;
   color: rgb(242, 248, 254);
 }

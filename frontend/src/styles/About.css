@@ -64,6 +64,9 @@ canvas {
   z-index: 99;
   border-radius: 17px;
   padding: 50px;
+  /* for Safari browser */
+  -webkit-backdrop-filter: blur(100px);
+
   backdrop-filter: blur(100px);
   box-sizing: content-box;
 }
@@ -81,18 +84,23 @@ canvas {
   font-size: clamp(55px, 5vw, 90px);
   color: #121212;
   font-family: DM Sans;
-  text-decoration: underline solid hsl(215, 84%, 60%) clamp(4px, 12%, 12px);
+  font-weight: 550;
+  /* for Safari browser */
+  text-decoration-color: hsl(215, 84%, 60%);
+  text-decoration-line: underline;
+  text-underline-offset: 9px;
+  text-underline-offset: clamp(4px, 7%, 16px);
+  text-decoration-thickness: clamp(4px, 12%, 12px);
   text-decoration-skip-ink: none;
-  text-underline-offset: clamp(4px, 12%, 16px);
 }
 
 .about-content p {
   margin-top: 30px;
   font-size: 22px;
-  color: hsl(231, 71%, 11%);
-  font-family: Helvetica;
+  color: hsl(232, 71%, 8%);
+  font-family: Archivo;
   line-height: 34px;
-  font-weight: 510;
+  font-weight: 500;
   display: block;
   width: 90%;
 }
@@ -118,11 +126,11 @@ canvas {
   height: 300px;
   width: 350px;
   transition: all 0.7s .1s;
+}
 
-  &:hover > .member-card {
-    transform: rotateY(180deg);
-    box-shadow: -2px 2px 12px #999;
-  }
+.card-bounds:hover > .member-card {
+  transform: rotateY(180deg);
+  box-shadow: -2px 2px 12px #999;
 }
 
 .member-card {
@@ -154,6 +162,7 @@ canvas {
   margin-bottom: 15px;
   color: #111;
   margin-top: 100px;
+  font-weight: 500;
 }
 
 .frontside h4 {
@@ -161,6 +170,7 @@ canvas {
   font-size: 28px;
   text-align: center;
   font-family: DM Sans;
+  font-weight: 500;
 }
 
 .frontside p {
@@ -206,6 +216,7 @@ canvas {
 .flipped-content h5 {
   font-size: 28px;
   font-family: DM Sans;
+  font-weight: 550;
   color: #629ef1;
 }
 
@@ -226,7 +237,7 @@ canvas {
   color: hsl(215, 84%, 46%);
 }
 
-.popup {
+.bio-popup {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -241,7 +252,7 @@ canvas {
   pointer-events: none;
 }
 
-.popup.active {
+.bio-popup.active {
   opacity: 1;
   transform: translate(-50%, 0%) scale(1);
   transition: transform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19), opacity 150ms linear;
@@ -249,7 +260,7 @@ canvas {
   pointer-events: all;
 }
 
-.popup svg {
+.bio-popup svg {
   height: 30px;
   width: 30px;
   position: absolute;
@@ -260,7 +271,7 @@ canvas {
   transition: fill 100ms ease;
 }
 
-.popup svg:hover {
+.bio-popup svg:hover {
   fill: hsl(0, 0%, 45%);
 }
 
@@ -291,6 +302,7 @@ canvas {
 
 .bio-container h5 {
   font-family: DM Sans;
+  font-weight: 500;
   font-size: 1.6rem;
 }
 .bio-container .bio-link {
@@ -308,9 +320,7 @@ canvas {
   row-gap: 30px;
 }
 
-
-
-@media screen and (max-width: 1250px){
+@media screen and (max-width: 1220px){
   .team-flexbox {
     width: 778px;
   }

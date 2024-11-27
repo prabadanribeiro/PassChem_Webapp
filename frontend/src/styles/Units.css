@@ -6,6 +6,7 @@
   display: inline-block;
   font-size: 3.7rem;
   margin-left: 10%;
+  margin-right: 10%;
   color: rgb(19, 68, 109);
   margin-top: 60px;
   font-family: Archivo;
@@ -47,12 +48,13 @@
   width: 340px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   transition: 0.3s;
-
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-    transform: translateY(-10px);
-  }
 }
+
+.link:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+}
+
 .topics-description {
   opacity: 0;
   top: 0;
@@ -60,17 +62,28 @@
   position: absolute;
   height: 360px;
   width: 100%;
+  overflow: hidden;
   background-color: hsl(207, 70%, 90%);
   transition: all 150ms linear 50ms;
+}
 
-  & p {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 25px;
-    font-family: Helvetica;
-    font-size: 1.5rem;
-    color: #211044;
-  }
+.topics-description::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  height: 35px;
+  width: 100%;
+  background-image: linear-gradient(to top, #111 10%, transparent);
+}
+
+.topics-description p {
+  width: calc(80%);
+  margin: 0 auto;
+  margin-top: 25px;
+  font-family: Helvetica;
+  font-size: 1.4rem;
+  color: #211044;
 }
 
 .link:hover > .topics-cards .topics-description{
@@ -84,14 +97,43 @@
   text-align: center;
   background-color: #111;
   border: solid 1px #000;
+}
 
-  & h4 {
-    display: inline-block;
-    color: #fff;
-    line-height: 50px;
-    font-size: 27px;
-    font-weight: 400;
-    padding-top: 16px;
-    font-family: Archivo;
+.card-content h4 {
+  display: inline-block;
+  color: #fff;
+  line-height: 50px;
+  font-size: 27px;
+  font-weight: 400;
+  padding-top: 16px;
+  font-family: Archivo;
+}
+
+@media screen and (max-width: 620px) {
+  .topics-body h3 {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .topics-body hr {
+    margin-left: 20px;
+  }
+  .link {
+    transform: scale(0.95);
+  }
+  .link:hover {
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topics-body h3 {
+    text-align: center;
+  }
+  .topics-body hr {
+    width: 90%;
+    margin: 0 auto;
   }
 }

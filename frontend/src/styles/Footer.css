@@ -2,6 +2,7 @@
 .footer-hero {
   height: 140px;
   min-height: max-content;
+  max-width: 100%;
   width: 100vw;
   margin-top: 100px;
   border-top: solid 2px #111;
@@ -25,7 +26,7 @@
 .footer-container p { 
   font-size: 18px;
   font-family: DM Sans;
-  font-weight: 900;
+  font-weight: 550;
   text-align: center;
 }
 

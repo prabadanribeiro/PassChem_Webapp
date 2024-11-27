@@ -29,29 +29,33 @@
 @media screen and (max-width: 840px) {
   .spline-asset {
     transform: scale(0.8);
-    transform-origin: top;
+    transform-origin: bottom;
   }
 }
 
 @media screen and (max-width: 680px) {
   .spline-asset {
     transform: scale(0.65);
+    margin-top: -200px;
   }
 }
 @media screen and (max-width: 560px) {
   .spline-asset {
     transform: scale(0.5);
+    margin-top: -320px;
   }
 }
 
 @media screen and (max-width: 435px) {
   .spline-asset {
     transform: scale(0.45);
+    margin-top: -360px;
   }
 }
 
 @media screen and (max-width: 420px) {
   .spline-asset {
     transform: scale(0.4);
+    margin-top: -400px;
   }
 }

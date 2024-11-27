@@ -12,6 +12,10 @@ import '../styles/ProfilePage.css'
 
 export default function ProfilePage() {
 
+    useEffect(() => {
+        document.title = 'Profile - PassChem';
+    }, []);
+
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
     const [email, setEmail] = useState('')
