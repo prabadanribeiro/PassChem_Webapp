@@ -148,7 +148,7 @@ export default function LoginForm() {
                         />
                     </div>
                     <button type="submit">Login</button>
-                    <div id='GoogleSignIn' className='google-login' style={{transform: 'scale(1.3)', transformOrigin: 'center'}}></div>
+                    <div id='GoogleSignIn' className='google-login'></div>
                 </div>
                 <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>
             </form>

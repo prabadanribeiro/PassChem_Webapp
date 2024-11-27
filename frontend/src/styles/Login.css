@@ -1,18 +1,13 @@
 
 .login-hero {
   height: calc(100vh - 90px);
-  width: 100vw;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: min(550px), 1fr;
   background-image: linear-gradient(120deg, rgba(10, 255, 218, 0.55), rgba(145, 195, 239, 0.80));
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .login-hero form {
-  display: inline-block;
   height: 100%;
-  width: 40%;
   background-color: aliceblue;
 }
 
@@ -82,9 +77,10 @@ input[type=email], input[type=password] {
 }
 
 .chair-logo {
-  object-fit: fill;
-  width: 60%;
-  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
   transform: scale(0.8);
   filter: contrast(1.5) hue-rotate(-50deg);
 }

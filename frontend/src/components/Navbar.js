@@ -163,7 +163,7 @@ export default function Navbar({ isHome }) {
                                         </Link>
                                     </li>
                                     <li>
-                                        <button className='menu-item' style={{padding: '41px'}} onClick={logout}>
+                                        <button className='menu-item' onClick={logout}>
                                             Logout
                                         </button>
                                     </li>

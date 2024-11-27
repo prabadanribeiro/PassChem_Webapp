@@ -1,6 +1,5 @@
 .spline-asset {
   z-index: 0;
-  max-width: fit-content;
   min-width: fit-content;
   height: calc(100% + 50px);
   overflow: hidden;
@@ -10,13 +9,13 @@
 
 @media screen and (max-width: 1300px)  {
   .spline-asset {
-    transform: translateX(-100px);
+    transform: translateX(-50px);
   }
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1220px) {
   .spline-asset {
-    transform: translateX(-100px) scale(0.95);
+    transform: translateX(-80px) scale(0.9);
   }
 }
 
@@ -57,5 +56,12 @@
   .spline-asset {
     transform: scale(0.4);
     margin-top: -400px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .spline-asset {
+    transform: scale(0.35);
+    margin-top: -450px;
   }
 }

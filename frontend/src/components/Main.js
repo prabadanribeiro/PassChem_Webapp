@@ -5,9 +5,8 @@ import SplineAsset from '../components/SplineAsset'
 
 export default function Main(){
   return (
-    <div className="wrapper" id='section2'>
+    <div id='section2'>
       <section className='upper-main'>
-        <div className='light'></div>
         <div className='courses-overview'>
           <h2 className='header'>Access <span className='gradient-green'>free</span> courses with videos and exercises</h2>
           <p>Lessons include practice problems, narrated videos, and stunning visual effects. Master the material from each unit and grow your chemistry skills by following each lesson.</p>

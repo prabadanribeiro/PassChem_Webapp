@@ -4,11 +4,6 @@
   --gradient-green: linear-gradient(to bottom left, rgb(162, 255, 162), rgb(50, 164, 199));
 }
 
-.wrapper {
-  width: 100%;
-  height: fit-content;
-}
-
 .header {
   font-size: 4rem;
   letter-spacing: 1px;
@@ -35,11 +30,9 @@
 }
 
 .upper-main {
-  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: 70px 0 100px 100px;
   position: relative;
   background-image: linear-gradient(to bottom, #000, hsl(180, 2%, 7%));
@@ -48,7 +41,6 @@
 .courses-overview {
   min-width: max(40%, 400px);
   transform: translateX(50px);
-  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -85,48 +77,6 @@
   color: hsl(193, 71%, 80%);
 }
 
-.light {
-  position: absolute;
-  height: 120px;
-  width: 100px;
-  left: 10%;
-  bottom: 55%;
-  border-radius: 50%;
-  background-image: radial-gradient(#2b98f8, rgb(156, 217, 250));
-  filter: blur(105px);
-  animation: light-anim 28s ease-out infinite alternate-reverse;
-  pointer-events: none;
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes light-anim {
-  0% {
-    left: 5%;
-    bottom: 55%;
-    border-radius: 50%;
-  }
-  25% {
-    left: 20%;
-    bottom: 30%;
-    border-radius: 40%;
-  }
-  50% {
-    left: 15%;
-    bottom: 75%;
-    border-radius: 60%;
-  }
-  75% {
-    left: 0%;
-    bottom: 65%;
-    border-radius: 30%;
-  }
-  100% {
-    left: 5%;
-    bottom: 20%;
-    border-radius: 50%;
-  }
-} 
-
 .text-bg {
   background-image: linear-gradient(130deg, hsl(186, 68%, 80%), hsl(215, 84%, 76%));
   border-radius: 3px;
@@ -135,21 +85,17 @@
 }
 
 .ar-hero {
-  width: 100%;
-  height: fit-content;
   padding-top: 100px;
   padding-bottom: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 80px;
-  row-gap: 120px;
+  gap: 120px 60px;
   flex-wrap: wrap;
   background-color: hsl(180, 2%, 7%);
 }
 
 .ar-app-image {
-  height: 380px;
   width: clamp(450px, 45%, 600px);
   border-left: 2px solid #e0eaf4;
   border-right: 2px solid #e0eaf4;
@@ -166,9 +112,9 @@
 
 .ar-container h3 {
   font-size: 60px;
+  text-align: left;
   font-family: DM Sans;
   color: #eeeeeb;
-  width: max-content;
   font-weight: 550;
 }
 
@@ -183,7 +129,7 @@
 
 @media screen and (max-width: 1300px){
   .courses-overview {
-    transform: translateX(50px);
+    transform: translateX(70px);
   }
 }
 
@@ -221,8 +167,10 @@
     width: 90%;
   }
   .ar-app-image {
-    width: 550px;
+    display: block;
+    max-width: 100%;
     border: none;
+    height: auto;
   }
 }
 
@@ -236,10 +184,6 @@
 }
 
 @media screen and (max-width: 610px){
-  .ar-app-image {
-    width: 450px;
-    height: 280px;
-  }
   .courses-overview p {
     font-size: 20px;
     line-height: 26px;
@@ -254,28 +198,13 @@
 }
 
 @media screen and (max-width: 500px){
-  .ar-app-image {
-    width: 380px;
-    height: 250px;
-  }
   .ar-container h3 {
     font-size: 48px;
+    text-align: center;
   }
   .ar-container p {
     font-size: 20px;
-    line-height: 25px;
-  }
-}
-
-@media screen and (max-width: 400px){
-  .ar-app-image {
-    width: 100%;
-    height: 250px;
-    border-radius: 0;
-    margin-top: 50px;
-  }
-  .ar-container h3 {
-    font-size: 44px;
+    line-height: 26px;
   }
 }
 
