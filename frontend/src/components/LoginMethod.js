@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react"
 import api from "../services/AxiosServices"
 import config from '../config/Config'
 import Cookies from 'js-cookie'
+import '../styles/ProfilePage.css'
 
 function loadGoogleScript() {
-    
     const existingScript = document.querySelector('script[src="https://accounts.google.com/gsi/client"]')
         if (existingScript) {
             return Promise.resolve()
@@ -18,16 +18,13 @@ function loadGoogleScript() {
     })
 }
 
-export default function LoginMethod() {
+export default function LoginMethod({ email, googleEmail, emailAuth, googleAuth }) {
 
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
-    const [email, setEmail] = useState('')
     const [newEmail, setNewEmail] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
-    const [googleAuth, setGoogleAuth] = useState(false)
-    const [emailAuth, setEmailAuth] = useState(false)
     const [formVisibility, setFormVisibility] = useState(false)
 
     function handleLinkGoogleAccount(response) {
@@ -77,31 +74,6 @@ export default function LoginMethod() {
         })
     }, [])
 
-
-    useEffect(() => {
-        try {
-            api.get('api/users/get-email', {
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            })
-            .then(response => {
-                setEmail(response.data.email)
-                if (response.data.auth_method === 'both') {
-                    setGoogleAuth(true)
-                    setEmailAuth(true)
-                } else if (response.data.auth_method === 'email/password') {
-                    setEmailAuth(true)
-                } else {
-                    setGoogleAuth(true)
-                }
-            })
-        } catch (error) {
-            setErrorMessage('An error occured. Please try again.')
-        }
-        
-    }, [])
-
     const submit = async (event) => {
 
         event.preventDefault()
@@ -120,7 +92,7 @@ export default function LoginMethod() {
             },
         })
         .then(response => {
-            alert('Email and password linked successfully')
+            window.location.reload();
         })
         .catch(error => {
             console.error('Error linking email and password:', error.response ? error.response.data : error.message)
@@ -132,43 +104,85 @@ export default function LoginMethod() {
         setFormVisibility(prevVisibility => !prevVisibility)
     }
 
+    const requirements = [
+      { id: 1, text: 'At least 8 characters', isValid: (pwd) => pwd.length >= 8 },
+      { id: 2, text: 'At least one number', isValid: (pwd) => /\d/.test(pwd) },
+      { id: 3, text: 'At least one uppercase letter', isValid: (pwd) => /[A-Z]/.test(pwd) },
+      { id: 4, text: 'At least one special character', isValid: (pwd) => /[!@#$%^&*(),.?":{}|<>]/.test(pwd) },
+    ];
+
     return (
-        <div>
-            <h2>These different authorization methods can be used to log in to PassChem</h2>
-            <h2>{email}</h2>
-            <div>
-                <h3>Google</h3>
-                {googleAuth && <div>WORKING</div>}
-                {!googleAuth && <div id='LinkGoogleAccount'></div>}
+        <div className="login-method-component-container">
+            <div className="login-method-description">
+                <div>These authorization methods can be used to log in into you account on PassChem</div>
             </div>
-            <div>
-                <h3>Email</h3>
-                {emailAuth && <div>WORKING</div>}
-                {(!formVisibility && googleAuth && !emailAuth) && <button onClick={changeVisibility}>Link Email to Account</button>}
+            <div className="interactive-container">
+              <div className="email-container">
+                  <h3>Google:</h3>
+                  {googleAuth && <div style={{marginLeft:'10px', fontSize:'20px'}}>{googleEmail}</div>}
+                  {!googleAuth && <div style={{marginLeft:'10px'}}id='LinkGoogleAccount'></div>}
+              </div>
+              <div className="email-container">
+                  {!formVisibility && <h3>Email:</h3>}
+                  {emailAuth && <div style={{marginLeft:'10px', fontSize:'20px'}}>{email}</div>}
+                  {(!formVisibility && googleAuth && !emailAuth) && <button onClick={changeVisibility}>Link Email</button>}
+                  {formVisibility && 
+                    <div>
+                        <form onSubmit={submit}>
+                            <label className="email-form-label">Email:</label>
+                            <input 
+                                className="email-form-input"
+                                name='email'  
+                                type='email' 
+                                value={newEmail}
+                                required 
+                                onChange={e => setNewEmail(e.target.value)}
+                            />
+                            <label className="email-form-label">Password:</label>
+                            <input 
+                                    className="email-form-input"
+                                    name='Password' 
+                                    type="password"     
+                                    value={newPassword}
+                                    required
+                                    onChange={e => setNewPassword(e.target.value)}
+                                />
+                            <button type="submit">Submit</button>
+                        </form>
+                        <ul
+                          style={{
+                              transform: newPassword ? 'translateY(0)' : 'translateY(-30px)',
+                              opacity: newPassword ? 1 : 0,
+                              transition: 'transform 0.7s ease, opacity 0.7s ease'
+                          }}
+                        >
+                        {newPassword &&
+                          requirements.map((req) => (
+                            <li
+                              key={req.id}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  marginBottom: '10px',
+                                  color: req.isValid(newPassword) ? 'green' : 'red',
+                              }}
+                            >
+                              <span
+                                style={{
+                                  marginRight: '10px',
+                                  fontSize: '18px',
+                                }}
+                              >
+                                {req.isValid(newPassword) ? '✔' : '✖'}
+                              </span>
+                              {req.text}
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+                    }
+              </div>
             </div>
-            {formVisibility && 
-            <div>
-                <form onSubmit={submit}>
-                    <label>Email</label>
-                    <input 
-                        name='email'  
-                        type='email' 
-                        value={newEmail}
-                        required 
-                        onChange={e => setNewEmail(e.target.value)}
-                    />
-                    <label>Password</label>
-                    <input 
-                            name='Password' 
-                            type="password"     
-                            value={newPassword}
-                            required
-                            onChange={e => setNewPassword(e.target.value)}
-                        />
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            }
         </div>
     )
 }

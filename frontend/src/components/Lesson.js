@@ -105,12 +105,14 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
         try {
             const response = await api.post(
                 `mark_lesson_completed/${lesson.id}/`,
-                { completed: !completed },
-                {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
+                { 
+                  completed: !completed 
                 },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    },
                 }
             )
             if (response.data.status === 'success') {
@@ -122,7 +124,7 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
         } catch (error) {
             setMessage('Error updating lesson completion status: ' + error.message)
         }
-    }
+    }    
 
     if (lesson.type === 'video') { 
         content = (
@@ -180,7 +182,7 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                     </Document>
                     <div className='buttons-container'>
                             <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
-                            <button className='answerKey-worksheet-button' onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>
+                            {!lesson.notes && <button className='answerKey-worksheet-button' onClick={toggleDocument}>{isAnswerKey ? "Worksheet" : "Answer Key"}</button>}
                         </div>
                 </div>
         )

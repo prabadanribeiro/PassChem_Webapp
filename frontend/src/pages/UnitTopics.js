@@ -49,12 +49,13 @@ export default function UnitTopics({ unitTopics, unitLessons, unitTitle, unitNum
         fontFamily: 'DM Sans',
     }
 
-    console.log(unitLessons.length)
+    console.log(unit)
 
     useEffect(() => {
         if (accessToken && refreshToken) {
             const fetchProgression = async () => {
                 try {
+                    console.log(unit.id)
                     const progressionStatus = await ApiService.GetUnitProgressionStatus(unit.id, accessToken)
                     setProgress(progressionStatus)
                 } catch (error) {

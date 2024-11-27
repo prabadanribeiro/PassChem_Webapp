@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import SignupForm from '../components/SignupForm'
-import Logout from '../components/Logout'
 
 export default function SignupPage() {
 
@@ -14,7 +13,7 @@ export default function SignupPage() {
         transformOrigin: '0 60%',
         transform: 'skewY(-8deg)',
         overflow: 'hidden',
-        zIndex: '0',
+        zIndex: '-1',
     }
 
     const gradientAfterStyle = {
@@ -30,7 +29,7 @@ export default function SignupPage() {
             'radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
             'radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, ' +
             'hsl(155, 70%, 70%)',
-        zIndex: '0',
+        zIndex: '-1',
     }
 
     return (
@@ -40,7 +39,6 @@ export default function SignupPage() {
             </div>
             <Navbar />
             <SignupForm />
-            <Logout />
         </div>
     )
 }

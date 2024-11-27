@@ -268,18 +268,24 @@ class GetUserEmailView(APIView):
         user = request.user
 
         has_google_account = SocialAccount.objects.filter(user=user, provider='google').exists()
-        has_password = user.has_usable_password() and user.password not in ('', '!')
-        alternate_emails = AlternateEmail.objects.filter(user=user).exists()
+        has_alternate_emails = AlternateEmail.objects.filter(user=user).exists()
 
-        # Determine the authentication method(s) the user has access to
-        if has_google_account and (has_password or alternate_emails):
+        if has_google_account and (has_alternate_emails):
             auth_method = 'both'
+            return Response({'google_email': user.email,
+                             'email': AlternateEmail.objects.get(user=user).email,
+                             'auth_method': auth_method},
+                             status=200)
         elif has_google_account:
             auth_method = 'google'
+            return Response({'google_email': user.email,
+                             'auth_method': auth_method},
+                             status=200)
         else:
             auth_method = 'email/password'
-
-        return Response({'email': user.email, 'auth_method': auth_method}, status=200)
+            return Response({'email': user.email,
+                            'auth_method': auth_method},
+                            status=200)
 
 
 class DeleteAccountView(APIView):
