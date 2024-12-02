@@ -1,5 +1,5 @@
 
-.hero {
+.landing-hero {
   z-index: 0;
   width: 100%;
   position: relative;
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 99;
 }
 
 #nav-link-list {
@@ -171,38 +171,37 @@
 }
 
 .menu-popup-hero {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   opacity: none;
   pointer-events: none;
   background-color: #111;
   transition: opacity 400ms 100ms normal;
+  z-index: 99;
+  overflow: hidden;
 }
 
 .menu-popup-container {
   height: 100%;
-  width: 100%;
-  display: flex;
-  transition: opacity 400ms 300ms normal;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 400ms 300ms normal;
 }
 
 .menu-popup-container ul {
   display: flex;
   flex-direction: column;
   width: clamp(320px, 55%, 840px);
-  height: clamp(450px, 72%, 1100px);
-  max-height: 75%;
+  height: clamp(450px, 72%, 500px);
 }
 
 .menu-popup-container ul li {
   display: block;
-  align-content: center;
   width: 100%;
   flex: 1;
   border-top: 2px solid white;
@@ -215,6 +214,8 @@
 }
 
 .menu-item {
+  height: 100%;
+  line-height: 125px;
   display: block;
   color: #fff;
   text-decoration: none;
@@ -232,12 +233,11 @@
 button.menu-item {
   border: none;
   width: 100%;
-  height: 100%;
   cursor: pointer;
 }
 
-.logo-img {
-  width: 228px;
+.logo-svg {
+  width: 230px;
   height: 55px;
 }
 
@@ -292,7 +292,7 @@ button.menu-item {
   .nav-link {
     font-size: 20px;
   }
-  .logo-img {
+  .logo-svg {
     transform: scale(0.9);
   }
   .navbar {

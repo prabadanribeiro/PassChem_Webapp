@@ -1,0 +1,294 @@
+  .profilepage {
+    align-content: center;
+    min-height: 600px;
+    font-family: DM Sans;
+  }
+
+  .profile-container {
+    margin-top: 100px;
+    width: 70%;
+    max-width: 1500px;
+    min-height: 500px;
+    margin-inline: auto;
+    padding: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  .profilepage hr {
+    border: '1px solid #e4e4e4';
+    width: 100%;
+  }
+
+  .profilepage h2 {
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  .profilepage h3 {
+    font-weight: 500;
+    font-size: 36px;
+  }
+
+  .login-method-description {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .email-container {
+    height: 50%;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .email-container h4 {
+    font-size: 20px;
+  }
+
+  .email-container button {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: white;
+    border: 1px solid hsl(208, 71%, 60%);
+    border-radius: 4px;
+    color: hsl(208, 71%, 60%);
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .email-container button:hover {
+    background-color: hsl(208, 71%, 60%);
+    border: 1px solid white;
+    color: white;
+  }
+
+  .email-form-label,
+  .email-form-input {
+    margin-right: 10px;
+  }
+
+  .user-email {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  /* PASSWORDS SECTION */
+
+  .everything-password-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .new-password-container {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .new-password-container label {
+    font-size: 20px;
+  }
+
+  .new-password-container input {
+    height: 25px;
+    margin-left: 10px;
+  }
+  
+  .new-password-container button {
+    width: 140px;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0 12px;
+    background-color: white;
+    border: 1px solid hsl(208, 71%, 60%);
+    border-radius: 4px;
+    color: hsl(208, 71%, 60%);
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .new-password-container button:hover {
+    background-color: hsl(208, 71%, 60%);
+    border: 1px solid white;
+    color: white;
+  }
+
+  .new-password-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .new-password-container button:disabled:hover {
+    background-color: #ccc;
+    border: 1px solid hsl(208, 71%, 60%);
+    cursor: not-allowed;
+    color: hsl(208, 71%, 60%);
+  }
+
+  .user-password-requirement-text {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 20px;
+  }
+
+  .user-password-requirement-bulletpoints {
+    height: 65%;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .user-password-requirement-bulletpoints li {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+ 
+  .delete-modal-overlay {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    inset: 0;
+    position: fixed;
+    background: rgba(49, 49, 49, 0.8);
+  }
+
+  .delete-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    width: 500px;
+    height: 280px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-modal-text {
+    font-size: 24px;
+    align-self: flex-start;
+  }
+
+  .delete-modal-input p {
+    font-weight: 400;
+    font-size: 17px;
+  }
+
+  .delete-modal-input {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .delete-modal-input input {
+    height: 30px;
+    margin-top: 15px;
+  }
+
+  .delete-modal-buttons {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .delete-modal-buttons button {
+    width: 110px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .delete-modal-buttons-delete {
+    background-color: #fff;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    transition-duration: 0.4s ease;
+  }
+
+  .delete-modal-buttons-delete:hover {
+    background-color: #ff0000;
+    color: #fff;
+  }
+
+  .delete-modal-buttons-close {
+    margin-left: 15px;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    transition-duration: 0.4s ease;
+  }
+
+  .delete-modal-buttons-close:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 1115px) {
+    .profile-container {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 80px;
+    }
+    #profile-page-gradient {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .profile-container {
+      padding: 50px 9% 80px;
+    }
+    .profilepage h2 {
+      font-size: 36px;
+    }
+    .profilepage h3 {
+      font-size: 28px;
+    }
+    .email-form-input,
+    .email-form-label {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    .delete-modal-content {
+      width: 100%;
+      height: 320px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .email-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .user-email {
+      margin-left: 0;
+    }
+    .login-method-description {
+      font-size: 18px;
+    }
+  }

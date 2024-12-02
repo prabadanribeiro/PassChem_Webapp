@@ -93,3 +93,9 @@
 .list_item a:hover {
     color: #000; 
 }
+
+@media screen and (max-width: 800px) {
+    .list {
+        width: 100%;
+    }
+}

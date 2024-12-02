@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../components/Navbar'
 import LoginForm from '../components/LoginForm'
-import Logout from '../components/Logout'
 
 export default function LoginPage() {
-
-    useEffect(() => {
-        document.title = 'Login - PassChem';
-    }, []);
-
     return (
-        <div>
+        <>
+            <Helmet>
+                <title>Login to PassChem</title>
+                <meta name='Login to start tracking your progress on each lesson' />
+            </Helmet>
             <Navbar />
             <LoginForm />
-            <Logout />
-        </div>
+        </>
     )
 }

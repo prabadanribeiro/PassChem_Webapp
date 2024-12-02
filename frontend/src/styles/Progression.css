@@ -15,7 +15,7 @@
 
 .progress-bar-container {
     height: 30px;
-    width: 800px;
+    width: 100%;
     background-color: #edede7;
     border-radius: 50px;
     overflow: hidden;
@@ -29,4 +29,11 @@
     transition: width 0.5s ease-in-out;
     text-align: center;
     color: white;
+}
+
+@media screen and (max-width: 800px) {
+    .progress-inner {
+        width: 100%;
+        padding: 0 20px;
+    }
 }

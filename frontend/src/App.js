@@ -31,8 +31,8 @@ export default function App() {
     const router = createRouter(units, topics, lessons)
 
     return (
-        <div>
+        <>
             <RouterProvider router={router} />
-        </div>
+        </>
     )
 }

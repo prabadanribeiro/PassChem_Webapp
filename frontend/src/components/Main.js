@@ -18,7 +18,7 @@ export default function Main(){
         <div className='ar-container'>
           <h3><span className='text-bg'>AR</span> in Chemistry</h3>
           <p>Our augmented reality teaching tool (compatible with iPad and iPhone only) will fully immerse the student into unprecedented three-dimensional visuals as well as allow them to interact and build molecules in three-dimensions.</p>
-          <a className='page-link-button' href='https://apps.apple.com/vn/app/a-r-chem/id1377946463#?platform=iphone' target='_blank'>AR with PassChem</a>
+          <a className='page-link-button' href='https://apps.apple.com/vn/app/a-r-chem/id1377946463#?platform=iphone' target='_blank'>AR with PassChem<svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px" fill="#87dff8" className='leave-page-svg'><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></a>
         </div>
         <img src='images/ar-app.png' className='ar-app-image' alt='AR app image'/>
       </section>

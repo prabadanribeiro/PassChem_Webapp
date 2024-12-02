@@ -25,20 +25,13 @@ canvas {
   z-index: -1;
 }
 
-.gradient-band {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .gradient-parent::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  min-width:1000px;
-  width:100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 1000px;
+  width: 100%;
   height: 100%;
   background: radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, hsl(155, 70%, 70%);
 }
@@ -53,18 +46,8 @@ canvas {
   border-radius: 17px;
   /* for Safari browser */
   -webkit-backdrop-filter: blur(100px);
-
   backdrop-filter: blur(100px);
   box-sizing: content-box;
-}
-
-.about-content {
-  display: flex;
-  align-items: left;
-  justify-content: flex-start;
-  flex-direction: column;
-  height: 45%;
-  width: 100%;
 }
 
 .about-content h2 {
@@ -92,6 +75,16 @@ canvas {
   width: 90%;
 }
 
+.team-header {
+  font-size: 55px;
+  font-family: DM Sans;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #111;
+  margin-top: 100px;
+  font-weight: 500;
+}
+
 .team-grid {
   display: grid;
   gap: 0 25px;
@@ -101,7 +94,7 @@ canvas {
   width: 80%;
   border: 1px solid #aaa;
   border-radius: 13px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   padding: 0 25px 25px;
   background-image: linear-gradient(130deg, hsl(186, 68%, 96%), hsl(215, 84%, 98%));
   position: relative;
@@ -139,16 +132,6 @@ canvas {
 
 .card-bounds:hover > .member-card .frontside {
   opacity: 0;
-}
-
-.team-header {
-  font-size: 55px;
-  font-family: DM Sans;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #111;
-  margin-top: 100px;
-  font-weight: 500;
 }
 
 .frontside {
@@ -315,6 +298,9 @@ canvas {
     align-items: center;
     text-align: center;
   }
+  .about-content p {
+    margin-inline: auto;
+  }
   
   .popup p,
   .bio-container h5 {
@@ -342,8 +328,7 @@ canvas {
     width: 100%;
   }
   .about-content p {
-    font-size: 19px;
-    width: 90%;
+    font-size: 20px;
     line-height: 30px;
   }
 }
@@ -351,6 +336,10 @@ canvas {
 @media screen and (max-width: 410px){
   .team-header {
     font-size: 42px;
+  }
+  .about-content p {
+    font-size: 18px;
+    line-height: 27px;
   }
   .team-grid {
     width: 100%;

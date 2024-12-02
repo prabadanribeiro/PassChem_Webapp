@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../components/Navbar'
 import LessonList from '../components/LessonList'
 import GoBackButton from '../components/GoBackButton'
@@ -8,10 +9,6 @@ import Cookies from 'js-cookie'
 
 export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} ) {
 
-    useEffect(() => {
-        document.title = topicTitle;
-    }, []);
-
     const [progress, setProgress] = useState(0)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
@@ -19,18 +16,19 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
     const topicsHeader = {
         fontSize: '50px',
         textAlign: 'center',
-        margin: '50px 0 40px 0',
+        margin: '65px 0 40px 0',
         fontFamily: 'DM Sans', 
-        fontWeight: '550'
+        fontWeight: '550',
+        isolation: 'isolate'
     }
 
     
     const gradientParentStyle = {
         position: 'absolute',
-        top: '-300px', 
+        top: '90px', 
         left: '0',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '300px',
         transformOrigin: '0 60%',
         transform: 'skewY(-8deg)',
         overflow: 'hidden',
@@ -47,17 +45,10 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
         height: '100%',
         background:
             'radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, ' +
-            'radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
+            'radial-gradient(rgb(108, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
             'radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, ' +
             'hsl(155, 70%, 70%)',
         zIndex: '-1',
-    };
-
-    const UnitHeader = {
-        fontSize: '50px',
-        textAlign: 'center',
-        margin: '50px 0 0px 0',
-        fontFamily: 'DM Sans',
     };
 
     useEffect(() => {
@@ -76,6 +67,10 @@ export default function TopicPage( {unitTitle, topicTitle, topicLessons, topic} 
     
     return (
         <div>
+            <Helmet>
+                <title>{topicTitle}</title>
+                <meta name='description' content='In each PassChem topic, find material to work through in an easy, linear fashion' />
+            </Helmet>
             <div style={gradientParentStyle}>
                 <div style={gradientAfterStyle}></div>
             </div>

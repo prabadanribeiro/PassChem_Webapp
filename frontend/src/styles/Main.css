@@ -44,7 +44,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  z-index: 99;
+  z-index: 2;
 }
 
 .courses-overview p {
@@ -58,6 +58,7 @@
 
 .page-link-button {
   display: inline-block;
+  align-content: center;
   width: fit-content;
   margin-top: 30px;
   position: relative;
@@ -75,6 +76,15 @@
 .page-link-button:hover {
   background-color: hsl(231, 19%, 17%);
   color: hsl(193, 71%, 80%);
+}
+
+.leave-page-svg {
+  height: 27px;
+  width: 27px;
+  fill: hsl(193, 89%, 55%);
+  position: relative;
+  top: 5px;
+  margin-left: 8px;
 }
 
 .text-bg {
@@ -195,6 +205,12 @@
   .page-link-button {
     font-size: 22px;
   }
+  .leave-page-svg {
+    height: 22px;
+    width: 22px;
+    top: 4px;
+    margin-left: 6px;
+  }
 }
 
 @media screen and (max-width: 500px){
@@ -207,4 +223,3 @@
     line-height: 26px;
   }
 }
-

@@ -23,6 +23,7 @@
     "react": "^18.3.1",
     "react-doc-viewer": "^0.1.5",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
     "react-pdf": "^7.7.0",
     "react-router-dom": "^6.20.0",
     "webpack-html-plugin": "^0.1.1"

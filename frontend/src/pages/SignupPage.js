@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../components/Navbar'
 import SignupForm from '../components/SignupForm'
-import Logout from '../components/Logout'
 
 export default function SignupPage() {
 
-    useEffect(() => {
-        document.title = 'Sign Up - PassChem';
-    }, []);
-
     const gradientParentStyle = {
         position: 'absolute',
-        top: '-300px',
+        top: '90px',
         left: '0',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '320px',
         transformOrigin: '0 60%',
         transform: 'skewY(-8deg)',
         overflow: 'hidden',
-        zIndex: '0',
+        zIndex: '-1',
     }
 
     const gradientAfterStyle = {
-        content: '""',
+        content: '',
         position: 'absolute',
         top: '0',
         left: '0',
@@ -34,17 +30,20 @@ export default function SignupPage() {
             'radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
             'radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, ' +
             'hsl(155, 70%, 70%)',
-        zIndex: '0',
+        zIndex: '-1',
     }
 
     return (
-        <div>
+        <>
+            <Helmet>
+                <title>Create a Passchem Account</title>
+                <meta name='description' content='Create a Passchem account to easily track your progress throughout lessons and topics' />
+            </Helmet>
             <div style={gradientParentStyle}>
                 <div style={gradientAfterStyle}></div>
             </div>
             <Navbar />
             <SignupForm />
-            <Logout />
-        </div>
+        </>
     )
 }

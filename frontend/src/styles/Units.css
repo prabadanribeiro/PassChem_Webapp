@@ -1,5 +1,5 @@
 .topics-body {
-  height: fit-content;
+  margin-bottom: 100px;
 }
 
 .topics-body h3 {
@@ -20,13 +20,20 @@
 }
 
 .topics-container {
-  margin-top: 55px;
+  padding: 50px;
   width: 100%;
   display: flex;
   flex-wrap:wrap;
   justify-content: center;
   align-items: center;
   gap: 70px;
+}
+
+.link {
+  height: 440px;
+  width: 340px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  transition: 0.3s;
 }
 
 .topics-cards {
@@ -41,13 +48,6 @@
   height: 100%;
   transition: all 150ms linear 50ms;
   opacity: 1;
-}
-
-.link {
-  height: 440px;
-  width: 340px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-  transition: 0.3s;
 }
 
 .link:hover {
@@ -135,5 +135,8 @@
   .topics-body hr {
     width: 90%;
     margin: 0 auto;
+  }
+  .topics-container {
+    padding: 50px 0 0 0;
   }
 }

@@ -21,10 +21,10 @@ export default function Team() {
   const [buttonClicked, setButtonClicked] = useState(null);
 
   return (
-    <div>
+    <>
       <div className={isActive ? "blur-container active" : "blur-container"}>
         <div className='gradient-parent'>
-          <canvas className='gradient-band'/>
+          <canvas/>
         </div>
         <div className='about-container'>
           <div className='about-content'>
@@ -38,7 +38,7 @@ export default function Team() {
   notoriously challenging for introductory-level learners to grasp.</p>
           </div>
         </div>
-        <h4 className='team-header'>Meet the Team</h4>
+        <h3 className='team-header'>Meet the Team</h3>
       </div>
       <section className='team-grid'>
         <div className='bio-popup'>
@@ -164,6 +164,6 @@ export default function Team() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

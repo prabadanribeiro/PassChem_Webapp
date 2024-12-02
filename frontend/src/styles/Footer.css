@@ -1,7 +1,6 @@
 
 .footer-hero {
   height: 140px;
-  margin-top: 100px;
   border-top: solid 2px #111;
   background-color: rgba(145, 195, 239, 0.75);
 }
@@ -39,20 +38,14 @@ svg {
 }
 
 .socials a:nth-child(1):hover svg {
-  fill: rgba(240, 0, 0, 0.85);
+  fill: rgba(240, 0, 0, 0.9);
 }
 .socials a:nth-child(2):hover svg {
   fill: rgba(0, 0, 240, 0.85);
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 590px) {
   .footer-hero {
     height: 180px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .footer-hero {
-    margin-top: 180px;
   }
 }

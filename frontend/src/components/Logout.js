@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 export default function Logout() {
     const navigate = useNavigate()
     const [isGoogleApiLoaded, setIsGoogleApiLoaded] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
 
@@ -46,9 +47,29 @@ export default function Logout() {
         }
     }
 
+    const buttonStyle = {
+      height:'35px',
+      width:'100px',
+      fontFamily:'DM Sans',
+      fontWeight:'600',
+      fontSize:'18px',
+      color: isHovered ? 'white' : 'hsl(208, 71%, 60%)',
+      backgroundColor: isHovered ? 'hsl(208, 71%, 60%)' : 'white',
+      border: '2px solid hsl(208, 71%, 60%)',
+      borderRadius:'5px',
+      transitionDuration:'0.4s',
+      cursor: 'pointer'
+    }
+
     return (
         <div>
-            { accessToken && refreshToken ? (<button onClick={logout} type='button'>Sign Out</button>) : []}
+            { accessToken && refreshToken ? (<button 
+            style={buttonStyle}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={logout} 
+            type='button'
+            >Sign Out</button>) : []}
         </div>
     )
 }
