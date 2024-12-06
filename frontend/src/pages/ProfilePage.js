@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import api from "../services/AxiosServices"
 import Logout from "../components/Logout"
 import Navbar from "../components/Navbar"
@@ -11,10 +12,6 @@ import LoginMethod from "../components/LoginMethod"
 import '../styles/ProfilePage.css'
 
 export default function ProfilePage() {
-
-    useEffect(() => {
-        document.title = 'Profile - PassChem';
-    }, []);
 
     const accessToken = Cookies.get('access_token')
     const refreshToken = Cookies.get('refresh_token')
@@ -91,14 +88,14 @@ export default function ProfilePage() {
 
     const gradientParentStyle = {
       position: 'absolute',
-      top: '-300px',
+      top: '90px',
       left: '0',
-      width: '100vw',
-      height: '100vh',
+      width: '100%',
+      height: '300px',
       transformOrigin: '0 60%',
       transform: 'skewY(-8deg)',
       overflow: 'hidden',
-      zIndex: '0',
+      zIndex: '-1',
     }
 
     const gradientAfterStyle = {
@@ -111,7 +108,7 @@ export default function ProfilePage() {
         height: '100%',
         background:
             'radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, ' +
-            'radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, ' +
+            'radial-gradient(rgb(173, 231, 239) 10%, transparent 67%) -120px -24px no-repeat, ' +
             'radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, ' +
             'hsl(155, 70%, 70%)',
         zIndex: '0',
@@ -119,38 +116,36 @@ export default function ProfilePage() {
     
     return (
       <>
-        <div style={gradientParentStyle}>
+        <Helmet>
+          <title>My PassChem Profile</title>
+          <meta name="description" content="Easily change your PassChem profile information like your email or password in just two clicks."/>
+        </Helmet>
+        <div style={gradientParentStyle} id="profile-page-gradient">
           <div style={gradientAfterStyle}></div>
         </div>
         <Navbar />
         <div className="profilepage">
           <div className="profile-container">
-            <div style={{fontSize:'50px', fontWeight:'800'}}>User Settings</div>
-            <hr style={{border:'1px solid #e4e4e4', width:'100%', marginTop:'20px', marginBottom:'20px'}}/>
-            <div className="login-method-container">
-              <div style={{fontFamily:"DM Sans", fontSize:"40px"}}>Method of Authorization</div>
-              <LoginMethod email={email} googleEmail={googleEmail} emailAuth={emailAuth} googleAuth={googleAuth}/>
-            </div>
-            <hr style={{border:'1px solid #e4e4e4', width:'100%', marginTop:'20px', marginBottom:'20px'}}/>
+            <h2>User Settings</h2>
+            <hr style={{ marginTop:'20px', marginBottom:'20px'}}/>
+            <LoginMethod email={email} googleEmail={googleEmail} emailAuth={emailAuth} googleAuth={googleAuth}/>
+            <hr style={{ marginTop:'20px', marginBottom:'20px'}}/>
             <div className="everything-password-container">
-              <div className="everything-reset-password">
-                <div style={{fontFamily:"DM Sans", fontSize:"40px"}}>Change Password</div>
+              <div>
+                <h3>Change Password</h3>
                 <ResetPassword email={email} googleEmail={googleEmail} emailAuth={emailAuth} onPasswordUpdate={handlePasswordUpdate}/>
               </div>
-              <div
-                  className="password-requirements-container"
-                  style={{
+              <div 
+                style={{
                     transform: password ? 'translateX(0)' : 'translateX(40%)', // Slide effect
                     opacity: password ? 1 : 0, // Fade effect
                     transition: 'transform 0.5s ease, opacity 0.5s ease', // Smooth transition for both
-                  }}
+                }}
               >
                 {password && 
                     <>
-                        <div className="user-password-requirement-text">
-                        <h3>New Password Must Meet These Requirements</h3>
-                        </div>
-                        <hr style={{ border: '1px solid #e4e4e4', width: '100%' }} />
+                        <h4 className="user-password-requirement-text">Password Requirements</h4>
+                        <hr />
                         <div className="user-password-requirement-bulletpoints">
                             <ul>
                                 {requirements.map((req) => (
@@ -180,38 +175,31 @@ export default function ProfilePage() {
                 }
               </div>
             </div>
-            <hr style={{border:'1px solid #e4e4e4', width:'100%', marginTop:'20px', marginBottom:'20px'}}/>
+            <hr style={{ margin: '20px 0'}}/>
             <div>
               <Logout />
               <Delete sendModalToggle={receiveModalToggle}/>
             </div>
           </div>
           {modalVisibility && 
-            <div className="delete-modal">
-              <div className="delete-modal-overlay">
-                <div className="delete-modal-content">
-                  <div className="delete-modal-text">
-                    <h2>Delete User</h2>
-                  </div>
-                  <hr style={{border:'1px solid #e4e4e4', width:'95%'}}/>
-                  <div className="delete-modal-input">
-                    <h3>Are you sure you want to permanently delete your PassChem account? If so, type 'DELETE' to permanently delete your account</h3>
-                    <div style={{display:'flex', alignItems:'center', gap:'15px'}}>
-                      <input 
-                      style={{height:'30px'}}
-                      type="text"
-                      placeholder="Type 'DELETE'"
-                      value={deleteInput}
-                      onChange={handleDeleteInputChange}
-                      />
-                      <h3 style={{fontSize:'12px', color:'red'}}>{deleteMessage}</h3>
-                    </div>
-                  </div>
-                  <hr style={{border:'1px solid #e4e4e4', width:'95%'}}/>
-                  <div className="delete-modal-buttons">
-                    <button className="delete-modal-buttons-close" onClick={() => setModalVisibility(!modalVisibility)}>Close</button>
-                    <button className="delete-modal-buttons-delete" onClick={handleDeleteButton}>DELETE</button>
-                  </div>
+            <div className="delete-modal-overlay">
+              <div className="delete-modal-content">
+                <h4 className="delete-modal-text">Delete User</h4>
+                <hr />
+                <div className="delete-modal-input">
+                  <p>Are you sure you want to permanently delete your PassChem account? If so, type 'DELETE' to permanently delete your account.</p>
+                  <input 
+                    type="text"
+                    placeholder="Type 'DELETE'"
+                    value={deleteInput}
+                    onChange={handleDeleteInputChange}
+                  />
+                  <h5 style={{fontSize:'12px', color:'red'}}>{deleteMessage}</h5>
+                </div>
+                <hr style={{ marginTop: '15px'}}/>
+                <div className="delete-modal-buttons">
+                  <button className="delete-modal-buttons-delete" onClick={handleDeleteButton}>DELETE</button>
+                  <button className="delete-modal-buttons-close" onClick={() => setModalVisibility(!modalVisibility)}>Close</button>
                 </div>
               </div>
             </div>

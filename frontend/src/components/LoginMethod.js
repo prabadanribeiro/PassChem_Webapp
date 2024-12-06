@@ -112,77 +112,74 @@ export default function LoginMethod({ email, googleEmail, emailAuth, googleAuth 
     ];
 
     return (
-        <div className="login-method-component-container">
-            <div className="login-method-description">
-                <div>These authorization methods can be used to log in into you account on PassChem</div>
+        <>
+            <h3>Method of Authorization</h3>
+            <p className="login-method-description">These authorization methods can be used to log in to your PassChem account. </p>
+            <div className="email-container">
+                <h4>Google:</h4>
+                {googleAuth && <div className="user-email">{googleEmail}</div>}
+                {!googleAuth && <div id='LinkGoogleAccount' className="user-email"></div>}
             </div>
-            <div className="interactive-container">
-              <div className="email-container">
-                  <h3>Google:</h3>
-                  {googleAuth && <div style={{marginLeft:'10px', fontSize:'20px'}}>{googleEmail}</div>}
-                  {!googleAuth && <div style={{marginLeft:'10px'}}id='LinkGoogleAccount'></div>}
-              </div>
-              <div className="email-container">
-                  {!formVisibility && <h3>Email:</h3>}
-                  {emailAuth && <div style={{marginLeft:'10px', fontSize:'20px'}}>{email}</div>}
-                  {(!formVisibility && googleAuth && !emailAuth) && <button onClick={changeVisibility}>Link Email</button>}
-                  {formVisibility && 
-                    <div>
-                        <form onSubmit={submit}>
-                            <label className="email-form-label">Email:</label>
-                            <input 
+            <div className="email-container">
+                {!formVisibility && <h4>Email:</h4>}
+                {emailAuth && <div className="user-email">{email}</div>}
+                {(!formVisibility && googleAuth && !emailAuth) && <button onClick={changeVisibility}>Link Email</button>}
+                {formVisibility && 
+                <>
+                    <form onSubmit={submit}>
+                        <label className="email-form-label">Email:</label>
+                        <input 
+                            className="email-form-input"
+                            name='email'  
+                            type='email' 
+                            value={newEmail}
+                            required 
+                            onChange={e => setNewEmail(e.target.value)}
+                        />
+                        <label className="email-form-label">Password:</label>
+                        <input 
                                 className="email-form-input"
-                                name='email'  
-                                type='email' 
-                                value={newEmail}
-                                required 
-                                onChange={e => setNewEmail(e.target.value)}
+                                name='Password' 
+                                type="password"     
+                                value={newPassword}
+                                required
+                                onChange={e => setNewPassword(e.target.value)}
                             />
-                            <label className="email-form-label">Password:</label>
-                            <input 
-                                    className="email-form-input"
-                                    name='Password' 
-                                    type="password"     
-                                    value={newPassword}
-                                    required
-                                    onChange={e => setNewPassword(e.target.value)}
-                                />
-                            <button type="submit">Submit</button>
-                        </form>
-                        <ul
-                          style={{
-                              transform: newPassword ? 'translateY(0)' : 'translateY(-30px)',
-                              opacity: newPassword ? 1 : 0,
-                              transition: 'transform 0.7s ease, opacity 0.7s ease'
-                          }}
+                        <button type="submit">Submit</button>
+                    </form>
+                    <ul
+                        style={{
+                            transform: newPassword ? 'translateY(0)' : 'translateY(-30px)',
+                            opacity: newPassword ? 1 : 0,
+                            transition: 'transform 0.7s ease, opacity 0.7s ease'
+                        }}
+                    >
+                    {newPassword &&
+                        requirements.map((req) => (
+                        <li
+                            key={req.id}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                marginBottom: '10px',
+                                color: req.isValid(newPassword) ? 'green' : 'red',
+                            }}
                         >
-                        {newPassword &&
-                          requirements.map((req) => (
-                            <li
-                              key={req.id}
-                                style={{
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  marginBottom: '10px',
-                                  color: req.isValid(newPassword) ? 'green' : 'red',
-                              }}
+                            <span
+                            style={{
+                                marginRight: '10px',
+                                fontSize: '18px',
+                            }}
                             >
-                              <span
-                                style={{
-                                  marginRight: '10px',
-                                  fontSize: '18px',
-                                }}
-                              >
-                                {req.isValid(newPassword) ? '✔' : '✖'}
-                              </span>
-                              {req.text}
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                    }
-              </div>
+                            {req.isValid(newPassword) ? '✔' : '✖'}
+                            </span>
+                            {req.text}
+                        </li>
+                    ))}
+                    </ul>
+                </>
+                }
             </div>
-        </div>
+        </>
     )
 }

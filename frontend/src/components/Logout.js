@@ -57,7 +57,8 @@ export default function Logout() {
       backgroundColor: isHovered ? 'hsl(208, 71%, 60%)' : 'white',
       border: '2px solid hsl(208, 71%, 60%)',
       borderRadius:'5px',
-      transitionDuration:'0.4s'
+      transitionDuration:'0.4s',
+      cursor: 'pointer'
     }
 
     return (

@@ -1,13 +1,4 @@
-
-.about-hero {
-  padding-top: 60px;
-  height: fit-content;
-  width: 100%;
-}
-
 .blur-container {
-  height: 100%;
-  width: 100%;
   transition: filter .2s;
   z-index: 999;
   overflow: hidden;
@@ -26,7 +17,7 @@ canvas {
   position: absolute;
   top: 90px;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 490px;
   transform-origin: 0 100%;
   transform: skewY(-8deg);
@@ -34,54 +25,33 @@ canvas {
   z-index: -1;
 }
 
-.gradient-band {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .gradient-parent::after {
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  min-width:1000px;
-  width:100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 1000px;
+  width: 100%;
   height: 100%;
   background: radial-gradient(#8de0e9 40%, transparent 60%) -620px -180px no-repeat, radial-gradient(rgb(173, 231, 239) 33%, transparent 67%) -120px -24px no-repeat, radial-gradient(#629ef1 40%, transparent 70%) -470px 150px no-repeat, hsl(155, 70%, 70%);
 }
 
 .about-container {
-  height: fit-content;
   width: 75%;
+  max-width: 1250px;
   margin: -2vw auto 0; 
+  padding: 100px 50px 50px;
   background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
   z-index: 99;
   border-radius: 17px;
-  padding: 50px;
   /* for Safari browser */
   -webkit-backdrop-filter: blur(100px);
-
   backdrop-filter: blur(100px);
   box-sizing: content-box;
 }
 
-.about-content {
-  display: flex;
-  align-items: left;
-  justify-content: flex-start;
-  flex-direction: column;
-  height: 45%;
-  width: 100%;
-}
-
 .about-content h2 {
-  font-size: clamp(55px, 5vw, 90px);
+  font-size: clamp(55px, 5vw, 70px);
   color: #121212;
   font-family: DM Sans;
   font-weight: 550;
@@ -105,26 +75,36 @@ canvas {
   width: 90%;
 }
 
-.team-flexbox {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+.team-header {
+  font-size: 55px;
+  font-family: DM Sans;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #111;
+  margin-top: 100px;
+  font-weight: 500;
+}
+
+.team-grid {
+  display: grid;
+  gap: 0 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   flex-wrap: wrap;
-  width: 1155px;
-  height: fit-content;
-  padding: 0px 25px 50px 25px;
+  max-width: 1250px;
+  width: 80%;
   border: 1px solid #aaa;
   border-radius: 13px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
+  padding: 0 25px 25px;
   background-image: linear-gradient(130deg, hsl(186, 68%, 96%), hsl(215, 84%, 98%));
-  gap: 25px;
   position: relative;
 }
 
 .card-bounds {
   display: inline-block;
-  height: 300px;
-  width: 350px;
+  min-height: 300px;
+  min-width: 300px;
+  margin-top: 25px;
   transition: all 0.7s .1s;
 }
 
@@ -134,10 +114,9 @@ canvas {
 }
 
 .member-card {
-  height: 300px;
-  width: 350px;
+  min-height: 100%;
+  min-width: 100%; 
   border: 1px solid #bbbbbb;
-  margin-top: 25px;
   transition: 0.7s .1s;
   background-color: #ffffff;
   display: flex;
@@ -155,20 +134,20 @@ canvas {
   opacity: 0;
 }
 
-.about-hero .team-header {
-  font-size: 55px;
-  font-family: DM Sans;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #111;
-  margin-top: 100px;
-  font-weight: 500;
+.frontside {
+  opacity: 1;
+  transition: all .4s .1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .frontside h4 {
   margin-top: 5px;
   font-size: 28px;
   text-align: center;
+  width: 90%;
   font-family: DM Sans;
   font-weight: 500;
 }
@@ -178,6 +157,7 @@ canvas {
   font-size: 20px;
   font-family: Archivo;
   font-weight: 400;
+  width: 95%;
   padding-bottom: 50px;
   color: #444;
 }
@@ -187,16 +167,6 @@ canvas {
   width: 120px;
   border-radius: 50%;
   margin-top: 35px;
-}
-
-.frontside {
-  opacity: 1;
-  position: absolute;
-  transition: all .4s .1s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .flipped-content {
@@ -320,27 +290,18 @@ canvas {
   row-gap: 30px;
 }
 
-@media screen and (max-width: 1220px){
-  .team-flexbox {
-    width: 778px;
-  }
-}
-
 @media screen and (max-width: 855px){
-  .team-flexbox {
-    width: 402px;
+  .team-grid {
+    width: 90%;
   }
-
   .about-content {
     align-items: center;
-  }
-  
-
-  .about-content h2,
-  .about-content p {
     text-align: center;
   }
-
+  .about-content p {
+    margin-inline: auto;
+  }
+  
   .popup p,
   .bio-container h5 {
     text-align: center;
@@ -356,19 +317,31 @@ canvas {
   }
 }
 
-@media screen and (max-width: 410px){
-  .team-flexbox {
+@media screen and (max-width: 600px) {
+  .about-container {
     width: 100%;
-    padding: 0;
-    padding-bottom: 35px;
-    justify-content: center;
+    padding: 0 0 30px 0;
   }
   .about-content h2 {
-    margin-top: -30px;
-    font-size: 44px;
+    margin-top: 50px;
+    font-size: 40px;
     width: 100%;
   }
-  .about-hero .team-header {
+  .about-content p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 410px){
+  .team-header {
     font-size: 42px;
+  }
+  .about-content p {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .team-grid {
+    width: 100%;
   }
 }

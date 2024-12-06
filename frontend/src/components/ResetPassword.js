@@ -60,41 +60,37 @@ export default function ResetPassword({ email, emailAuth, onPasswordUpdate }) {
     }
 
     return (
-      <div className="user-password-section">
-        <div className="password-change-form">
-            <form onSubmit={submit}>
-                <div className="new-password-container">
-                    <label>New Password:</label>
-                    <input 
-                        name='New Password' 
-                        type="password"     
-                        value={newPassword}
-                        required
-                        onChange={handleNewPasswordChange}
-                    />
-                </div>
-                <div className="new-password-container"
-                  style={{
-                    transform: displayReEnter ? 'translateX(0)' : 'translateY(20%)',
-                    opacity: displayReEnter ? 1 : 0,
-                    transition: 'transform 0.5s ease, opacity 0.5s ease',
-                  }}
-                >
-                  <label>Re-Enter New Password</label>
-                  <input
-                      name="Re-Enter New Password"
-                      type="password"
-                      value={re_enterNewPassword}
+          <form onSubmit={submit} style={{marginRight: '30px'}}>
+              <div className="new-password-container">
+                  <label>New Password:</label>
+                  <input 
+                      name='New Password' 
+                      type="password"     
+                      value={newPassword}
                       required
-                      onChange={e => setRe_enterNewPassword(e.target.value)}
+                      onChange={handleNewPasswordChange}
                   />
-                </div>
-                <div className="new-password-container">
-                  <button disabled={!displayReEnter || !re_enterNewPassword} type="submit">Save Changes</button>
-                  {message && <div style={{marginTop:'10px', marginLeft:'10px', color:{messageColor}}}>{message}</div>}
-                </div>
-            </form>
-        </div>
-      </div>
+              </div>
+              <div className="new-password-container"
+                style={{
+                  transform: displayReEnter ? 'translateX(0)' : 'translateY(20%)',
+                  opacity: displayReEnter ? 1 : 0,
+                  transition: 'transform 0.5s ease, opacity 0.5s ease',
+                }}
+              >
+                <label>Re-Enter New Password</label>
+                <input
+                    name="Re-Enter New Password"
+                    type="password"
+                    value={re_enterNewPassword}
+                    required
+                    onChange={e => setRe_enterNewPassword(e.target.value)}
+                />
+              </div>
+              <div className="new-password-container">
+                <button disabled={!displayReEnter || !re_enterNewPassword} type="submit">Save Changes</button>
+                {message && <div style={{marginTop:'10px', marginLeft:'10px', color:{messageColor}}}>{message}</div>}
+              </div>
+          </form>
     )
 }

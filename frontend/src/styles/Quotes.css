@@ -1,10 +1,9 @@
 
 .quotes-page-hero {
-  height: fit-content;
   width: 100%;
   position: relative;
   background-color: #e7e3e3;
-  padding: 40px;
+  padding: 40px 40px 140px;
 }
 
 .testimonial-hero {
@@ -20,7 +19,7 @@
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);  
-  z-index: 99;
+  z-index: 2;
 }
 
 .overflow-content {
@@ -104,7 +103,7 @@
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);
-  z-index: 99;
+  z-index: 2;
 }
 
 .divider-shape svg {
@@ -175,5 +174,8 @@
   }
   .testimonial-slide section q {
     font-size: 20px;
+  }
+  .quotes-page-hero {
+    padding-bottom: 200px;
   }
 }

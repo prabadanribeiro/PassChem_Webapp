@@ -1,28 +1,20 @@
 
 .login-hero {
   height: calc(100vh - 90px);
-  width: 100vw;
-  overflow: hidden;
-  background-image: linear-gradient(120deg, rgba(10, 255, 218, 0.55), rgba(145, 195, 239, 0.80));
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  background-image: linear-gradient(120deg, rgba(10, 255, 218, 0.55), rgba(145, 195, 239, 0.80));
 }
 
 .login-hero form {
-  display: inline-block;
   height: 100%;
-  width: 40%;
+  width: 550px;
+  padding: 100px 100px 100px 80px;
   background-color: aliceblue;
 }
 
-#form-info {
-  width: 500px;
-  margin: 0 0 0 15%;
-  padding-top: 15%;
-}
-
-#form-info h3 {
+.login-hero form h3 {
   font-size: 40px;
   margin-bottom: 30px;
   font-weight: 600;
@@ -43,7 +35,7 @@
 
 .form-input input {
   height: 42px;
-  width: 80%;
+  width: 100%;
   display: block;
   margin-top: 8px;
   border-radius: 8px;
@@ -56,9 +48,9 @@ input[type=email], input[type=password] {
   font-size: 14px;
 }
 
-.login-hero form #form-info button {
+.login-hero form button {
   padding: 8px 60px;
-  margin-top: 20px;
+  margin-top: 15px;
   display: inline-block;
   vertical-align: top;
   font-size: 17px;
@@ -69,7 +61,7 @@ input[type=email], input[type=password] {
   border-radius: 5px;
 }
 
-.login-hero form #form-info button:hover {
+.login-hero form button:hover {
   cursor: pointer;
   background-color: hsl(208, 71%, 60%);
 }
@@ -78,23 +70,58 @@ input[type=email], input[type=password] {
   display: inline-block;
   margin-left: 18px;
   vertical-align: top;
-  margin-top: 20px;
+  margin-top: 13px;
 }
 
 .chair-logo {
-  object-fit: fill;
-  width: 60%;
-  height: 100vh;
-  transform: scale(0.8);
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: calc(100% - 550px);
+  min-height: 90%;
   filter: contrast(1.5) hue-rotate(-50deg);
+  transform: scale(0.9);
 }
 
 #make-account {
   display: block;
-  margin-left: 15%;
   margin-top: 20px;
   font-size: 17px;
   text-underline-offset: 1px;
   text-decoration: underline;
   width: fit-content;
+}
+
+@media screen and (max-width: 1000px){
+  .chair-logo {
+    display: none;
+  }
+  .login-hero {
+    background-image: none;
+    background-color: aliceblue;
+    justify-content: center;
+    align-content: center;
+  }
+  .login-hero form {
+    height: auto;
+    width: auto;
+    padding: 60px 120px 60px 100px;
+    min-width: 320px;
+    background-color: hsl(208, 100%, 92%);
+    border-radius: 5px;
+    box-shadow: -3px 3px 12px #888;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .login-hero form {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login-hero form {
+    padding: 65px 35px 35px;
+    box-shadow: none;
+  }
 }

@@ -19,7 +19,7 @@ function GoBackButton({ page, topicTitle, unitTitle }) {
         left: '20px',
         height: '40px',
         width: '50px',
-        borderRight: '3px solid rgb(175, 218, 255)',
+        borderRight: '3px solid hsl(208, 100%, 89%)',
         zIndex: '99'
     }
 

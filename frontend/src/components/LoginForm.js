@@ -122,34 +122,32 @@ export default function LoginForm() {
     return (
         <div className='login-hero'>
             <form onSubmit={submit}>
-                <div id='form-info'>
-                    <h3>Login to PassChem</h3>
-                    {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-                    <div className='form-input'>
-                        <label>Email</label>
-                        <input
-                            placeholder="Email address" 
-                            name='email'  
-                            type='email' 
-                            value={email}
-                            required 
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className='form-input'>
-                        <label>Password</label>
-                        <input 
-                            name='Password' 
-                            type="password"     
-                            placeholder="Enter password"
-                            value={password}
-                            required
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit">Login</button>
-                    <div id='GoogleSignIn' className='google-login' style={{transform: 'scale(1.3)', transformOrigin: 'center'}}></div>
+                <h3>Login to PassChem</h3>
+                {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+                <div className='form-input'>
+                    <label>Email</label>
+                    <input
+                        placeholder="Email address" 
+                        name='email'  
+                        type='email' 
+                        value={email}
+                        required 
+                        onChange={e => setEmail(e.target.value)}
+                    />
                 </div>
+                <div className='form-input'>
+                    <label>Password</label>
+                    <input 
+                        name='Password' 
+                        type="password"     
+                        placeholder="Enter password"
+                        value={password}
+                        required
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+                <button type="submit">Login</button>
+                <div id='GoogleSignIn' className='google-login'></div>
                 <Link id='make-account' to={'/signup'}>Don't have an account? Sign up</Link>
             </form>
             <img src='/images/chair-logo.png' className='chair-logo'/>

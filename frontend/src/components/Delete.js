@@ -27,7 +27,8 @@ export default function Delete( {sendModalToggle} ) {
     backgroundColor: isHovered ? 'red' : 'white',
     border: '2px solid red',
     borderRadius:'5px',
-    transitionDuration:'0.4s'
+    transitionDuration:'0.4s',
+    cursor: 'pointer'
   }
 
   return (
