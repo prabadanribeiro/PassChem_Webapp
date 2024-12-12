@@ -9,9 +9,9 @@
 
 .login-hero form {
   height: 100%;
-  width: 550px;
+  width: 560px;
   padding: 100px 100px 100px 80px;
-  background-color: aliceblue;
+  background-color: #f0f8ff;
 }
 
 .login-hero form h3 {
@@ -75,8 +75,6 @@ input[type=email], input[type=password] {
 
 .chair-logo {
   object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: calc(100% - 550px);
   min-height: 90%;
   filter: contrast(1.5) hue-rotate(-50deg);
@@ -105,7 +103,8 @@ input[type=email], input[type=password] {
   .login-hero form {
     height: auto;
     width: auto;
-    padding: 60px 120px 60px 100px;
+    border: 1px solid #c5c5c5;
+    padding: 60px 120px 60px 90px;
     min-width: 320px;
     background-color: hsl(208, 100%, 92%);
     border-radius: 5px;

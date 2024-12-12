@@ -2,6 +2,7 @@
     display: inline-block;
     width: 19vw;
     height: calc(100vh - 90px);
+    overflow: scroll;
     background-color: white;
     border-right: 1px solid #aaa;
 }

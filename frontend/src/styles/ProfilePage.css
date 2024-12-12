@@ -57,7 +57,7 @@
     width: 100px;
     height: 30px;
     margin-left: 10px;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid hsl(208, 71%, 60%);
     border-radius: 4px;
     color: hsl(208, 71%, 60%);
@@ -69,8 +69,8 @@
 
   .email-container button:hover {
     background-color: hsl(208, 71%, 60%);
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #fff;
+    color: #fff;
   }
 
   .email-form-label,
@@ -113,7 +113,7 @@
     height: 40px;
     margin-top: 10px;
     padding: 0 12px;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid hsl(208, 71%, 60%);
     border-radius: 4px;
     color: hsl(208, 71%, 60%);
@@ -125,8 +125,8 @@
 
   .new-password-container button:hover {
     background-color: hsl(208, 71%, 60%);
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #fff;
+    color: #fff;
   }
 
   .new-password-container button:disabled {

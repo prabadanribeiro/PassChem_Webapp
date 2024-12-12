@@ -3,7 +3,7 @@
   width: 100%;
   position: relative;
   background-color: #e7e3e3;
-  padding: 40px 40px 140px;
+  padding: 40px 0px 140px;
 }
 
 .testimonial-hero {
@@ -120,7 +120,7 @@
 
 @media screen and (max-width: 840px) {
   .testimonial-container {
-    width: 100vw;
+    width: 100%;
     height: 400px;
   }
 
