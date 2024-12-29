@@ -11,7 +11,7 @@ import '../styles/Spinning.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
-export default function Lesson( {lesson, topicTitle, unitTitle} ) {
+export default function Lesson( {lesson, topicTitle, unitTitle, sidebarActive} ) {
 
     const [numPages, setNumPages] = useState(null)
     const [pages, setPages] = useState([])
@@ -129,7 +129,6 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
     if (lesson.type === 'video') { 
         content = (
             <div className='video-lesson-container'>
-                <div className='content_container'>
                 <iframe 
                     src={videoURL}
                     title="YouTube video player" 
@@ -155,7 +154,6 @@ export default function Lesson( {lesson, topicTitle, unitTitle} ) {
                         )}
                     </div>
                 )}
-                </div>
                 <div className='video-buttons-container'>
                     <LessonButtons lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
                 </div>

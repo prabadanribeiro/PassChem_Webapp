@@ -3,7 +3,6 @@
 }
 
 .topics-body h3 {
-  display: inline-block;
   font-size: 3.7rem;
   margin-left: 10%;
   margin-right: 10%;
@@ -33,7 +32,7 @@
   height: 440px;
   width: 340px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-  transition: 0.3s;
+  transition: box-shadow 0.3s linear, transform 0.3s linear;
 }
 
 .topics-cards {
@@ -46,7 +45,6 @@
 .topics-images {
   width: 100%;
   height: 100%;
-  transition: all 150ms linear 50ms;
   opacity: 1;
 }
 
@@ -64,7 +62,7 @@
   width: 100%;
   overflow: hidden;
   background-color: hsl(207, 70%, 90%);
-  transition: all 150ms linear 50ms;
+  transition: opacity 150ms linear 50ms;
 }
 
 .topics-description::after {
@@ -111,14 +109,14 @@
 
 @media screen and (max-width: 620px) {
   .topics-body h3 {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    font-size: 3.4rem;
+    margin: 50px 0 0;
+    text-align: center;
+    padding: 0 40px;
   }
   .topics-body hr {
-    margin-left: 20px;
+    width: max(80%, 300px);
+    margin: 0 auto;
   }
   .link {
     transform: scale(0.95);
@@ -129,13 +127,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .topics-body h3 {
-    text-align: center;
-  }
-  .topics-body hr {
-    width: 90%;
-    margin: 0 auto;
-  }
   .topics-container {
     padding: 50px 0 0 0;
   }

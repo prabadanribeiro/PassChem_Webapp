@@ -34,7 +34,7 @@ svg {
   width: 50px;
   cursor: pointer;
   fill: rgb(16, 39, 73);
-  transition: all 150ms;
+  transition: fill 150ms;
 }
 
 .socials a:nth-child(1):hover svg {

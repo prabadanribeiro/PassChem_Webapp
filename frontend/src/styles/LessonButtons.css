@@ -7,10 +7,10 @@
   border: 1px solid #aaa;
   border-radius: 8px;
   background-image: linear-gradient(135deg, rgba(221, 221, 221, 0.1), rgb(180, 180, 180, 0.1));
+  cursor: pointer;
 }
 
 .lesson-links:hover {
-  cursor: pointer;
   background-image: linear-gradient(135deg, rgba(181, 181, 221, 0.1), rgb(140, 140, 180, 0.1));
 }
 
@@ -44,5 +44,6 @@
   position: absolute;
   right: 40px;
 }
+
 
 

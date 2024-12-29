@@ -64,7 +64,7 @@
   position: relative;
   text-decoration: none;
   padding: 14px 16px;
-  transition: all 250ms ease 25ms;
+  transition: background-color 250ms ease 25ms, color 250ms ease 25ms;
   font-size: 1.6rem;
   font-weight: 500;
   font-family: sans-serif;

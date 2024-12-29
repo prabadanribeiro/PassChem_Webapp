@@ -33,7 +33,7 @@ export default function Team() {
   cutting-edge teaching/review tools that surpass current market offerings. Leveraging advanced
   computer modeling techniques akin to those utilized in blockbuster films like &quot;Toy Story&quot; and
   &quot;Harry Potter,&quot; as well as popular video games such as &quot;Halo&quot; and &quot;Call of Duty,&quot; the team has
-  crafted visually stunning materials. These resources not only captivate students&#39; attention but also
+  crafted visually stunning materials. These resources not only captivate students&#39; attention, but also
   provide comprehensive three-dimensional representations of complex chemical properties,
   notoriously challenging for introductory-level learners to grasp.</p>
           </div>

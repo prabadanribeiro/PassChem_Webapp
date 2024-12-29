@@ -57,24 +57,19 @@ export default function Navbar({ isHome }) {
         }
     }
     const [menuPopup, setMenuPopup] = useState(false)
-    const [iconRotation, setIconRotation] = useState(false)
-    const [menuInteract, setMenuInteract] = useState(false)
-    const [iconPosition, setIconPosition] = useState(false)
     function menuPopupToggle() {
-        setIconRotation(!iconRotation)
         setMenuPopup(!menuPopup)
-        setMenuInteract(!menuInteract)
-        setIconPosition(!iconPosition)
     }
 
-    const bgvideo = isHome ? 'nebula.mp4' : ''
+    const bgvideomp4 = isHome ? 'nebula.mp4' : ''
+    const bgvideowebm = isHome ? 'nebula.webm' : ''
     
     const hero = {
         height: isHome ? 'min(100vh, 720px)' : '90px'
     }
 
     const navSpecs = {
-        backgroundColor: isHome ? 'transparent' : '#000'
+        backgroundColor: isHome ? 'transparent' : '#111'
     }
 
     const vidOverlay = {
@@ -86,7 +81,8 @@ export default function Navbar({ isHome }) {
             <div className='landing-hero' style={hero}>
                 <div className='video-container'>
                     <video autoPlay loop muted playsInline>
-                        <source src={bgvideo} type='video/mp4'/>
+                        <source src={bgvideowebm} type='video/webm'/>
+                        <source src={bgvideomp4} type='video/mp4'/>
                     </video>
                 </div>
                 <nav className="navbar" style={navSpecs}>
@@ -152,8 +148,8 @@ export default function Navbar({ isHome }) {
                     </div>
                 </div>   
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#111111" className='menu-icon' style={{transform: `rotate(${iconRotation ? 180 : 0}deg)`, position: `${iconPosition ? 'fixed' : 'absolute'}`}} onClick={menuPopupToggle}><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-            <div className='menu-popup-hero' style={{opacity: `${menuPopup ? 100 : 0}%`, pointerEvents: `${menuInteract ? 'all' : 'none'}`}}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#111111" className='menu-icon' style={{transform: `rotate(${menuPopup ? 180 : 0}deg)`, position: menuPopup ? 'fixed' : 'absolute'}} onClick={menuPopupToggle}><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            <div className='menu-popup-hero' style={{opacity: `${menuPopup ? 100 : 0}%`, pointerEvents: menuPopup ? 'all' : 'none'}}>
                 <div className='menu-popup-container'>
                     <ul>
                         <li> 

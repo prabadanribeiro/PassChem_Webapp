@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import URLService from '../services/URLService'
-import GoBackButton from './GoBackButton'
 import ApiService from '../services/ApiService'
 import Cookies from 'js-cookie'
 import '../styles/LessonOverview.css'
@@ -34,33 +33,35 @@ export default function LessonList( {unitTitle, topicTitle, lessons, isLessonPag
         setLoading(false)
     }, [lessons, accessToken])
 
+    const [sidebarActive, sidebarInactive] = useState()
+    function toggleSidebar(){
+        sidebarInactive(!sidebarActive)
+    }
+
     if (isLessonPage) {
         return (
-            <div className='lesson-sidebar'>
-                <ul className='sidebar-list'>
-                    <li className='sidebar-header'>
-                        <GoBackButton
-                            page={"Unit Page"}
-                            topicTitle={null}
-                            unitTitle={null}
-                            className=".back-button-style"
-                        />
-                        Unit Page
-                    </li>
-                    {lessons.map((lesson) => (
-                        <li className='list_item' style={{ margin: 0 }} key={lesson.id}>
-                            <Link
-                                to={`/curriculum/${URLService.slugify(unitTitle)}${
-                                    topicTitle
-                                        ? `/${URLService.slugify(topicTitle)}`
-                                        : ''
-                                }/${URLService.slugify(lesson.title)}`}
-                            >
-                                {lesson.title}
-                            </Link>
+            <div className='lesson-sidebar' style={{width: sidebarActive ? '0px' : '265px'}}>
+                <div className='sidebar-absolute' style={{left: sidebarActive ? '0px' : '-265px'}}>
+                    <div className='toggle-sidebar' onClick={toggleSidebar}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style={{transform: `rotate(${sidebarActive ? 180 : 0}deg) translateX(${sidebarActive ? 5 : 0}px)`, transition: 'transform 150ms linear', fill: '#555'}}><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></div>
+                    <ul className='sidebar-list' style={{opacity: sidebarActive ? 0 : 1}}>
+                        <li className='sidebar-header'>
+                            <h4>{topicTitle}</h4>
                         </li>
-                    ))}
-                </ul>
+                        {lessons.map((lesson) => (
+                            <li className='list_item' style={{ margin: 0 }} key={lesson.id}>
+                                <Link
+                                    to={`/curriculum/${URLService.slugify(unitTitle)}${
+                                        topicTitle
+                                            ? `/${URLService.slugify(topicTitle)}`
+                                            : ''
+                                    }/${URLService.slugify(lesson.title)}`}
+                                >
+                                    {lesson.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         );
     }    
