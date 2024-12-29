@@ -4,17 +4,19 @@ import Navbar from '../components/Navbar'
 import Lesson from '../components/Lesson'
 import LessonList from '../components/LessonList'
 
-export default function LessonPage( {unitTitle, topicTitle, lessons, lesson} ) {
+export default function LessonPage( {unitTitle, topicTitle, lessons, lesson, sidebarActive} ) {
     return (
-        <div>
+        <>
             <Helmet>
                 <title>{topicTitle}</title>
                 <meta name='description' content='Follow the content of each lesson to achieve mastery in each chemistry topic' />
             </Helmet>
             <Navbar/>
-            <LessonList topicTitle={topicTitle} lessons={lessons} unitTitle={unitTitle} isLessonPage={true}/>
-            <Lesson lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
-        </div>
+            <div style={{display: 'flex'}}>
+                <LessonList topicTitle={topicTitle} lessons={lessons} unitTitle={unitTitle} isLessonPage={true}/>
+                <Lesson lesson={lesson} topicTitle={topicTitle} unitTitle={unitTitle}/>
+            </div>
+        </>
     )
 
 }

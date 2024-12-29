@@ -59,10 +59,10 @@ input[type=email], input[type=password] {
   color: rgb(242, 248, 254);
   border: 1px solid #888;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .login-hero form button:hover {
-  cursor: pointer;
   background-color: hsl(208, 71%, 60%);
 }
 

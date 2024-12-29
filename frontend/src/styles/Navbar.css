@@ -142,7 +142,7 @@
   padding: 5px 10px;
   border: 1px solid #f0f8ff;
   font-family: sans-serif;
-  transition: all 400ms normal;
+  transition: color 400ms ease, background-color 400ms ease;
   cursor: pointer;
 }
 
@@ -163,7 +163,7 @@
 .menu-icon {
   display: none;
   position: absolute;
-  z-index: 999;
+  z-index: 9999;
   right: 4%;
   top: 27px;
   fill: #f2f3ed;
@@ -180,7 +180,7 @@
   pointer-events: none;
   background-color: #111;
   transition: opacity 400ms 100ms normal;
-  z-index: 99;
+  z-index: 999;
   overflow: hidden;
 }
 
@@ -239,6 +239,7 @@ button.menu-item {
 .logo-svg {
   width: 230px;
   height: 55px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1100px){

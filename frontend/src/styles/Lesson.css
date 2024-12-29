@@ -1,8 +1,6 @@
 .lesson-content {
-  display: inline-block;
-  vertical-align:top;
+  flex: 1;
   position: relative;
-  width: 81vw;
   height: calc(100vh - 90px);
 }
 
@@ -11,6 +9,7 @@
   font-family: DM Sans;
   letter-spacing: 2px;
   font-weight: 600;
+  padding: 0 20px;
   text-align: center;
   padding-top: 65px;
 }
@@ -25,12 +24,9 @@
 
 .video-player {
   aspect-ratio: 16/9;
-  width: 60vw;
-}
-
-.content-container {
-  height: fit-content;
-  width: 60vw;
+  width: 70%;
+  max-height: 70vh;
+  max-width: 80vw;
 }
 
 .docContainer {
@@ -42,8 +38,8 @@
 }
 
 .text-pdf {
-  position: relative;
-  width: 725px;
+  max-width: 725px;
+  min-width: 300px;
   display: block;
   height: fit-content;
   margin: 0 auto;
@@ -67,13 +63,13 @@
         linear-gradient(#fff, #fff) padding-box,
         linear-gradient(60deg, rgba(162, 255, 162, 0.8), rgba(50, 164, 199, 0.8)) border-box;
   transition: border normal 100ms;
+  cursor: pointer;
 }
 
 .answerKey-worksheet-button:hover {
   background: 
         linear-gradient(#eee, #fff) padding-box,
         linear-gradient(60deg, rgba(162, 255, 162, 0.8), rgba(50, 164, 199, 0.8)) border-box;
-        cursor: pointer;
 }
 
 .page-scale {
@@ -112,3 +108,35 @@
   bottom: 30px;
   height: 75px;
 }
+
+@media screen and (max-width: 900px){
+  .video-player {
+    width: 90%;
+  }
+  .video-buttons-container {
+    bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .page-scale {
+    transform: scale(1.4);
+    transform-origin: top;
+  }
+  .lesson-content h2 {
+    font-size: 44px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .page-scale {
+    transform: scale(1.2)
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .page-scale {
+    transform: scale(1)
+  }
+}
+
